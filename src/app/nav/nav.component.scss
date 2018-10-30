@@ -35,15 +35,19 @@ header{
             li{
                 float:left;
 
+                .clothes {
+                    &:hover{
+                        background: black;
+                        color: white;
+                    }
+                    
+                }
+
                 a{
                     padding:1.5em;
                     text-decoration: none;
                     color: black;
 
-                    &:hover{
-                        background: black;
-                        color: white;
-                    }
                 }
             }
         }

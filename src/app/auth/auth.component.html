@@ -1,0 +1,41 @@
+<div *ngIf='toggleForm' class='formContainer login'>
+  <form name='form' (ngSubmit)='logIn()' [formGroup]='user'>
+    <h2>Log In</h2>
+    <div class='form-group'>
+      <label>Email: </label>
+      <input class="shift" formControlName='email' name='email'>
+    </div>
+    <div class='form-group'>
+      <label>Password: </label>
+      <input type="password" formControlName='password' name='password'>
+    </div>
+  
+    <button>Submit</button>
+    <button class="toggleButton" (click)="toggle()">Sign Up</button>
+  </form>
+</div>
+
+<div *ngIf='!toggleForm' class='formContainer signup'>
+  <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
+    <h2>Sign Up</h2>
+    <div class='form-group'>
+        <label>First Name: </label>
+        <input formControlName='firstname' name='firstname'>
+      </div>
+    <div class='form-group'>
+        <label>Last Name: </label>
+        <input formControlName='lastname' name='lastname'>
+    </div>
+    <div class='form-group'>
+      <label>Email: </label>
+      <input class="shift-more" formControlName='email' name='email'>
+    </div>
+    <div class='form-group'>
+      <label>Password: </label>
+      <input class="shift-three" type="password" formControlName='password' name='password'>
+    </div>
+
+        <button>Submit</button>
+    <button class="toggleButton" (click)="toggle()">Login</button>
+  </form>
+</div>
