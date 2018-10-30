@@ -20,7 +20,7 @@ header{
     .logo{
         font-weight: bold;
         text-decoration: none;
-        color: white;
+        color: black;
     }
 
     nav{
@@ -40,9 +40,10 @@ header{
                     text-decoration: none;
                     color: black;
 
-                    // &:hover{
-                    //     background: hsl(30, 100%, 60%);
-                    // }
+                    &:hover{
+                        background: black;
+                        color: white;
+                    }
                 }
             }
         }
