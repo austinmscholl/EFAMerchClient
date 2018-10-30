@@ -34,10 +34,6 @@ form{
         }
     }
 
-    .matI{
-        background-color:white;
-    }
-
     .submitButton{
         &:hover{
             background-color: white;
@@ -47,8 +43,8 @@ form{
     }
 
     .toggleButton{
-        width: 50%;
-        height: 90%;
+        // width: 50%;
+        // height: 90%;
         background-color: #D9A84E;
     }
     button{
@@ -64,5 +60,6 @@ form{
         width: 8vw;
         height: 3em;
         transition-duration: 0.6s;
+        text-align: center;
     }
 }
