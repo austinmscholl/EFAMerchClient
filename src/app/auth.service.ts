@@ -9,9 +9,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  logIn(email:string, password:string) {
-    return this.http.post<any>
-    ('localhost:4200/auth/login', {email: email, password: password})
+  logIn(email:string, password:string){
+    return this.http.post<any>('http://localhost:5000/auth/login', {email: email, password: password})
       .pipe(map(user=> {
         if(user){
           localStorage.setItem('token', JSON.stringify(user.token))
@@ -20,9 +19,8 @@ export class AuthService {
       }))
   }
 
-  signUp(email:string, password:string, firstname:string, lastname:string) {
-    return this.http.post<any>
-    ('localhost:4200/auth/signup', {email: email, password: password, firstname: firstname, lastname: lastname})
+  signUp(email:string, password:string, firstname:string, lastname: string){
+    return this.http.post<any>('http://localhost:5000/auth/signup', {email: email, password: password, firstname: firstname, lastname: lastname})
       .pipe(map(user=> {
         if(user){
           localStorage.setItem('token', JSON.stringify(user.token))
@@ -30,4 +28,5 @@ export class AuthService {
         return user
       }))
   }
+
 }
