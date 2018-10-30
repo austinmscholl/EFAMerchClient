@@ -9,25 +9,31 @@ import {MatButtonModule, MatInputModule, MatCheckboxModule} from '@angular/mater
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+
+import { ItemComponent } from './item/item.component';
+
+
 import { AuthComponent } from './auth/auth.component';
 import { SaleComponent } from './sale/sale.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+    ItemComponent,
     AuthComponent,
     SaleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    [MatButtonModule, MatInputModule, MatCheckboxModule]
-
+    [MatButtonModule, MatInputModule, MatCheckboxModule],
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
