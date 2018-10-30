@@ -26,6 +26,7 @@ export class AuthComponent implements OnInit {
 
   setToken(){
     localStorage.setItem('token', this.newUser.token)
+    console.log(this.newUser.token)
   }
 
   toggle(){
