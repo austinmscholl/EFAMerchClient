@@ -3,8 +3,17 @@
 .container {
     font-family: 'Roboto Condensed', sans-serif;
     text-align: center;
+
+    .catbtn {
+        background-color: grey;
+    }
 }
 
 mat-sidenav {
     width: 200px;
 }
+
+.addbutton {
+    background-color: skyblue;
+}
+
