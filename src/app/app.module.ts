@@ -13,15 +13,17 @@ import { ItemComponent } from './item/item.component';
 
 import { AuthComponent } from './auth/auth.component';
 import { SaleComponent } from './sale/sale.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    ItemComponent
+    ItemComponent,
     AuthComponent,
-    SaleComponent
+    SaleComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
