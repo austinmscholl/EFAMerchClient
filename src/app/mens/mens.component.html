@@ -8,8 +8,15 @@
     </ul>
   </mat-sidenav>
     <mat-sidenav-content>
-      <mat-grid-list cols="6" rowHeight="2:1">
-        <mat-grid-tile>1</mat-grid-tile>
+      <mat-grid-list *ngIf="items" cols="6" rowHeight="2:1">
+        <div *ngFor="let item of items">
+          <mat-grid-tile>
+            <h4>{{ item.itemName }}</h4><br />
+            <p>{{ item.itemPrice }}</p>
+            <p>{{ item.category }}</p>
+            <p>{{ item.itemDescription }}</p>
+          </mat-grid-tile>
+        </div>
         <mat-grid-tile>2</mat-grid-tile>
         <mat-grid-tile>3</mat-grid-tile>
         <mat-grid-tile>4</mat-grid-tile>
