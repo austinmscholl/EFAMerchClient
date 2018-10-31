@@ -24,6 +24,7 @@ export class AuthComponent implements OnInit {
     })
   }
 
+
   setToken(user){
     sessionStorage.setItem('token', user.sessionToken)
     sessionStorage.setItem('role', user.user.role)
