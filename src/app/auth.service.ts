@@ -12,11 +12,11 @@ export class AuthService {
   logIn(email:string, password:string){
     return this.http.post<any>('http://localhost:5000/auth/login', {email: email, password: password})
       .pipe(map(user => user))
-      // .pipe(map(user => console.log(user.sessionToken, user.user.role)))
-      // .subscribe(data => console.log(data))
+    //  console.log(email, password)
   }
 
   signUp(email:string, password:string, firstname:string, lastname: string){  
+    // console.log(firstname, lastname, email, password)
     let headers = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

@@ -10,24 +10,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
-import { ItemComponent } from './item/item.component';
-
 
 import { AuthComponent } from './auth/auth.component';
 import { SaleComponent } from './sale/sale.component';
 import { AdminComponent } from './admin/admin.component';
+<<<<<<< HEAD
 import { MensComponent } from './mens/mens.component';
+=======
+import { UsercartGuard } from './usercart.guard';
+import { CartComponent } from './cart/cart.component';
+import { AdminGuard } from './admin.guard';
+>>>>>>> develop
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    ItemComponent,
     AuthComponent,
     SaleComponent,
     AdminComponent,
+<<<<<<< HEAD
     MensComponent
+=======
+    CartComponent
+>>>>>>> develop
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,7 @@ import { MensComponent } from './mens/mens.component';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UsercartGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
