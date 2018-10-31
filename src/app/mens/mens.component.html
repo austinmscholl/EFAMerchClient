@@ -3,12 +3,12 @@
     <mat-sidenav position="start" mode="side" opened>
       <h3>Categories</h3>
       <ul>
-      <button class="catbtn" mat-button>Shirts</button><br />
-      <button class="catbtn" mat-button>Pants</button>
+      <p [id]="shirts" (click)="getCategory($event)">Shirts</p><br /><br />
+      <p [id]="pants" (click)="getCategory($event)">Pants</p>
     </ul>
   </mat-sidenav>
     <mat-sidenav-content>
-      <mat-grid-list *ngIf="items" cols="6" rowHeight="1:2">
+      <mat-grid-list *ngIf="items" cols="4" rowHeight="1:2">
         <div *ngFor="let item of items">
           <mat-grid-tile>
             <mat-card>
@@ -21,7 +21,7 @@
                 <p>{{ item.itemDescription }}</p>
               </mat-card-content>
               <mat-card-actions>
-                <button mat-button class="addbutton">Add to Cart</button>
+                <button [id]="item.id" (click)='addToCart($event)' mat-button class="addbutton">Add to Cart</button>
               </mat-card-actions>
             </mat-card>
           </mat-grid-tile>

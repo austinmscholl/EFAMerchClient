@@ -24,4 +24,12 @@ export class ItemService {
     return this.http.post<any>('http://localhost:5000/item/additem', formData)
       .subscribe(response => console.log(response))
   }
+
+  getItems() {
+    return this.http.get('http://localhost:5000/item/getitems')
+  }
+
+  getCategory(){
+    return this.http.get(`http://localhost:5000/items/getitems`)
+  }
 }

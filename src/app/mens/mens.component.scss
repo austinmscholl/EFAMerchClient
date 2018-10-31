@@ -2,18 +2,21 @@
 
 .container {
     font-family: 'Roboto Condensed', sans-serif;
-    text-align: center;
+    // text-align: center;
 
-    .catbtn {
-        background-color: grey;
+    a {
+        width: 100%;
+        padding-top: 10px;
+        letter-spacing: 2px;
+        text-decoration: none;
     }
 }
 
 mat-sidenav {
-    width: 200px;
+    width: 15em;
 }
 
 .addbutton {
-    background-color: skyblue;
+    background-color: #9AD0D5;
 }
 
