@@ -24,9 +24,10 @@ export class AuthComponent implements OnInit {
     })
   }
 
-  setToken(){
-    localStorage.setItem('token', this.newUser.token)
-    console.log(this.newUser.token)
+
+  setToken(user){
+    sessionStorage.setItem('token', user.sessionToken)
+    sessionStorage.setItem('role', user.user.role)
   }
 
   toggle(){
@@ -38,9 +39,9 @@ export class AuthComponent implements OnInit {
     console.log(this.user.controls)
     this.auth.logIn(this.user.controls.email.value,
       this.user.controls.password.value)
-        .subscribe(data => this.newUser.push(data))
+      .subscribe(user => this.setToken(user))
 
-        this.setToken()
+      
   }
 
   signUp(){
@@ -49,9 +50,6 @@ export class AuthComponent implements OnInit {
       this.user.controls.password.value,
       this.user.controls.firstname.value,
       this.user.controls.lastname.value)
-        .subscribe(data => this.newUser.push(data))
-
-        this.setToken()
   }
 
 }
