@@ -14,6 +14,7 @@ import { NavComponent } from './nav/nav.component';
 import { AuthComponent } from './auth/auth.component';
 import { SaleComponent } from './sale/sale.component';
 import { AdminComponent } from './admin/admin.component';
+import { MensComponent } from './mens/mens.component';
 import { UsercartGuard } from './usercart.guard';
 import { CartComponent } from './cart/cart.component';
 import { AdminGuard } from './admin.guard';
@@ -26,6 +27,7 @@ import { AdminGuard } from './admin.guard';
     AuthComponent,
     SaleComponent,
     AdminComponent,
+    MensComponent,
     CartComponent
   ],
   imports: [

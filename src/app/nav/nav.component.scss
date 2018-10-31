@@ -42,14 +42,51 @@ header{
                     }
                     
                 }
-
+            }
+        
                 a{
                     padding:1.5em;
                     text-decoration: none;
                     color: black;
-
                 }
-            }
         }
     }
+
+    // .mainUl {
+    //     .dropbtn-men{
+    //         &:hover{
+    //             background-color: black;
+    //             color: white;
+    //             .dropdown-men{
+    //                 display: block;
+    //                 visibility: visible;
+    //             }
+    //         }
+            
+    //     }
+    //     .dropdown-men{
+    //         display: none;
+    //         visibility: hidden;
+    //     }
+
+    //     .dropbtn-women{
+    //         &:hover{
+    //             background-color: black;
+    //             color: white;
+    //             .dropdown-women{
+    //                 display: block;
+    //                 visibility: visible;
+    //             }
+    //         }
+            
+    //     }
+    //     .dropdown-women{
+    //         display: none;
+    //         visibility: hidden;
+    //     }
+    // }
 }
+
+
+
+
