@@ -50,6 +50,7 @@ export class AuthComponent implements OnInit {
       this.user.controls.password.value,
       this.user.controls.firstname.value,
       this.user.controls.lastname.value)
+        .subscribe(user => this.setToken(user))
   }
 
 }
