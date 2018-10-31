@@ -28,7 +28,6 @@ export class AuthService {
       password: password, 
       firstname: firstname, 
       lastname: lastname}, headers)
-      .subscribe(user => user)
   }
 
 }
