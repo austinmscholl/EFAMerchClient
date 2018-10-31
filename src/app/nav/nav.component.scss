@@ -32,25 +32,8 @@ header{
             list-style-type:none;
             margin:0; padding: 0;
 
-            ul .dropdown-men{
-                display: block;
-                visibility: hidden;
-            }
-
             li{
                 float:left;
-                ul{
-
-                    .dropbtn-men{
-                        &:hover{
-                            background: black;
-                            color: white;
-                        .dropdown-men{
-                            display: none;
-                            visibility: hidden;
-                        }
-                    }
-                }
             }
         
                 a{
@@ -58,9 +41,44 @@ header{
                     text-decoration: none;
                     color: black;
                 }
+        }
+    }
+
+    .mainUl {
+        .dropbtn-men{
+            &:hover{
+                background-color: black;
+                color: white;
+                .dropdown-men{
+                    display: block;
+                    visibility: visible;
+                }
             }
+            
+        }
+        .dropdown-men{
+            display: none;
+            visibility: hidden;
+        }
+
+        .dropbtn-women{
+            &:hover{
+                background-color: black;
+                color: white;
+                .dropdown-women{
+                    display: block;
+                    visibility: visible;
+                }
+            }
+            
+        }
+        .dropdown-women{
+            display: none;
+            visibility: hidden;
         }
     }
 }
+
+
 
 
