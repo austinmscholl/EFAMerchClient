@@ -13,6 +13,7 @@ export class AuthService {
     return this.http.post<any>('http://localhost:5000/auth/login', {email: email, password: password})
       .pipe(map(user=> {
         if(user){
+          console.log(user)
           localStorage.setItem('token', JSON.stringify(user.token))
         }
         return user
@@ -23,6 +24,7 @@ export class AuthService {
     return this.http.post<any>('http://localhost:5000/auth/signup', {email: email, password: password, firstname: firstname, lastname: lastname})
       .pipe(map(user=> {
         if(user){
+          console.log(user)
           localStorage.setItem('token', JSON.stringify(user.token))
         }
         return user
