@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
+  MatFormFieldModule,
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
@@ -21,6 +22,7 @@ import {
   imports: [
     CommonModule,
     MatButtonModule,
+    MatFormFieldModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
@@ -37,6 +39,7 @@ import {
   ],
   exports: [
     MatButtonModule,
+    MatFormFieldModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
