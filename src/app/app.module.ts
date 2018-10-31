@@ -15,6 +15,7 @@ import { ItemComponent } from './item/item.component';
 
 import { AuthComponent } from './auth/auth.component';
 import { SaleComponent } from './sale/sale.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SaleComponent } from './sale/sale.component';
     NavComponent,
     ItemComponent,
     AuthComponent,
-    SaleComponent
+    SaleComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
