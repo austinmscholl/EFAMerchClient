@@ -34,12 +34,20 @@ form{
         }
     }
 
-    .toggleButton{
+    .submitButton{
+        width: 90%;
+        height: 90%;
         &:hover{
             background-color: white;
             color: #D9514E;
             border: 2px solid #D9514E;
         }
+    }
+
+    .toggleButton{
+        width: 70%;
+        height: 70%;
+        background-color: #D9A84E;
     }
     button{
         margin:10px;
@@ -53,8 +61,6 @@ form{
         cursor: pointer;
         width: 8vw;
         height: 3em;
-        transition-duration: 0.6s;
-
-        
+        transition-duration: 0.8s;
     }
 }
