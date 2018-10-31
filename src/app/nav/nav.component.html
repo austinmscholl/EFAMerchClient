@@ -3,13 +3,22 @@
     <a routerLink='/' class='logo'><img src=''/><span>Eleven Fifty Academy Merch Store</span></a>
       <nav>
         <ul>
-          <li><a class='clothes' routerLink='mens'>mens</a></li>
-          <li><a class='clothes' routerLink='womens'>womens</a></li>
-          <li><a routerLink='sale'>on sale</a></li>
-          <li><input type="search"></li> 
-          <li><a routerLink='auth'>login/signup</a></li>
-          <li *ngIf='admin'><a routerLink='admin'>admin</a></li>
-          
+
+            <li><a class='dropbtn-men' routerLink='mens'>mens</a></li>
+              <ul class="dropdown-men">
+                <li><a href="#">m1</a></li>
+                <li><a href="#">m2</a></li>
+              </ul>
+            <!-- <li><a class='dropbtn-women' routerLink='womens'>womens</a></li>
+              <div class="dropdown-women">
+                <a href="#">w1</a>
+                <a href="#">w2</a>
+              </div> -->
+            <li><a routerLink='sale'>on sale</a></li>
+            <li><input type="search"></li> 
+            <li><a routerLink='auth'>login/signup</a></li>
+            <li *ngIf='admin'><a routerLink='admin'>admin</a></li>
+
         </ul>
       </nav>
   </div>

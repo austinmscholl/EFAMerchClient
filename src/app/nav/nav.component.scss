@@ -32,24 +32,35 @@ header{
             list-style-type:none;
             margin:0; padding: 0;
 
+            ul .dropdown-men{
+                display: block;
+                visibility: hidden;
+            }
+
             li{
                 float:left;
+                ul{
 
-                .clothes {
-                    &:hover{
-                        background: black;
-                        color: white;
+                    .dropbtn-men{
+                        &:hover{
+                            background: black;
+                            color: white;
+                        .dropdown-men{
+                            display: none;
+                            visibility: hidden;
+                        }
                     }
-                    
                 }
-
+            }
+        
                 a{
                     padding:1.5em;
                     text-decoration: none;
                     color: black;
-
                 }
             }
         }
     }
 }
+
+
