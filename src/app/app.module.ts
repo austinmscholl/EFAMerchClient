@@ -10,22 +10,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
-import { ItemComponent } from './item/item.component';
-
 
 import { AuthComponent } from './auth/auth.component';
 import { SaleComponent } from './sale/sale.component';
 import { AdminComponent } from './admin/admin.component';
+import { UsercartGuard } from './usercart.guard';
+import { CartComponent } from './cart/cart.component';
+import { AdminGuard } from './admin.guard';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    ItemComponent,
     AuthComponent,
     SaleComponent,
-    AdminComponent
+    AdminComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,7 @@ import { AdminComponent } from './admin/admin.component';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UsercartGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
+import { ItemService } from '../item.service'
 
 @Component({
   selector: 'app-admin',
@@ -6,10 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  selectedFile: File
+  
+  onFileChanged(event){
+    this.selectedFile = event.target.files[0]
+    // console.log(file)
+  }
 
-  constructor() { }
+
+  itemForm: FormGroup
+  item: Object
+
+  constructor(private fb: FormBuilder, private itemService: ItemService) { }
 
   ngOnInit() {
+    this.itemForm = this.fb.group({
+      itemName: new FormControl(),
+      itemPrice: new FormControl(),
+      itemDescription: new FormControl(),
+      itemCategory: new FormControl(),
+      itemImg: new FormControl(),
+    })
+  }
+
+  submitForm(){
+    this.itemService.createItems(this.itemForm.value, this.selectedFile)
+    // console.log(this.selectedFile)
   }
 
 }

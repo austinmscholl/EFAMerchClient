@@ -40,6 +40,7 @@ export class AuthComponent implements OnInit {
     this.auth.logIn(this.user.controls.email.value,
       this.user.controls.password.value)
       .subscribe(user => this.setToken(user))
+      // console.log(this.user.value)
 
       
   }
@@ -50,6 +51,7 @@ export class AuthComponent implements OnInit {
       this.user.controls.password.value,
       this.user.controls.firstname.value,
       this.user.controls.lastname.value)
+      .subscribe(user => this.setToken(user))
   }
 
 }
