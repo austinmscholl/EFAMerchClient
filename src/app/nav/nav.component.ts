@@ -34,7 +34,11 @@ export class NavComponent implements OnInit {
   }
 
   toggleWomens(){
-
+    if(this.dropdownMens === true) {
+      this.dropdownMens = false;
+    } else {
+      this.dropdownMens = true;
+    }
   }
 
 }
