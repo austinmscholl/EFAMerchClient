@@ -17,11 +17,16 @@ export class ItemService {
     formData.append('itemName', item.itemName)
     formData.append('itemPrice', item.itemPrice)
     formData.append('category', item.itemCategory)
+    formData.append('gender', item.gender)
     formData.append('itemDescription', item.itemDescription)
     formData.append('itemImg', image)
    
     
     return this.http.post<any>('http://localhost:5000/item/additem', formData)
       .subscribe(response => console.log(response))
+  }
+
+  getAllItems (){
+    return this.http.get<any>('http://localhost:5000/item/getitems')
   }
 }

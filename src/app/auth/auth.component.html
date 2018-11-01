@@ -26,27 +26,6 @@
 </div>
 
 <div *ngIf="toggleForm" class="formContainer login">
-  <form name='form' (ngSubmit)='logIn()' [formGroup]='user'>
-      <h2>Login</h2>
-    <mat-form-field>
-      <input matInput  placeholder="Email" formControlName='email'>
-    </mat-form-field>
-    <br />
-
-    <mat-form-field>
-      <input formControlName="password" matInput placeholder="Password">
-    </mat-form-field>
-    <br />
-
-    <button type="submit" mat-flat-button class="submitButton">Submit</button>
-    <br />
-    <button type="button" mat-button class="toggleButton" (click)="toggle()">Login</button>
-    </form>
-  </mat-card-content>
-</mat-card>
-</div>
-
-<div *ngIf="toggleForm" class="formContainer login">
   <mat-card>
     <mat-card-content>
     <form name='form' (ngSubmit)='logIn()' [formGroup]='user'>
