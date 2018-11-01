@@ -26,7 +26,12 @@ export class ItemService {
       .subscribe(response => console.log(response))
   }
 
-  getAllItems (){
-    return this.http.get<any>('http://localhost:5000/item/getitems')
+
+  getItems() {
+    return this.http.get('http://localhost:5000/item/getitems')
+  }
+
+  getCategory(){
+    return this.http.get(`http://localhost:5000/items/getitems`)
   }
 }

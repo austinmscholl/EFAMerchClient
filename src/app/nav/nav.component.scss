@@ -32,24 +32,48 @@ header{
             list-style-type:none;
             margin:0; padding: 0;
 
+            .hidden {
+                display: none;
+            }
+
             li{
                 float:left;
 
-                .clothes {
-                    &:hover{
-                        background: black;
-                        color: white;
-                    }
+                // .clothes {
+                //     &:hover{
+                //         background: #D9514E;
+                //         color: white;
+                //         // &nav .hidden{
+                //         //     display: inline-block;
+                //         // }
+                //     }
                     
-                }
+                // }
 
+                .clothes:hover{
+                    background: purple;
+                    color: white;
+                    // display: inline-block;
+                }
+            }
+        
                 a{
                     padding:1.5em;
                     text-decoration: none;
                     color: black;
-
                 }
-            }
+        }
+    }
+
+   header nav ul li .clothes &:hover{
+        &.hidden{
+            display: inline-block;
         }
     }
 }
+
+
+
+
+
+
