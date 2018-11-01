@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+.adminContainer{
+    width: 95%;
+    margin: 0 auto;
+    font-family: 'Roboto Condensed', sans-serif;
+    
+    .formContainer{
+        background: #D9514E;
+        margin:1em auto 0 auto;
+        padding:1em;
+        display: grid;
+        grid-template-columns: 20% 80%;
+
+        h2{
+            color:white
+        }
+
+        form{
+            width: 100%;
+            display:flex;
+            justify-content: space-around;
+            margin-top: auto;
+            margin-bottom: auto;
+
+            select{
+                background:white;
+                height: 2.5em;
+                width: 20em;
+            }
+
+            input {
+                height: 2em;
+                width: 20em;
+            }
+
+            button{
+                background: #9AD0D5;
+                height: 2em;
+                width: 15em;
+            }
+        }
+    }
+
+    
+    .bodyContainer{
+        display: grid;
+        grid-template-columns:15em auto;
+
+        .categoryContainer{
+            background:hsl(360, 0%, 95%);
+            height: 38em;
+            margin:1em;
+            
+
+            p{
+                padding-left:1em;
+                padding-right:12em;
+                margin: 0;
+                padding-top: 1em;
+                padding-bottom:1em;
+
+                &:hover{
+                    background: white; 
+                    cursor: pointer;
+                }
+
+            }
+            
+        }
+        
+        .itemContainer{
+            margin-top:1em;
+            display: grid;
+            grid-template-columns: 24% 24% 24% 24%;
+            grid-column-gap: 1em;
+            grid-row-gap: 1em;
+            min-height:100vh;
+            justify-content: center;
+
+            .itemCard{
+                background: hsl(360, 0%, 95%);
+                border: 1px solid hsl(360, 0%, 80%);
+                box-shadow: hsl(360, 0%, 90%) 5px 5px ;
+                border-radius: 10px;
+                padding:1em;
+                display:flex;
+                flex-direction: column;
+                text-align: center;
+
+                button{
+                    width:50%;
+                    margin:0 auto;
+                }
+                img{
+                    width:100%;
+                    height: 20em;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    
+   
+
+}
