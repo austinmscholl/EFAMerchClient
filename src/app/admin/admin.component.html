@@ -23,16 +23,42 @@
     </form>
     
   </div>
-  <div class='itemContainer'>
-    <div *ngFor='let i of item[0]' class='itemCard'>
-      <img [src]="i.itemImg" /> 
-      <h3>{{i.itemName}}</h3>
-      <p>{{i.itemPrice}}</p>
-      <button>Update</button>
-      <button>Delete</button>
+  <div class='bodyContainer'>
+    <div class='categoryContainer'>
+      <div class='itemCategory'>
+        <p (click)='toggleM()'>Men</p>
+          <ul *ngIf='toggleMen' class='menCat'>
+            <li>T-Shirts</li>
+            <li>Long Sleeve Shirts</li>
+            <li>Hoodies</li>
+          </ul>
+        <p (click)='toggleW()'>Women</p>
+          <ul *ngIf='toggleWomen' class='womenCat'>
+            <li>T-Shirts</li>
+            <li>Tank Tops</li>
+            <li>Long Sleeve Shirts</li>
+            <li>Hoodies</li>
+            <li>Sweatpants</li>
+          </ul>
+        <p (click)='toggleA()'>Accessories</p>
+          <ul *ngIf='toggleAccessories' class='accessoriesCat'>
+              <li>Hats</li>
+              <li>Mugs</li>
+              <li>Aprons</li>
+              <li>Bags</li>
+          </ul>
+      </div>
+    </div>
+    <div class='itemContainer'>
+      <div *ngFor='let i of item[0]' class='itemCard'>
+        <img [src]="i.itemImg" /> 
+        <h3>{{i.itemName}}</h3>
+        <p>{{i.itemPrice}}</p>
+        <button>Update</button>
+        <button>Delete</button>
+      </div>
     </div>
   </div>
-  
 </div>
 
 
