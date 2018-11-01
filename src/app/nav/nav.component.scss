@@ -36,12 +36,21 @@ header{
                 position: absolute;
                 display: block;
                 padding: 16px;
-                margin-top: 20px;
+                margin-top: 40px;
             }
             
             .dropdown-items{
                 display: block;
                 z-index: 1;
+                background-color: black;
+                color: white;
+                padding: 14px;
+                
+                &:hover{
+                    background-color: white;
+                    color: black;
+                    cursor: pointer;
+                }
             }
 
             li{
