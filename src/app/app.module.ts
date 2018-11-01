@@ -18,6 +18,7 @@ import { MensComponent } from './mens/mens.component';
 import { UsercartGuard } from './usercart.guard';
 import { CartComponent } from './cart/cart.component';
 import { AdminGuard } from './admin.guard';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AdminGuard } from './admin.guard';
     SaleComponent,
     AdminComponent,
     MensComponent,
-    CartComponent
+    CartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
