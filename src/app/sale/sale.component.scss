@@ -10,6 +10,37 @@ body {
     padding: 20px;
 }
 
+button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #86bad3;
+    color: #ffffff;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: #d9514e;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
 /* Center website */
 .main {
     max-width: 1000px;
@@ -17,8 +48,13 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-h1 {
+.p {
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 50px;
+}
+
+h1 {
+    // font-size: 50px;
     word-break: break-all;
 }
 
