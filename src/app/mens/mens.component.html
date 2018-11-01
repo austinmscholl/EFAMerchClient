@@ -1,9 +1,10 @@
 <div class="parentContainer">
   <div class="bodyContainer">
     <div class="categoryContainer">
-        <p>T-Shirts</p>
-        <p>Long Sleeve Shirts</p>
-        <p>Hoodies</p>
+        <p id='t-shirt' (click)='getCategory($event)'>Shirts</p>
+        <p id='hoodie' (click)='getCategory($event)'>Hoodies</p>
+        <p id='pants' (click)='getCategory($event)'>Sweatpants</p>
+        <p id='accessories' (click)='getCategory($event)'>Accessories</p>
     </div>
 
       <div *ngIf="items" class="itemContainer">

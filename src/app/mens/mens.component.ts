@@ -30,7 +30,8 @@ export class MensComponent implements OnInit {
   }
 
   getCategory(event) {
-    console.log(event.target.id)
+    this.itemService.getCategory('male', event.target.id)
+      .subscribe(items => this.items=items)
   }
 
 }
