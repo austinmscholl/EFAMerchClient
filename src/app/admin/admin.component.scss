@@ -1,0 +1,64 @@
+.adminContainer{
+    width: 95%;
+    margin: 0 auto;
+    
+    .formContainer{
+        background: #D9514E;
+        margin:1em auto 0 auto;
+        padding:1em;
+        display: grid;
+        grid-template-columns: 20% 80%;
+
+        h2{
+            color:white
+        }
+
+        form{
+            width: 100%;
+            display:flex;
+            justify-content: space-around;
+            margin-top: auto;
+            margin-bottom: auto;
+
+            select{
+                background:white;
+                height: 2.5em;
+                width: 20em;
+            }
+
+            input {
+                height: 2em;
+                width: 20em;
+            }
+
+            button{
+                background: #9AD0D5;
+                height: 2em;
+                width: 15em;
+            }
+        }
+    }
+
+    .itemContainer{
+        background: green;
+        margin-top:1em;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20%;
+        grid-column-gap: 1em;
+        grid-row-gap: 1em;
+        min-height:100vh;
+        justify-content: center;
+
+        .itemCard{
+            display:flex;
+            flex-direction: column;
+            text-align: center;
+            img{
+                width:100%;
+            }
+        }
+    }
+
+}
+
+
