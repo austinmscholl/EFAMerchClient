@@ -1,29 +1,19 @@
-<div class="container">
-  <mat-sidenav-container>
-    <mat-sidenav position="start" mode="side" opened>
-      <h3>Categories</h3>
-      <ul>
-      <p [id]="shirts" (click)="getCategory($event)">Shirts</p><br /><br />
-      <p [id]="pants" (click)="getCategory($event)">Pants</p>
-    </ul>
-  </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-grid-list *ngIf="items" cols="4" rowHeight="1:2">
-        <div *ngFor="let item of items">
-          <mat-grid-tile>
-            <mat-card>
-              <mat-card-content>
-                <img mat-card-image [src]="item.itemImg"/>
-                <mat-card-title>{{ item.itemName }}</mat-card-title>
-                <mat-card-subtitle>Price: ${{ item.itemPrice }}</mat-card-subtitle>
-              </mat-card-content>
-              <mat-card-actions>
-                <button [id]="item.id" (click)='addToCart($event)' mat-button class="addbutton">Add to Cart</button>
-              </mat-card-actions>
-            </mat-card>
-          </mat-grid-tile>
-        </div>
-      </mat-grid-list>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="parentContainer">
+  <div class="bodyContainer">
+    <div class="categoryContainer">
+        <p>T-Shirts</p>
+        <p>Long Sleeve Shirts</p>
+        <p>Hoodies</p>
+    </div>
+
+      <div *ngIf="items" class="itemContainer">
+          <div *ngFor="let item of items" class="itemCard">
+            <img [src]="item.itemImg"/>
+            <h3>{{ item.itemName }}</h3>
+            <p>Price: ${{ item.itemPrice }}</p>
+            <button [id]="item.id" (click)='addToCart($event)' class="addbutton">Add to Cart</button>
+          </div>
+      </div>
+  </div>
+  
 </div>
