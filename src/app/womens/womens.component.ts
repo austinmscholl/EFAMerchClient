@@ -35,4 +35,9 @@ export class WomensComponent implements OnInit {
     // console.log(event.target.id)
   }
 
+  getAccessories(){
+    this.itemService.getAccessories()
+      .subscribe(items => this.items = items)
+  }
+
 }
