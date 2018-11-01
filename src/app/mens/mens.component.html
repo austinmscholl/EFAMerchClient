@@ -12,13 +12,10 @@
         <div *ngFor="let item of items">
           <mat-grid-tile>
             <mat-card>
-              <mat-card-header>
+              <mat-card-content>
+                <img mat-card-image [src]="item.itemImg"/>
                 <mat-card-title>{{ item.itemName }}</mat-card-title>
                 <mat-card-subtitle>Price: ${{ item.itemPrice }}</mat-card-subtitle>
-              </mat-card-header>
-              <img mat-card-image [src]="item.itemImg"/>
-              <mat-card-content>
-                <p>{{ item.itemDescription }}</p>
               </mat-card-content>
               <mat-card-actions>
                 <button [id]="item.id" (click)='addToCart($event)' mat-button class="addbutton">Add to Cart</button>
