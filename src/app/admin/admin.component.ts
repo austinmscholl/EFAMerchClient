@@ -40,7 +40,7 @@ export class AdminComponent implements OnInit {
   }
 
   getItems(){
-    this.itemService.getAllItems()
+    this.itemService.getItems()
       .subscribe(items => this.item.push(items))
 
       console.log(this.item)

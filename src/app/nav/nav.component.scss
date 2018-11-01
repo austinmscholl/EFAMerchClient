@@ -32,7 +32,7 @@ header{
             list-style-type:none;
             margin:0; padding: 0;
 
-            .subnav-item {
+            .hidden {
                 display: none;
             }
 
@@ -65,10 +65,9 @@ header{
         }
     }
 
+   header nav ul li .clothes &:hover{
+        &.hidden{
+            display: inline-block;
+        }
+    }
 }
-
-
-
-
-
-
