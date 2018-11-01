@@ -30,7 +30,9 @@ export class WomensComponent implements OnInit {
   }
 
   getCategory(event) {
-    console.log(event.target.id)
+    this.itemService.getCategory('female', event.target.id)
+      .subscribe(items => this.items=items)
+    // console.log(event.target.id)
   }
 
 }
