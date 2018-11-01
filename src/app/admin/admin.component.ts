@@ -18,6 +18,9 @@ export class AdminComponent implements OnInit {
 
   itemForm: FormGroup
   item: any = []
+  toggleMen = false
+  toggleWomen = false
+  toggleAccessories = false
 
   constructor(private fb: FormBuilder, private itemService: ItemService) { }
 
@@ -40,10 +43,34 @@ export class AdminComponent implements OnInit {
   }
 
   getItems(){
-    this.itemService.getAllItems()
+    this.itemService.getItems()
       .subscribe(items => this.item.push(items))
 
       console.log(this.item)
+  }
+
+  toggleM(){
+    if(this.toggleMen === false){
+      this.toggleMen = true
+    } else{
+      this.toggleMen = false
+    }
+  }
+
+  toggleW(){
+    if(this.toggleWomen === false){
+      this.toggleWomen = true
+    } else{
+      this.toggleWomen = false
+    }
+  }
+
+  toggleA(){
+    if(this.toggleAccessories === false){
+      this.toggleAccessories = true
+    } else{
+      this.toggleAccessories = false
+    }
   }
 
 }
