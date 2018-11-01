@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   role:string
+  dropdownMens = false;
+  dropdownWomens = false;
 
   constructor() { }
 
@@ -20,6 +22,19 @@ export class NavComponent implements OnInit {
     } else{
       console.log('you are not admin')
     }
+  }
+
+  toggleMens(){
+    if(this.dropdownMens === true) {
+      this.dropdownMens = false;
+    } else {
+      this.dropdownMens = true;
+    }
+
+  }
+
+  toggleWomens(){
+
   }
 
 }
