@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
 
 @Component({
-  selector: 'app-mens',
-  templateUrl: './mens.component.html',
-  styleUrls: ['./mens.component.scss']
+  selector: 'app-womens',
+  templateUrl: './womens.component.html',
+  styleUrls: ['./womens.component.scss']
 })
-export class MensComponent implements OnInit {
+export class WomensComponent implements OnInit {
 
   items: Object;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
-    this.itemService.getItemsGender('male').subscribe(
+    this.itemService.getItemsGender('female').subscribe(
       data => {
         console.log(data)
         this.items = data
@@ -30,7 +30,9 @@ export class MensComponent implements OnInit {
   }
 
   getCategory(event) {
-    console.log(event.target.id)
+    this.itemService.getCategory('female', event.target.id)
+      .subscribe(items => this.items=items)
+    // console.log(event.target.id)
   }
 
 }

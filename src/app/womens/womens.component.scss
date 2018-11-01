@@ -51,53 +51,11 @@
             background:hsl(360, 0%, 95%);
             height: 38em;
             margin:1em;
-
-            .menCat{
-                list-style-type: none;
-                margin-top: 0;
-                cursor: pointer;
-
-                li{
-                    padding:0.5em;
-
-                    &:hover{
-                        text-decoration: underline
-                    }
-                }
-            }
-
-            .womenCat{
-                list-style-type: none;
-                margin-top: 0;
-                cursor: pointer;
-
-                li{
-                    padding:0.5em;
-
-                    &:hover{
-                        text-decoration: underline
-                    }
-                }
-            }
-
-            .accessoriesCat{
-                list-style-type: none;
-                margin-top: 0;
-                cursor: pointer;
-
-                li{
-                    padding:0.5em;
-
-                    &:hover{
-                        text-decoration: underline
-                    }
-                }
-            }
             
 
             p{
                 padding-left:1em;
-                padding-right:14em;
+                padding-right:12em;
                 margin: 0;
                 padding-top: 1em;
                 padding-bottom:1em;
@@ -146,5 +104,3 @@
    
 
 }
-
-

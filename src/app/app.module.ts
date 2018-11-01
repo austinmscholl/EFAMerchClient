@@ -19,6 +19,8 @@ import { UsercartGuard } from './usercart.guard';
 import { CartComponent } from './cart/cart.component';
 import { AdminGuard } from './admin.guard';
 import { HomeComponent } from './home/home.component';
+import { WomensComponent } from './womens/womens.component';
+
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { HomeComponent } from './home/home.component';
     AdminComponent,
     MensComponent,
     CartComponent,
-    HomeComponent
+    HomeComponent,
+    WomensComponent
+
   ],
   imports: [
     BrowserModule,
