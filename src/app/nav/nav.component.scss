@@ -32,15 +32,28 @@ header{
             list-style-type:none;
             margin:0; padding: 0;
 
+            .hidden {
+                display: none;
+            }
+
             li{
                 float:left;
 
-                .clothes {
-                    &:hover{
-                        background: #D9514E;
-                        color: white;
-                    }
+                // .clothes {
+                //     &:hover{
+                //         background: #D9514E;
+                //         color: white;
+                //         // &nav .hidden{
+                //         //     display: inline-block;
+                //         // }
+                //     }
                     
+                // }
+
+                .clothes:hover{
+                    background: purple;
+                    color: white;
+                    // display: inline-block;
                 }
             }
         
@@ -52,40 +65,14 @@ header{
         }
     }
 
-    // .mainUl {
-    //     .dropbtn-men{
-    //         &:hover{
-    //             background-color: black;
-    //             color: white;
-    //             .dropdown-men{
-    //                 display: block;
-    //                 visibility: visible;
-    //             }
-    //         }
-            
-    //     }
-    //     .dropdown-men{
-    //         display: none;
-    //         visibility: hidden;
-    //     }
-
-    //     .dropbtn-women{
-    //         &:hover{
-    //             background-color: black;
-    //             color: white;
-    //             .dropdown-women{
-    //                 display: block;
-    //                 visibility: visible;
-    //             }
-    //         }
-            
-    //     }
-    //     .dropdown-women{
-    //         display: none;
-    //         visibility: hidden;
-    //     }
-    // }
+   header nav ul li .clothes &:hover{
+        &.hidden{
+            display: inline-block;
+        }
+    }
 }
+
+
 
 
 

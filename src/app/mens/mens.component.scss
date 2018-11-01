@@ -10,6 +10,11 @@
         letter-spacing: 2px;
         text-decoration: none;
     }
+
+    mat-card {
+        text-align: center;
+        align-items: center;
+    }
 }
 
 mat-sidenav {
@@ -19,4 +24,5 @@ mat-sidenav {
 .addbutton {
     background-color: #9AD0D5;
 }
+
 
