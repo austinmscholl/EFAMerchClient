@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-
-
-
-
+@import url('https://fonts.googleapis.com/css?family=Belleza');
 
 
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Belleza', sans-serif;
+
+    main{
+        font-family: 'Roboto Condensed', sans-serif;
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+    }
+
 }
 .logo{
     height: 12vw;
@@ -69,10 +78,9 @@ body {
     border-radius: 20px;
 }
 
-.main{
-    font-family: 'Roboto Condensed', sans-serif;
-    
-}
+
+
+
 // .fa {
 //     padding: 20px;
 //     font-size: 30px;
@@ -111,7 +119,7 @@ body {
 
 /* instagram */
 .fa-instagram {
-    background: #3B5998;
+    background: #B001B8;
     color: white;
 }
 .column {
@@ -130,3 +138,7 @@ body {
     display: flex;
     justify-content: space-between;
   }
+
+footer {
+    text-align: center;
+}
