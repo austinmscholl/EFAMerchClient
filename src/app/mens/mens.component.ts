@@ -29,9 +29,14 @@ export class MensComponent implements OnInit {
     ), 3000
   }
 
-  getCategory(event) {
-    this.itemService.getCategory('male', event.target.id)
+  getMCategory(event) {
+    this.itemService.getMCategory('male', event.target.id)
       .subscribe(items => this.items=items)
+  }
+
+  getAccessories(){
+    this.itemService.getAccessories()
+      .subscribe(items => this.items = items)
   }
 
 }
