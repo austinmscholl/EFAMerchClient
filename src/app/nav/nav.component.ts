@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemService} from '../item.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +11,7 @@ export class NavComponent implements OnInit {
   dropdownMens = false;
   dropdownWomens = false;
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.adminCheck()
@@ -30,7 +31,16 @@ export class NavComponent implements OnInit {
     } else {
       this.dropdownMens = true;
     }
+  }
 
+  getMCategory(event) {
+    console.log(event.target.id)
+    this.itemService.getMCategory('male', event.target.id)
+  }
+
+  getWCategory(event) {
+    console.log(event.target.id)
+    this.itemService.getWCategory('female', event.target.id)
   }
 
   toggleWomens(){
