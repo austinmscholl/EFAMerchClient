@@ -33,10 +33,15 @@ export class NavComponent implements OnInit {
     }
   }
 
-    getCategory(event) {
-      console.log(event.target.id)
-      this.itemService.getCategory('male', event.target.id)
-    }
+  getMCategory(event) {
+    console.log(event.target.id)
+    this.itemService.getMCategory('male', event.target.id)
+  }
+
+  getWCategory(event) {
+    console.log(event.target.id)
+    this.itemService.getWCategory('female', event.target.id)
+  }
 
   toggleWomens(){
     if(this.dropdownMens === true) {

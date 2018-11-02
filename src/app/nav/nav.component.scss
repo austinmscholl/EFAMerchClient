@@ -36,7 +36,7 @@ header{
                 position: absolute;
                 display: block;
                 padding: 16px;
-                margin-top: 40px;
+                margin-top: 30px;
             }
             
             .dropdown-items{
@@ -47,8 +47,8 @@ header{
                 padding: 14px;
                 
                 &:hover{
-                    background: #D9514E;
-                    color: white;
+                    background: white;
+                    color: #a992bc;
                     cursor: pointer;
                 }
             }
