@@ -36,7 +36,7 @@ export class ItemService {
   }
 
   getMCategory(gender, category){
-    // console.log(gender, category)
+    console.log(gender, category)
     return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
   }
 
