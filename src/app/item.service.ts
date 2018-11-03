@@ -31,6 +31,11 @@ export class ItemService {
     return this.http.get('http://localhost:5000/item/getitems')
   }
 
+  deleteItem(id){
+    console.log('service hit', id)
+    return this.http.delete(`http://localhost:5000/item/${id}`)
+  }
+
   getItemsGender(gender){
     return this.http.get(`http://localhost:5000/item/${gender}`)
   }
@@ -47,4 +52,9 @@ export class ItemService {
   getAccessories(){
     return this.http.get('http://localhost:5000/item/getaccessories')
   }
+
+  // addToCart(userId, itemId){
+  //   return this.http.put<any>(`http://localhost:5000/cart/${userId}`, itemId)
+  //     .subscribe(response => console.log(response))
+  // }
 }
