@@ -1,11 +1,30 @@
+
 body, html {
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Belleza');
+
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Belleza', sans-serif;
+
+    main{
+        font-family: 'Roboto Condensed', sans-serif;
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+    }
+
+}
+.logo{
+    height: 12vw;
 }
 
 .hero {
     /* Sizing */
-    // width: 100vw;
+    width: 100%;
     height: 100vh;
     
     /* Flexbox stuff */
@@ -27,6 +46,7 @@ body, html {
     background-attachment: fixed;
 }
 
+
 .hero h1 {
     /* Text styles */
     font-size: 5em;
@@ -35,6 +55,7 @@ body, html {
     margin-top: 0;
     margin-bottom: 0.5em;
 }
+
 
 .hero .btn {
     /* Positioning and sizing */
@@ -55,4 +76,69 @@ body, html {
     /* Border styles */
     border: 3px solid white; /* CHANGE THIS LINE */
     border-radius: 20px;
+}
+
+
+
+
+// .fa {
+//     padding: 20px;
+//     font-size: 30px;
+//     width: 30px;
+//     text-align: center;
+//     text-decoration: none;
+//     border-radius: 50%;
+// }
+/* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+/* instagram */
+.fa-instagram {
+    background: #B001B8;
+    color: white;
+}
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+footer {
+    text-align: center;
 }
