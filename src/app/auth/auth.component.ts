@@ -28,6 +28,7 @@ export class AuthComponent implements OnInit {
   setToken(user){
     sessionStorage.setItem('token', user.sessionToken)
     sessionStorage.setItem('role', user.user.role)
+    window.location.reload()
   }
 
   toggle(){
@@ -40,9 +41,7 @@ export class AuthComponent implements OnInit {
     this.auth.logIn(this.user.controls.email.value,
       this.user.controls.password.value)
       .subscribe(user => this.setToken(user))
-      // console.log(this.user.value)
-
-      
+      // console.log(this.user.value)  
   }
 
   signUp(){

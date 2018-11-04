@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Cart } from './models/cart'
-import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +7,24 @@ import { Observable } from 'rxjs'
 export class CartService {
 
   constructor(private http: HttpClient) { }
-
   token = sessionStorage.getItem('token')
+  
+  httpOptions = {
+    headers: new HttpHeaders ({
+      'Content-Type': 'application/json',
+      'Authorization': this.token
+    })
+  }
+  
 
   addToCart(id){
-    let httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': this.token
-      })
-    }
-    return this.http.put<any>(`http://localhost:5000/cart/${id}`, {} , httpOptions)
+    return this.http.put<any>(`http://localhost:5000/cart/${id}`, {} , this.httpOptions)
       .pipe(cart => cart)
     // console.log(id)
+  }
+
+  getCart(){
+    return this.http.get<any>('http://localhost:5000/cart', this.httpOptions)
   }
   
 }
