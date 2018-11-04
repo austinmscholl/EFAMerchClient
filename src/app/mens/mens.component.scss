@@ -11,7 +11,7 @@
     
         .categoryContainer{
             background:hsl(360, 0%, 95%);
-            height: 38em;
+            height: 12.8em;
             margin:1em;
 
             p{
@@ -35,7 +35,7 @@
             grid-template-columns: 24% 24% 24% 24%;
             grid-column-gap: 1em;
             grid-row-gap: 1em;
-            min-height:100vh;
+            // min-height:100vh;
             justify-content: center;
 
             .itemCard{

@@ -44,7 +44,7 @@ import { WomensComponent } from './womens/womens.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [UsercartGuard, AdminGuard],
   bootstrap: [AppComponent]

@@ -7,7 +7,7 @@ import {NavserviceService} from '../navservice.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  role:string
+  role = false
   dropdownMens = false;
   dropdownWomens = false;
 
@@ -18,8 +18,9 @@ export class NavComponent implements OnInit {
   }
 
   adminCheck(){
-    if(sessionStorage.getItem('role') === 'admin'){
-      this.role = sessionStorage.getItem('role')
+    let admin = sessionStorage.getItem('role')
+    if(admin === 'admin'){
+      this.role = true
     } else{
       console.log('you are not admin')
     }

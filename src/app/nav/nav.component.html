@@ -22,6 +22,11 @@
             <li><a routerLink='admin'>Admin</a></li>
             <li><a routerLink='cart'>Cart</a></li>
             <li><input type="search"></li> 
+
+            <li><a routerLink='auth'>login/signup</a></li>
+            <li *ngIf='role'><a routerLink='admin'>admin</a></li>
+            <li><a routerLink='cart'><i class='fa fa-shopping-cart'></i></a></li>
+
             
           </ul>
         </nav>
