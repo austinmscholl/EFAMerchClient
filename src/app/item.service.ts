@@ -17,6 +17,7 @@ export class ItemService {
     formData.append('itemName', item.itemName)
     formData.append('itemPrice', item.itemPrice)
     formData.append('category', item.itemCategory)
+    formData.append('gender', item.gender)
     formData.append('itemDescription', item.itemDescription)
     formData.append('itemImg', image)
    
@@ -24,4 +25,36 @@ export class ItemService {
     return this.http.post<any>('http://localhost:5000/item/additem', formData)
       .subscribe(response => console.log(response))
   }
+
+
+  getItems() {
+    return this.http.get('http://localhost:5000/item/getitems')
+  }
+
+  deleteItem(id){
+    console.log('service hit', id)
+    return this.http.delete(`http://localhost:5000/item/${id}`)
+  }
+
+  getItemsGender(gender){
+    return this.http.get(`http://localhost:5000/item/${gender}`)
+  }
+
+  getMCategory(gender, category){
+    console.log(gender, category)
+    return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
+  }
+
+  getWCategory(gender, category){
+    return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
+  }
+
+  getAccessories(){
+    return this.http.get('http://localhost:5000/item/getaccessories')
+  }
+
+  // addToCart(userId, itemId){
+  //   return this.http.put<any>(`http://localhost:5000/cart/${userId}`, itemId)
+  //     .subscribe(response => console.log(response))
+  // }
 }

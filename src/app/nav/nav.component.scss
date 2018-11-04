@@ -20,7 +20,7 @@ header{
     .logo{
         font-weight: bold;
         text-decoration: none;
-        color: black;
+        width:700px;
     }
 
     nav{
@@ -32,24 +32,58 @@ header{
             list-style-type:none;
             margin:0; padding: 0;
 
+            .dropdown-mens{
+                position: absolute;
+                display: block;
+                padding: 16px;
+                margin-top: 30px;
+            }
+            
+            .dropdown-items{
+                display: block;
+                z-index: 1;
+                background-color: #a992bc;
+                color: white;
+                padding: 14px;
+                
+                &:hover{
+                    background: white;
+                    color: #a992bc;
+                    cursor: pointer;
+                }
+            }
+
             li{
                 float:left;
 
-                .clothes {
-                    &:hover{
-                        background: black;
-                        color: white;
-                    }
-                    
+                .clothes:hover{
+                    background: #a992bc;
+                    color: white;
                 }
+                
+            // &:hover{
+            //     +.hidden{
+            //         display: block;
+            //         +li{
+            //             padding: 16px;
+            //         }
+            //     }
+
+            // }
+
+            // &:active{
+            //     +.hidden{
+            //         display: block;
+            //     }
+            // }
 
                 a{
                     padding:1.5em;
                     text-decoration: none;
                     color: black;
-
                 }
             }
+
         }
     }
 }

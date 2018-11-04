@@ -1,18 +1,35 @@
 <div *ngIf='!toggleForm' class="formContainer signup">
-  <mat-card>
-    <mat-card-content>
-    <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
-      <h2>Sign Up</h2>
-      <mat-form-field>
-        <input formControlName="firstname" matInput placeholder="First Name">
+  <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
+    <h2>Sign Up</h2>
+    <mat-form-field>
+      <input matInput placeholder="First Name" formControlName='firstname'>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName='lastname'>
       </mat-form-field>
       <br />
-      <mat-form-field>
-          <input formControlName="lastname" matInput placeholder="Last Name">
-        </mat-form-field>
-        <br />
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName='email'>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName='password'>
+  </mat-form-field>
+  <br />
+
+  <button mat-flat-button class="submitButton">Submit</button>
+  <br />
+  <button mat-button class="toggleButton" (click)="toggle()">Login</button>
+  </form>
+</div>
+
+<div *ngIf="toggleForm" class="formContainer login">
+  <form name='form' (ngSubmit)='logIn()' [formGroup]='user'>
+      <h2>Login</h2>
     <mat-form-field>
-      <input formControlName="email" matInput placeholder="Email">
+      <input formControlName="email" matInput placeholder="Email" >
     </mat-form-field>
     <br />
 
@@ -21,33 +38,9 @@
     </mat-form-field>
     <br />
 
-    <button type="submit" mat-flat-button class="submitButton">Submit</button>
+    <button type="submit" mat-button submitButton>Submit</button>
     <br />
-    <button type="button" mat-button class="toggleButton" (click)="toggle()">Login</button>
-    </form>
-  </mat-card-content>
-</mat-card>
-</div>
+    <button type="button" mat-button class="toggleButton" (click)="toggle()">Sign Up</button>
+  </form>
 
-<div *ngIf="toggleForm" class="formContainer login">
-  <mat-card>
-    <mat-card-content>
-    <form name='form' (ngSubmit)='logIn()' [formGroup]='user'>
-        <h2>Login</h2>
-      <mat-form-field>
-        <input formControlName="email" matInput placeholder="Email" >
-      </mat-form-field>
-      <br />
-
-      <mat-form-field>
-        <input formControlName="password" matInput placeholder="Password">
-      </mat-form-field>
-      <br />
-
-      <button type="submit" mat-button submitButton>Submit</button>
-      <br />
-      <button type="button" mat-button class="toggleButton" (click)="toggle()">Sign Up</button>
-    </form>
-    </mat-card-content>
-  </mat-card>
 </div>

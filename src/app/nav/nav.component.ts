@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NavserviceService} from '../navservice.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   role:string
-  
-  constructor() { }
+  dropdownMens = false;
+  dropdownWomens = false;
+
+  constructor(private navserviceService: NavserviceService) { }
 
   ngOnInit() {
     this.adminCheck()
@@ -19,6 +22,32 @@ export class NavComponent implements OnInit {
       this.role = sessionStorage.getItem('role')
     } else{
       console.log('you are not admin')
+    }
+  }
+
+  toggleMens(){
+    if(this.dropdownMens === true) {
+      this.dropdownMens = false;
+    } else {
+      this.dropdownMens = true;
+    }
+  }
+
+  getMCategory(event) {
+    console.log(event.target.id)
+    this.navserviceService.getMCategory('male', event.target.id)
+  }
+
+  getWCategory(event) {
+    console.log(event.target.id)
+    this.navserviceService.getWCategory('female', event.target.id)
+  }
+
+  toggleWomens(){
+    if(this.dropdownMens === true) {
+      this.dropdownMens = false;
+    } else {
+      this.dropdownMens = true;
     }
   }
 
