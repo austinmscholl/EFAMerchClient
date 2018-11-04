@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
+import { CartService } from '../cart.service'
 
 @Component({
   selector: 'app-mens',
@@ -10,7 +11,7 @@ export class MensComponent implements OnInit {
 
   items: Object;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private cartService:CartService) { }
 
   ngOnInit() {
     this.itemService.getItemsGender('male').subscribe(
@@ -22,16 +23,19 @@ export class MensComponent implements OnInit {
 
   }
 
-  addToCart(event) {
-    setTimeout(() => {
-      console.log(event.target.id)
-    }
-    ), 3000
-  }
-
   getCategory(event) {
     this.itemService.getCategory('male', event.target.id)
       .subscribe(items => this.items=items)
+  }
+
+  getAccessories(){
+    this.itemService.getAccessories()
+      .subscribe(items => this.items=items)
+  }
+
+  addCart(event){
+    this.cartService.addToCart(event.target.id)
+      .subscribe()
   }
 
 }
