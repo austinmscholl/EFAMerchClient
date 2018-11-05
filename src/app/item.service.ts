@@ -39,14 +39,11 @@ export class ItemService {
     return this.http.get(`http://localhost:5000/item/${gender}`)
   }
 
-  getMCategory(gender, category){
+  getCategory(gender, category){
     console.log(gender, category)
     return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
   }
 
-  getWCategory(gender, category){
-    return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
-  }
 
   getAccessories(){
     return this.http.get('http://localhost:5000/item/getaccessories')
