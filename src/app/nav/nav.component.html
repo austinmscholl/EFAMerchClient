@@ -5,7 +5,7 @@
           <ul>
             <li><a (mouseover)="toggleMens()" class='clothes' routerLink='mens'>Mens</a></li>
               <ul (mouseleave)="toggleMens()" *ngIf="dropdownMens" class="dropdown-mens">
-                <a id="t-shirt" class="dropdown-items" (click)='getMCategory($event)'>Shirts</a>
+                <a href="mens" id="t-shirt" class="dropdown-items" (click)='getMCategory($event)'>Shirts</a>
                 <a id="hoodie" class="dropdown-items" (click)='getMCategory($event)'>Hoodies</a>
                 <a id="pants" class="dropdown-items" (click)='getMCategory($event)'>Sweatpants</a>
                 <a id="accessories" class="dropdown-items" (click)='getMCategory($event)'>Accessories</a>
@@ -22,6 +22,11 @@
             <li><a routerLink='admin'>Admin</a></li>
             <li><a routerLink='cart'>Cart</a></li>
             <li><input type="search"></li> 
+
+            <li><a routerLink='auth'>login/signup</a></li>
+            <li *ngIf='role'><a routerLink='admin'>admin</a></li>
+            <li><a routerLink='cart'><i class='fa fa-shopping-cart'></i></a></li>
+
             
           </ul>
         </nav>

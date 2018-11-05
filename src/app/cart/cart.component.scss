@@ -1,0 +1,25 @@
+// .cartContainer{
+//     display:flex;
+//     flex-direction: column;
+//     margin:auto;
+//     width:50%;
+//     border:2px solid black;
+//     ul{
+//         img{
+//             width:5%;
+//         }
+//     }
+// }
+table{
+    width:60%;
+    margin:0 auto;
+    border:1px solid black;
+    tr{
+        td{
+            min-width:8em;
+            img{
+                width:20%;
+            }
+        }
+    }
+}
