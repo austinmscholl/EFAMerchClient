@@ -54,6 +54,7 @@ export class MensComponent implements OnInit {
   addCart(event){
     this.cartService.addToCart(event.target.id)
       .subscribe()
+    // window.location.reload()
   }
 
 }

@@ -39,6 +39,7 @@ export class AdminComponent implements OnInit {
 
   submitForm(){
     this.itemService.createItems(this.itemForm.value, this.selectedFile)
+    window.location.reload()
     // console.log(this.selectedFile)
   }
 
