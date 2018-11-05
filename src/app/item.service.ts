@@ -31,8 +31,12 @@ export class ItemService {
   }
 
   deleteItem(id){
-    console.log('service hit', id)
+    console.log('delete service hit', id)
     return this.http.delete(`http://localhost:5000/item/${id}`)
+  }
+
+  updateItem(id){
+    console.log('update service hit', id)
   }
 
   getItemsGender(gender){
