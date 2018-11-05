@@ -1,4 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+
+.hero {
+    /* Sizing */
+    width: 100%;
+    height: 100vh;
+    
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Text styles */
+    text-align: center;
+    color: #ffffff; /* ADD THIS LINE */
+    // text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    
+    /* Background styles */
+    background-image: url(('/../assets/indy.jpg'));
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.hero h1 {
+    /* Text styles */
+    font-size: 5em;
+    
+    /* Margins */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+
+.hero .btn {
+
+    font-family: 'Roboto Condensed', sans-serif;
+    /* Positioning and sizing */
+    display: block;
+    width: 200px;
+    
+    /* Padding and margins */
+    padding: 1em;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Text styles */
+    color: white; /* CHANGE THIS LINE */
+    text-decoration: none;
+    font-size: 1.5em;
+    
+    /* Border styles */
+    border: 3px solid white; /* CHANGE THIS LINE */
+    border-radius: 20px;
+}
+
 .cartContainer{
+    font-family: 'Roboto Condensed', sans-serif;
     display:grid;
     width:100%;
     grid-template-columns: 80% auto;
@@ -20,10 +82,39 @@
         text-align: center;
     }
 
-    button{
-        width:80%;
-        height:2em;
+    button {
+        display: inline-block;
+        border: none;
+        padding: 1rem 2rem;
+        margin: 0;
+        text-decoration: none;
+        background: #86bad3;
+        color: #ffffff;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 1rem;
+        cursor: pointer;
+        text-align: center;
+        transition: background 250ms ease-in-out, 
+                    transform 150ms ease;
+        -webkit-appearance: none;
+        -moz-appearance: none;
     }
+    
+    button:hover,
+    button:focus {
+        background: #d9514e;
+    }
+    
+    button:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+    }
+    
+    button:active {
+        transform: scale(0.99);
+    }
+    
+    
 }
 
 table{
