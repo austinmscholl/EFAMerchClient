@@ -52,6 +52,8 @@ export class AdminComponent implements OnInit {
   deleteItem(event){
     console.log(event.target.id)
     this.itemService.deleteItem(event.target.id)
+      .subscribe()
+      window.location.reload()
   }
 
   toggleM(){
