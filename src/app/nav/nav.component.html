@@ -3,14 +3,14 @@
       <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-primary.png'/></a>
         <nav>
           <ul>
-            <li><a (mouseover)="toggleMens()" class='clothes' routerLink='mens'>mens</a></li>
+            <li><a (mouseover)="toggleMens()" class='clothes' routerLink='mens'>Mens</a></li>
               <ul (mouseleave)="toggleMens()" *ngIf="dropdownMens" class="dropdown-mens">
                 <a id="t-shirt" class="dropdown-items" (click)='getMCategory($event)'>Shirts</a>
                 <a id="hoodie" class="dropdown-items" (click)='getMCategory($event)'>Hoodies</a>
                 <a id="pants" class="dropdown-items" (click)='getMCategory($event)'>Sweatpants</a>
                 <a id="accessories" class="dropdown-items" (click)='getMCategory($event)'>Accessories</a>
               </ul>
-            <li><a (mouseover)="toggleWomens()" class='clothes' routerLink='womens'>womens</a></li>
+            <li><a (mouseover)="toggleWomens()" class='clothes' routerLink='womens'>Womens</a></li>
               <ul (mouseleave)="toggleWomens()" *ngIf="dropdownWomens" class="dropdown-womens">
                   <a id="t-shirt" class="dropdown-items" (click)='getWCategory($event)'>Shirts</a>
                   <a id="hoodie" class="dropdown-items" (click)='getWCategory($event)'>Hoodies</a>
