@@ -29,7 +29,8 @@ export class WomensComponent implements OnInit {
     ), 3000
   }
 
-  getWCategory(event) {
+
+  getCategory(event) {
     this.itemService.getCategory('female', event.target.id)
       .subscribe(items => this.items=items)
     // console.log(event.target.id)

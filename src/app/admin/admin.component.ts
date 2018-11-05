@@ -15,7 +15,6 @@ export class AdminComponent implements OnInit {
     // console.log(file)
   }
 
-
   itemForm: FormGroup
   item: any = []
   toggleMen = false
@@ -49,9 +48,16 @@ export class AdminComponent implements OnInit {
       console.log(this.item)
   }
 
+  updateItem(event){
+    console.log(event.target.id)
+    this.itemService.updateItem(event.target.id)
+  }
+
   deleteItem(event){
     console.log(event.target.id)
     this.itemService.deleteItem(event.target.id)
+      .subscribe()
+      window.location.reload()
   }
 
   toggleM(){

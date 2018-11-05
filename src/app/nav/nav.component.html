@@ -5,21 +5,22 @@
           <ul>
             <li><a (mouseover)="toggleMens()" class='clothes' routerLink='mens'>Men</a></li>
               <ul (mouseleave)="toggleMens()" *ngIf="dropdownMens" class="dropdown-mens">
-                <a href="mens" id="t-shirt" class="dropdown-items" (click)='getMCategory($event)'>Shirts</a>
-                <a id="hoodie" class="dropdown-items" (click)='getMCategory($event)'>Hoodies</a>
-                <a id="pants" class="dropdown-items" (click)='getMCategory($event)'>Sweatpants</a>
-                <a id="accessories" class="dropdown-items" (click)='getMCategory($event)'>Accessories</a>
+                <a id="t-shirt" name="male" class="dropdown-items" (click)='getCategory($event)'>Shirts</a>
+                <a id="hoodie" name="male" class="dropdown-items" (click)='getCategory($event)'>Hoodies</a>
+                <a id="pants" name="male" class="dropdown-items" (click)='getCategory($event)'>Sweatpants</a>
+                <a id="accessories" class="dropdown-items" (click)='getAccessories($event)'>Accessories</a>
               </ul>
             <li><a (mouseover)="toggleWomens()" class='clothes' routerLink='womens'>Women</a></li>
               <ul (mouseleave)="toggleWomens()" *ngIf="dropdownWomens" class="dropdown-womens">
-                  <a id="t-shirt" class="dropdown-items" (click)='getWCategory($event)'>Shirts</a>
-                  <a id="hoodie" class="dropdown-items" (click)='getWCategory($event)'>Hoodies</a>
-                  <a id="pants" class="dropdown-items" (click)='getWCategory($event)'>Sweatpants</a>
-                  <a id="accessories" class="dropdown-items" (click)='getWCategory($event)'>Accessories</a>
+                  <a id="t-shirt" name="female" class="dropdown-items" (click)='getCategory($event)'>Shirts</a>
+                  <a id="hoodie" name="female" class="dropdown-items" (click)='getCategory($event)'>Hoodies</a>
+                  <a id="pants" name="female" class="dropdown-items" (click)='getCategory($event)'>Sweatpants</a>
+                  <a id="accessories" class="dropdown-items" (click)='getCategory($event)'>Accessories</a>
               </ul>
             <li><a routerLink='sale'>Sale</a></li>
             <li><a routerLink='auth'>Login/Signup</a></li>
             <li><a routerLink='admin'>Admin</a></li>
+
             <li><input type="search"></li> 
             <li><a routerLink='cart'><i class='fa fa-shopping-cart'></i></a></li>
 
