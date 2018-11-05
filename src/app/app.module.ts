@@ -20,6 +20,8 @@ import { CartComponent } from './cart/cart.component';
 import { AdminGuard } from './admin.guard';
 import { HomeComponent } from './home/home.component';
 import { WomensComponent } from './womens/womens.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 
 
 
@@ -33,7 +35,9 @@ import { WomensComponent } from './womens/womens.component';
     MensComponent,
     CartComponent,
     HomeComponent,
-    WomensComponent
+    WomensComponent,
+    DeleteDialogComponent,
+    UpdateDialogComponent
 
   ],
   imports: [
@@ -47,6 +51,7 @@ import { WomensComponent } from './womens/womens.component';
     HttpClientModule,
   ],
   providers: [UsercartGuard, AdminGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DeleteDialogComponent, UpdateDialogComponent]
 })
 export class AppModule { }

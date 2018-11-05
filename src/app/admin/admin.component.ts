@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { ItemService } from '../item.service'
+
 import { Item } from '../models/item'
+
+import { MatDialog } from '@angular/material';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
+
 
 @Component({
   selector: 'app-admin',
@@ -25,6 +31,7 @@ export class AdminComponent implements OnInit {
   toggleUpdate = false
   toggleAccessories = false
 
+
   itemModel: Item = {
       itemName: '',
       itemPrice: '',
@@ -33,6 +40,52 @@ export class AdminComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private itemService: ItemService) { }
 
+  updateItemForm: FormGroup
+  updateItem: any = []
+
+  // itemName: string;
+  // itemPrice: number;
+  // category: string;
+  // gender: string;
+  // itemDescription: string;
+  // itemImg: string;
+
+  constructor(private fb: FormBuilder, private itemService: ItemService, public dialog: MatDialog) { }
+
+  openDeleteDialog(event): void {
+    sessionStorage.setItem('itemId', event.target.id)
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The delete dialog was closed');
+    });
+  }
+
+  openUpdateDialog(event): void {
+    sessionStorage.setItem('itemId', event.target.id)
+    console.log(event.target.id)
+    const dialogRef = this.dialog.open(UpdateDialogComponent, {
+      maxWidth: '300px',
+      minHeight: '300px',
+      data: this.updateItemForm = this.fb.group({
+        itemName: new FormControl(),
+        itemPrice: new FormControl(),
+        itemDescription: new FormControl(),
+        itemCategory: new FormControl(),
+        gender: new FormControl(),
+        itemImg: new FormControl()
+        })
+
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The update dialog was closed')
+    });
+  }
+
+
   ngOnInit() {
     this.itemForm = this.fb.group({
       itemName: new FormControl(),
@@ -40,13 +93,14 @@ export class AdminComponent implements OnInit {
       itemDescription: new FormControl(),
       itemCategory: new FormControl(),
       gender: new FormControl(),
-      itemImg: new FormControl(),
+      itemImg: new FormControl()
     })
     this.getItems()
   }
 
   submitForm(){
     this.itemService.createItems(this.itemForm.value, this.selectedFile)
+    window.location.reload()
     // console.log(this.selectedFile)
   }
 
@@ -55,25 +109,6 @@ export class AdminComponent implements OnInit {
       .subscribe(items => this.item.push(items))
 
       console.log(this.item)
-  }
-
-  updateItem(event){
-    console.log(this.itemModel)
-  }
-
-  deleteItem(event){
-    console.log(event.target.id)
-    this.itemService.deleteItem(event.target.id)
-      .subscribe()
-      window.location.reload()
-  }
-
-  toggleU(){
-    if(this.toggleUpdate === false){
-      this.toggleUpdate = true
-    } else {
-      this.toggleUpdate = false
-    }
   }
 
   toggleM(){
