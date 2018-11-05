@@ -36,7 +36,7 @@ export class NavComponent implements OnInit {
 
   getCategory(event) {
     console.log(event.target.name, event.target.id)
-    this.itemService.getCategory(event.target.name, event.target.id)
+    return this.itemService.getCategory(event.target.name, event.target.id)
     .subscribe()
   }
 
