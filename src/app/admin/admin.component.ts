@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { ItemService } from '../item.service'
 import { MatDialog } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
 @Component({
   selector: 'app-admin',
@@ -22,18 +23,49 @@ export class AdminComponent implements OnInit {
   toggleMen = false
   toggleWomen = false
   toggleAccessories = false
-  updateClicked = false
+
+  updateItemForm: FormGroup
+  updateItem: any = []
+
+  // itemName: string;
+  // itemPrice: number;
+  // category: string;
+  // gender: string;
+  // itemDescription: string;
+  // itemImg: string;
 
   constructor(private fb: FormBuilder, private itemService: ItemService, public dialog: MatDialog) { }
 
-  openDialog(event): void {
+  openDeleteDialog(event): void {
     sessionStorage.setItem('itemId', event.target.id)
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The delete dialog was closed');
+    });
+  }
+
+  openUpdateDialog(event): void {
+    sessionStorage.setItem('itemId', event.target.id)
+    console.log(event.target.id)
+    const dialogRef = this.dialog.open(UpdateDialogComponent, {
+      maxWidth: '300px',
+      minHeight: '300px',
+      data: this.updateItemForm = this.fb.group({
+        itemName: new FormControl(),
+        itemPrice: new FormControl(),
+        itemDescription: new FormControl(),
+        itemCategory: new FormControl(),
+        gender: new FormControl(),
+        itemImg: new FormControl()
+        })
+
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The update dialog was closed')
     });
   }
 
@@ -44,7 +76,7 @@ export class AdminComponent implements OnInit {
       itemDescription: new FormControl(),
       itemCategory: new FormControl(),
       gender: new FormControl(),
-      itemImg: new FormControl(),
+      itemImg: new FormControl()
     })
 
     this.getItems()
@@ -61,20 +93,6 @@ export class AdminComponent implements OnInit {
       .subscribe(items => this.item.push(items))
 
       console.log(this.item)
-  }
-
-  // updateItem(event){
-  //   console.log(event.target.id)
-  //   this.itemService.updateItem(event.target.id)
-  //   this.updateClicked = !this.updateClicked
-  // }
-
-  toggleModal(){
-    if(this.updateClicked === false) {
-      this.updateClicked = true
-    } else {
-      this.updateClicked = false
-    }
   }
 
   toggleM(){

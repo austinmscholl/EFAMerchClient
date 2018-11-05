@@ -54,14 +54,8 @@
         <img [src]="i.itemImg" /> 
         <h3>{{i.itemName}}</h3>
         <p>{{i.itemPrice}}</p>
-        <button [id]="i.id" class="updatebtn" (click)="toggleModal()">Update</button>
-          <div *ngIf="updateClicked" [id]=
-          "i.id" class="modal">
-            <div class="modal-content">
-              <p>this is a modal</p>
-            </div>
-          </div>
-        <button [id]="i.id" class="deletebtn" (click)="openDialog($event)">Delete</button>
+        <button [id]="i.id" class="updatebtn" (click)="openUpdateDialog($event)">Update</button>
+        <button [id]="i.id" class="deletebtn" (click)="openDeleteDialog($event)">Delete</button>
       </div>
     </div>
   </div>

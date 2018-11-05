@@ -44,7 +44,7 @@ export class ItemService {
 
   updateItem(id){
     console.log('update service hit', id)
-    // return this.http.put(`http://localhost:5000/item/${id}`, )
+    return this.http.put(`http://localhost:5000/item/${id}`, this.httpOptions )
   }
 
   getItemsGender(gender){
