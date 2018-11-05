@@ -1,16 +1,16 @@
-<table *ngIf='items'>
+<table *ngIf='itemArr.length > 0'>
   <tr>
     <th>Item</th>
     <th>Quantity</th>
     <th>Price</th>
   </tr>
-  <tr  *ngFor='let item of items.items'>
+  <tr  *ngFor='let item of itemArr[0].items'>
     <td>
       <img [src]='item.itemImg'>
       {{item.itemName}}
       {{item.itemDescription}}
     </td>
-    <td>
+    <td class='quality'>
       <select>
         <option>1</option>
         <option>2</option>
@@ -24,13 +24,13 @@
         <option>10</option>
       </select>
     </td>
-    <td>
-      {{item.itemPrice}}
+    <td class='price'>
+      ${{item.itemPrice}}
     </td>
   </tr>
-  <tr>
+  <tr style='height:2em'>
     <td>Total</td>
     <td></td>
-    <td>120</td>
+    <td class='price'>${{totalNum}}</td>
   </tr>
 </table>
