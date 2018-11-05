@@ -3,6 +3,7 @@
       <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-primary.png'/></a>
         <nav>
           <ul>
+
             <li><a (mouseover)="toggleMens()" class='clothes' routerLink='mens'>Mens</a></li>
               <!-- <ul (mouseleave)="toggleMens()" *ngIf="dropdownMens" class="dropdown-mens">
                 <a routerLink="mens" id="t-shirt" name="male" class="dropdown-items" (click)='getCategory($event)'>Shirts</a>
@@ -11,17 +12,17 @@
                 <a id="accessories" class="dropdown-items" (click)='getAccessories($event)'>Accessories</a>
               </ul> -->
             <li><a (mouseover)="toggleWomens()" class='clothes' routerLink='womens'>Womens</a></li>
-              <!-- <ul (mouseleave)="toggleWomens()" *ngIf="dropdownWomens" class="dropdown-womens">
+              <!-- <ul (mouseleave)="toggleWomens()" *ngIf="dropdownWomens" class="dropdown-womens"
                   <a id="t-shirt" name="female" class="dropdown-items" (click)='getCategory($event)'>Shirts</a>
                   <a id="hoodie" name="female" class="dropdown-items" (click)='getCategory($event)'>Hoodies</a>
                   <a id="pants" name="female" class="dropdown-items" (click)='getCategory($event)'>Sweatpants</a>
                   <a id="accessories" class="dropdown-items" (click)='getCategory($event)'>Accessories</a>
               </ul> -->
             <li><a routerLink='sale'>Sale</a></li>
-            <li><input type="search"></li> 
+            <li><a routerLink='auth'>Login/Signup</a></li>
+            <li><a routerLink='admin'>Admin</a></li>
 
-            <li><a routerLink='auth'>login/signup</a></li>
-            <li *ngIf='role'><a routerLink='admin'>admin</a></li>
+            <li><input type="search"></li> 
             <li><a routerLink='cart'><i class='fa fa-shopping-cart'></i></a></li>
 
             
