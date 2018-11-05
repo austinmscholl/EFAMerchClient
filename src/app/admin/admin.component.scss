@@ -34,24 +34,14 @@
                 width: 20em;
             }
 
-            .uploadbtn{
-                // width:50%;
-                // height: 30px;
-                // margin:0 auto;
-                // background-color: #9AD0D5;
-                // color: white;
-                // border-radius: 3px;
-                // border: 0;
-                // outline: 0;
-                // cursor: pointer;
-            }
-
             button{
                 width:50%;
                 height: 30px;
                 margin:0 auto;
                 background-color: #9AD0D5;
-                color: white;
+                letter-spacing: 1px;
+                font-size: 16px;
+                // color: white;
                 border-radius: 3px;
                 border: 0;
                 outline: 0;
@@ -169,24 +159,6 @@
                     }
                 }
 
-                // .modal {
-                //     display: none;
-                //     position: fixed;
-                //     z-index: 1;
-                //     left: 0;
-                //     top: 0;
-                //     width: 100%;
-                //     height: 100%;
-                //     overflow: auto;
-
-                //     .modal-content{
-                //         background-color: #FEFEFE;
-                //         margin: 15% auto;
-                //         padding: 20px;
-                //         border: 1px solid #888;
-                //         width: 80%;
-                //     }
-                // }
                 .deletebtn{
                     background-color: #D9514E;
                     &:hover{

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { ItemService } from '../item.service'
+import { MatDialog } from '@angular/material';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-admin',
@@ -22,7 +24,18 @@ export class AdminComponent implements OnInit {
   toggleAccessories = false
   updateClicked = false
 
-  constructor(private fb: FormBuilder, private itemService: ItemService) { }
+  constructor(private fb: FormBuilder, private itemService: ItemService, public dialog: MatDialog) { }
+
+  openDialog(event): void {
+    sessionStorage.setItem('itemId', event.target.id)
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit() {
     this.itemForm = this.fb.group({
@@ -39,6 +52,7 @@ export class AdminComponent implements OnInit {
 
   submitForm(){
     this.itemService.createItems(this.itemForm.value, this.selectedFile)
+    window.location.reload()
     // console.log(this.selectedFile)
   }
 
@@ -61,19 +75,6 @@ export class AdminComponent implements OnInit {
     } else {
       this.updateClicked = false
     }
-    // window.onclick = function(event){
-    //   if (event.target == updateClicked) {
-    //     updateClicked.style.display = "none";
-    //   }
-    // }
-    
-  }
-
-  deleteItem(event){
-    console.log(event.target.id)
-    this.itemService.deleteItem(event.target.id)
-      .subscribe()
-      window.location.reload()
   }
 
   toggleM(){
