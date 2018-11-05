@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { ItemService } from '../item.service'
+import { Item } from '../models/item'
 
 @Component({
   selector: 'app-admin',
@@ -8,6 +9,8 @@ import { ItemService } from '../item.service'
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  
+  
   selectedFile: File
   
   onFileChanged(event){
@@ -19,7 +22,14 @@ export class AdminComponent implements OnInit {
   item: any = []
   toggleMen = false
   toggleWomen = false
+  toggleUpdate = false
   toggleAccessories = false
+
+  itemModel: Item = {
+      itemName: '',
+      itemPrice: '',
+      itemDescription:'' 
+    }
 
   constructor(private fb: FormBuilder, private itemService: ItemService) { }
 
@@ -32,7 +42,6 @@ export class AdminComponent implements OnInit {
       gender: new FormControl(),
       itemImg: new FormControl(),
     })
-
     this.getItems()
   }
 
@@ -49,8 +58,7 @@ export class AdminComponent implements OnInit {
   }
 
   updateItem(event){
-    console.log(event.target.id)
-    this.itemService.updateItem(event.target.id)
+    console.log(this.itemModel)
   }
 
   deleteItem(event){
@@ -58,6 +66,14 @@ export class AdminComponent implements OnInit {
     this.itemService.deleteItem(event.target.id)
       .subscribe()
       window.location.reload()
+  }
+
+  toggleU(){
+    if(this.toggleUpdate === false){
+      this.toggleUpdate = true
+    } else {
+      this.toggleUpdate = false
+    }
   }
 
   toggleM(){

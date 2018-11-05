@@ -52,9 +52,12 @@
     <div class='itemContainer'>
       <div *ngFor='let i of item[0]' class='itemCard'>
         <img [src]="i.itemImg" /> 
-        <h3>{{i.itemName}}</h3>
-        <p>{{i.itemPrice}}</p>
-        <button [id]="i.id" class="updatebtn" (click)="updateItem($event)">Update</button>
+        <div *ngIf="!toggleUpdate">
+          <h3>{{i.itemName}}</h3>
+          <p>{{i.itemDescription}}</p>
+          <p>{{i.itemPrice}}</p>
+          <button [id]="i.id" class="updatebtn" (click)="toggleU()">Update</button>
+        </div>
         <button [id]="i.id" class="deletebtn" (click)="deleteItem($event)">Delete</button>
       </div>
     </div>
