@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
   toggleMen = false
   toggleWomen = false
   toggleAccessories = false
+  updateClicked = false
 
   constructor(private fb: FormBuilder, private itemService: ItemService) { }
 
@@ -48,9 +49,24 @@ export class AdminComponent implements OnInit {
       console.log(this.item)
   }
 
-  updateItem(event){
-    console.log(event.target.id)
-    this.itemService.updateItem(event.target.id)
+  // updateItem(event){
+  //   console.log(event.target.id)
+  //   this.itemService.updateItem(event.target.id)
+  //   this.updateClicked = !this.updateClicked
+  // }
+
+  toggleModal(){
+    if(this.updateClicked === false) {
+      this.updateClicked = true
+    } else {
+      this.updateClicked = false
+    }
+    // window.onclick = function(event){
+    //   if (event.target == updateClicked) {
+    //     updateClicked.style.display = "none";
+    //   }
+    // }
+    
   }
 
   deleteItem(event){
