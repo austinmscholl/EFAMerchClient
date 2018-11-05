@@ -54,8 +54,8 @@
         <img [src]="i.itemImg" /> 
         <h3>{{i.itemName}}</h3>
         <p>{{i.itemPrice}}</p>
-        <button>Update</button>
-        <button>Delete</button>
+        <button class="updatebtn">Update</button>
+        <button [id]="i.id" class="deletebtn" (click)="deleteItem($event)">Delete</button>
       </div>
     </div>
   </div>

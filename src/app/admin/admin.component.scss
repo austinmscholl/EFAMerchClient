@@ -35,9 +35,15 @@
             }
 
             button{
-                background: #9AD0D5;
-                height: 2em;
-                width: 15em;
+                width:50%;
+                height: 30px;
+                margin:0 auto;
+                background-color: #9AD0D5;
+                color: white;
+                border-radius: 3px;
+                border: 0;
+                outline: 0;
+                cursor: pointer;
             }
         }
     }
@@ -132,7 +138,30 @@
 
                 button{
                     width:50%;
+                    height: 30px;
                     margin:0 auto;
+                    margin-top:5px;
+                    border-radius: 3px;
+                    border: 0;
+                    outline: 0;
+                    cursor: pointer;
+                    color: white;
+                    transition-duration: 0.4s;
+                }
+
+                .updatebtn{
+                    background-color: #a992bc;
+                    &:hover{
+                        background-color: white;
+                        color:#a992bc;
+                    }
+                }
+                .deletebtn{
+                    background-color: #D9514E;
+                    &:hover{
+                        background-color: white;
+                        color: #D9514E;
+                    }
                 }
                 img{
                     width:100%;

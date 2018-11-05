@@ -49,6 +49,11 @@ export class AdminComponent implements OnInit {
       console.log(this.item)
   }
 
+  deleteItem(event){
+    console.log(event.target.id)
+    this.itemService.deleteItem(event.target.id)
+  }
+
   toggleM(){
     if(this.toggleMen === false){
       this.toggleMen = true
