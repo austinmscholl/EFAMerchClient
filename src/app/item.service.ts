@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
+
+  token = sessionStorage.getItem('token')
+
+  httpOptions = { headers: new HttpHeaders({
+    'Authorization': this.token,
+    'Content-Type': 'application/json'
+  })}
 
   constructor(private http: HttpClient) { }
 
@@ -32,11 +39,12 @@ export class ItemService {
 
   deleteItem(id){
     console.log('delete service hit', id)
-    return this.http.delete(`http://localhost:5000/item/${id}`)
+    return this.http.delete(`http://localhost:5000/item/${id}`, this.httpOptions)
   }
 
   updateItem(id){
     console.log('update service hit', id)
+    return this.http.put(`http://localhost:5000/item/${id}`, this.httpOptions )
   }
 
   getItemsGender(gender){
