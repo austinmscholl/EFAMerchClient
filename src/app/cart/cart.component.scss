@@ -1,15 +1,31 @@
-// .cartContainer{
-//     display:flex;
-//     flex-direction: column;
-//     margin:auto;
-//     width:50%;
-//     border:2px solid black;
-//     ul{
-//         img{
-//             width:5%;
-//         }
-//     }
-// }
+.cartContainer{
+    display:grid;
+    width:100%;
+    grid-template-columns: 80% auto;
+    min-height:100vh;
+
+    .checkout{
+        border-left: 1px solid black;
+        text-align: center;
+
+        table{
+            td{
+                padding:0;
+            }
+        }
+
+        h2{
+            margin-top:5em;
+        }
+        text-align: center;
+    }
+
+    button{
+        width:80%;
+        height:2em;
+    }
+}
+
 table{
     width:60%;
     margin: 5em auto;

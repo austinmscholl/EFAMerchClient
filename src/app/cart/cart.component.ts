@@ -34,6 +34,6 @@ export class CartComponent implements OnInit {
 
     setTimeout(() => {
       this.total()
-    }, 500)
+    }, 100)
   }
 }
