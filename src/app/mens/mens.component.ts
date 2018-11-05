@@ -13,18 +13,34 @@ export class MensComponent implements OnInit {
 
   constructor(private itemService: ItemService, private cartService:CartService) { }
 
-  ngOnInit() {
-    this.itemService.getItemsGender('male').subscribe(
-      data => {
-        console.log(data)
-        this.items = data
-      }
-    )
-
+  checkCategory() {
+    if (!sessionStorage.getItem('category')) {
+      this.itemService.getItemsGender('male').subscribe(
+        data => {
+          console.log(data)
+          this.items = data
+        }
+      )
+    } else {
+      let category = sessionStorage.getItem('category')
+      // this.getNavCategory(category)
+    }
   }
+
+  ngOnInit() {
+    this.checkCategory()
+  }
+
+  // getNavCategory(category) {
+  //   this.itemService.getCategory('male', category)
+  //     .subscribe(items => this.items = items)
+  //   console.log(category)
+  //   sessionStorage.removeItem('category')
+  // }
 
 
   getCategory(event) {
+    console.log(event.target.id)
     this.itemService.getCategory('male', event.target.id)
 
       .subscribe(items => this.items=items)
