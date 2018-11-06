@@ -1,3 +1,31 @@
+
+img{
+    width:40%;
+}
+
+.logo{
+    font-weight: bold;
+    text-decoration: none;
+    width:700px;
+    position: relative;
+}
+
+
+
+.jumbotron{
+    background-color: #d9514e;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 1em;
+    text-align: center;
+    padding: 1em;
+    border-radius: 1px;
+
+}
+
+body{
+    background-color: #D9514E;
+    
+}
 .formContainer{
     display:flex;
     height: 100%;
@@ -7,11 +35,11 @@
 
 form{
     margin:auto;
-    padding: 80px;
+    padding: 50px;
     text-align:center;
     background:#9AD0D5;
     border-radius: 10px; 
-
+    
     .shift{
         margin-left: 40px;
     }

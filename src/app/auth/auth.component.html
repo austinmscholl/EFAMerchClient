@@ -1,3 +1,12 @@
+<body>
+<div class="jumbotron">
+    <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-white.png'/></a>
+    
+    <font color="white">
+    <h1>Sign Up Here!</h1>
+    <p>Provide us with some quick info so we can ensure you have the best experience possible</p>
+    </font>
+  </div>
 <div *ngIf='!toggleForm' class="formContainer signup">
   <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
     <h2>Sign Up</h2>
@@ -42,5 +51,5 @@
     <br />
     <button type="button" mat-button class="toggleButton" (click)="toggle()">Sign Up</button>
   </form>
-
 </div>
+</body>
