@@ -8,14 +8,12 @@ import { MatDialog } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
-
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  
   
   selectedFile: File
   
@@ -31,24 +29,14 @@ export class AdminComponent implements OnInit {
   toggleUpdate = false
   toggleAccessories = false
 
-
   itemModel: Item = {
       itemName: '',
       itemPrice: '',
       itemDescription:'' 
     }
 
-  constructor(private fb: FormBuilder, private itemService: ItemService) { }
-
   updateItemForm: FormGroup
   updateItem: any = []
-
-  // itemName: string;
-  // itemPrice: number;
-  // category: string;
-  // gender: string;
-  // itemDescription: string;
-  // itemImg: string;
 
   constructor(private fb: FormBuilder, private itemService: ItemService, public dialog: MatDialog) { }
 
@@ -67,24 +55,14 @@ export class AdminComponent implements OnInit {
     sessionStorage.setItem('itemId', event.target.id)
     console.log(event.target.id)
     const dialogRef = this.dialog.open(UpdateDialogComponent, {
-      maxWidth: '300px',
-      minHeight: '300px',
-      data: this.updateItemForm = this.fb.group({
-        itemName: new FormControl(),
-        itemPrice: new FormControl(),
-        itemDescription: new FormControl(),
-        itemCategory: new FormControl(),
-        gender: new FormControl(),
-        itemImg: new FormControl()
-        })
-
+      minWidth: '300px',
+      minHeight: '300px'
     })
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The update dialog was closed')
     });
   }
-
 
   ngOnInit() {
     this.itemForm = this.fb.group({
@@ -101,7 +79,7 @@ export class AdminComponent implements OnInit {
   submitForm(){
     this.itemService.createItems(this.itemForm.value, this.selectedFile)
     window.location.reload()
-    // console.log(this.selectedFile)
+    // console.log(this.selectedFile, this.itemForm.value)
   }
 
   getItems(){

@@ -6,17 +6,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ItemService {
 
-  token = sessionStorage.getItem('token')
+  // token = sessionStorage.getItem('token')
 
-  httpOptions = { headers: new HttpHeaders({
-    'Authorization': this.token,
-    'Content-Type': 'application/json'
-  })}
+  // httpOptions = { headers: new HttpHeaders({
+  //   'Authorization': this.token,
+  //   'Content-Type': 'application/json'
+  // })}
 
   constructor(private http: HttpClient) { }
 
   createItems (item: any, image:any){
-    // console.log(image)
+    // console.log(item)
 
     // console.log(item.itemImg.file_name)
     let formData: FormData = new FormData()
@@ -26,12 +26,10 @@ export class ItemService {
     formData.append('gender', item.gender)
     formData.append('itemDescription', item.itemDescription)
     formData.append('itemImg', image)
-   
     
     return this.http.post<any>('http://localhost:5000/item/additem', formData)
-      .subscribe(response => console.log(response))
+      .subscribe(response => response)
   }
-
 
   getItems() {
     return this.http.get('http://localhost:5000/item/getitems')
@@ -39,12 +37,18 @@ export class ItemService {
 
   deleteItem(id){
     console.log('delete service hit', id)
-    return this.http.delete(`http://localhost:5000/item/${id}`, this.httpOptions)
+    return this.http.delete(`http://localhost:5000/item/${id}`)
+  }
+
+  getUpdateItem(id){
+    console.log('get update item hit', id)
+    return this.http.get(`http://localhost:5000/item/${id}`)
+      .pipe()
   }
 
   updateItem(id){
     console.log('update service hit', id)
-    return this.http.put(`http://localhost:5000/item/${id}`, this.httpOptions )
+    return this.http.put(`http://localhost:5000/item/${id}`, {} )
   }
 
   getItemsGender(gender){
@@ -56,13 +60,7 @@ export class ItemService {
     return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
   }
 
-  
   getAccessories(){
     return this.http.get('http://localhost:5000/item/getaccessories')
   }
-
-  // addToCart(userId, itemId){
-  //   return this.http.put<any>(`http://localhost:5000/cart/${userId}`, itemId)
-  //     .subscribe(response => console.log(response))
-  // }
 }

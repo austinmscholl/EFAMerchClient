@@ -1,7 +1,6 @@
 <h1 mat-dialog-title>Update</h1>
-<div mat-dialog-content>
-    <form [formGroup] = 'updateItemForm' (ngSubmit) = 'submitForm()'>
-      <select formControlName='gender'>
+    <form [formGroup] = 'uItemForm' (ngSubmit) = 'submitForm()'>
+      <!-- <select formControlName='gender'>
         <option value='male'>Male</option>
         <option value='female'>Female</option>
         <option value='neutral'>Neutral</option>
@@ -13,15 +12,13 @@
         <option value='hoodie'>Hoodie</option>
         <option value='pants'>Pants</option>
         <option value='accessories'>Accessories</option>
-      </select>
-      <input type='text' placeholder="Item" formControlName='itemName'>
-      <input type='text' placeholder="Price" formControlName='itemPrice'>
+      </select> -->
+      <input type='text' placeholder="Item" formControlName='itemName'><br />
+      <input type='text' placeholder="Price" formControlName='itemPrice'><br />
       <input placeholder="Description" formControlName='itemDescription'>
-      <input class="uploadbtn" type='file' (change)='onFileChanged($event)' name='itemImg'>
 
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No</button>
     <button class="yes" mat-button (click)="updateItem()" cdkFocusInitial>Yes</button>
 </div>
 </form>
-</div>
