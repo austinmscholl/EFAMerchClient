@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { ItemService } from '../item.service'
+
+import { Item } from '../models/item'
+
 import { MatDialog } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
+
 
 @Component({
   selector: 'app-admin',
@@ -11,6 +15,8 @@ import { UpdateDialogComponent } from '../update-dialog/update-dialog.component'
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  
+  
   selectedFile: File
   
   onFileChanged(event){
@@ -22,7 +28,17 @@ export class AdminComponent implements OnInit {
   item: any = []
   toggleMen = false
   toggleWomen = false
+  toggleUpdate = false
   toggleAccessories = false
+
+
+  itemModel: Item = {
+      itemName: '',
+      itemPrice: '',
+      itemDescription:'' 
+    }
+
+  constructor(private fb: FormBuilder, private itemService: ItemService) { }
 
   updateItemForm: FormGroup
   updateItem: any = []
@@ -69,6 +85,7 @@ export class AdminComponent implements OnInit {
     });
   }
 
+
   ngOnInit() {
     this.itemForm = this.fb.group({
       itemName: new FormControl(),
@@ -78,7 +95,6 @@ export class AdminComponent implements OnInit {
       gender: new FormControl(),
       itemImg: new FormControl()
     })
-
     this.getItems()
   }
 
