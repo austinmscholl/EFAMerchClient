@@ -8,7 +8,7 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent implements OnInit {
 
-  items: Object
+  // items: Object
   itemArr = []
 
   totalNum = 0
