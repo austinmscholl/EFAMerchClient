@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { ItemService } from '../item.service'
-
 import { Item } from '../models/item'
-
 import { MatDialog } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
+import { AddStockDialogComponent } from '../add-stock-dialog/add-stock-dialog.component'
 
 @Component({
   selector: 'app-admin',
@@ -15,11 +14,11 @@ import { UpdateDialogComponent } from '../update-dialog/update-dialog.component'
 })
 export class AdminComponent implements OnInit {
   
+  
   selectedFile: File
   
   onFileChanged(event){
     this.selectedFile = event.target.files[0]
-    // console.log(file)
   }
 
   itemForm: FormGroup
@@ -55,7 +54,7 @@ export class AdminComponent implements OnInit {
     sessionStorage.setItem('itemId', event.target.id)
     console.log(event.target.id)
     const dialogRef = this.dialog.open(UpdateDialogComponent, {
-      minWidth: '300px',
+      maxWidth: '300px',
       minHeight: '300px'
     })
 
@@ -64,14 +63,24 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  openAddStockDialog(event): void{
+    const dialogRef = this.dialog.open(AddStockDialogComponent,{
+      maxWidth:'300px',
+      minHeight:'300px'
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('add stock dialog was closed')
+    })
+  }
+
   ngOnInit() {
     this.itemForm = this.fb.group({
       itemName: new FormControl(),
       itemPrice: new FormControl(),
       itemDescription: new FormControl(),
       itemCategory: new FormControl(),
-      gender: new FormControl(),
-      itemImg: new FormControl()
+      gender: new FormControl()
     })
     this.getItems()
   }
@@ -79,7 +88,6 @@ export class AdminComponent implements OnInit {
   submitForm(){
     this.itemService.createItems(this.itemForm.value, this.selectedFile)
     window.location.reload()
-    // console.log(this.selectedFile, this.itemForm.value)
   }
 
   getItems(){
@@ -87,6 +95,12 @@ export class AdminComponent implements OnInit {
       .subscribe(items => this.item.push(items))
 
       console.log(this.item)
+  }
+
+  createStock(event){
+    this.itemService.createStock(event.target.id)
+      .subscribe()
+    // console.log(event.target.id)
   }
 
   toggleM(){
