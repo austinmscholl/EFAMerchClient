@@ -1,3 +1,49 @@
-<p>
-  cart works!
-</p>
+
+    <section class="hero">
+    <div class='cartContainer'>
+    <table *ngIf='itemArr.length > 0'>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <tr  *ngFor='let item of itemArr[0].items'>
+      <td>
+        <img [src]='item.itemImg'>
+        {{item.itemName}}
+        {{item.itemDescription}}
+      </td>
+      <td class='quality'>
+        <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </td>
+      <td class='price'>
+        ${{item.itemPrice}}
+      </td>
+    </tr>
+  </table>
+  <div class='checkout'>
+    <h2>Cart Summary</h2>
+    <table>
+      <tr>
+        <td style='border-right:1px solid black'>Subtotal:</td>
+        <td> ${{totalNum}}</td>
+      </tr>
+      <tr>
+        <td style='border-right:1px solid black; padding-top:1.5em'>Total Before Tax:</td>
+        <td style='padding-top:1.5em'>${{totalNum}}</td>
+      </tr>
+    </table>  
+    <button>Checkout</button>
+  </div>
+  </div>

@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
+//the jumbo
+.jumbotron{
+    background-color: #d9514e;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 1em;
+    text-align: center;
+    padding: 3em;
+
+}
+// content
 .parentContainer{
     width: 95%;
     margin: 0 auto;
@@ -11,7 +21,7 @@
     
         .categoryContainer{
             background:hsl(360, 0%, 95%);
-            height: 38em;
+            height: 12.8em;
             margin:1em;
 
             p{
@@ -35,7 +45,7 @@
             grid-template-columns: 24% 24% 24% 24%;
             grid-column-gap: 1em;
             grid-row-gap: 1em;
-            min-height:100vh;
+            // min-height:100vh;
             justify-content: center;
 
             .itemCard{
@@ -53,7 +63,7 @@
                     height: 30px;
                     margin:0 auto;
                     background-color: #9AD0D5;
-                    color: white;
+                    // color: white;
                     border-radius: 3px;
                     border: 0;
                     outline: 0;

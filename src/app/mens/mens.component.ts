@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
+import { CartService } from '../cart.service'
 
 @Component({
   selector: 'app-mens',
@@ -10,33 +11,50 @@ export class MensComponent implements OnInit {
 
   items: Object;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private cartService:CartService) { }
+
+  checkCategory() {
+    if (!sessionStorage.getItem('category')) {
+      this.itemService.getItemsGender('male').subscribe(
+        data => {
+          console.log(data)
+          this.items = data
+        }
+      )
+    } else {
+      let category = sessionStorage.getItem('category')
+      // this.getNavCategory(category)
+    }
+  }
 
   ngOnInit() {
-    this.itemService.getItemsGender('male').subscribe(
-      data => {
-        console.log(data)
-        this.items = data
-      }
-    )
-
+    this.checkCategory()
   }
 
-  addToCart(event) {
-    setTimeout(() => {
-      console.log(event.target.id)
-    }
-    ), 3000
-  }
+  // getNavCategory(category) {
+  //   this.itemService.getCategory('male', category)
+  //     .subscribe(items => this.items = items)
+  //   console.log(category)
+  //   sessionStorage.removeItem('category')
+  // }
 
-  getMCategory(event) {
-    this.itemService.getMCategory('male', event.target.id)
+
+  getCategory(event) {
+    console.log(event.target.id)
+    this.itemService.getCategory('male', event.target.id)
+
       .subscribe(items => this.items=items)
   }
 
   getAccessories(){
     this.itemService.getAccessories()
-      .subscribe(items => this.items = items)
+      .subscribe(items => this.items=items)
+  }
+
+  addCart(event){
+    this.cartService.addToCart(event.target.id)
+      .subscribe()
+    // window.location.reload()
   }
 
 }

@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
+
+  token = sessionStorage.getItem('token')
+
+  httpOptions = { headers: new HttpHeaders({
+    'Authorization': this.token,
+    'Content-Type': 'application/json'
+  })}
 
   constructor(private http: HttpClient) { }
 
@@ -32,23 +38,25 @@ export class ItemService {
   }
 
   deleteItem(id){
-    console.log('service hit', id)
-    return this.http.delete(`http://localhost:5000/item/${id}`)
+    console.log('delete service hit', id)
+    return this.http.delete(`http://localhost:5000/item/${id}`, this.httpOptions)
+  }
+
+  updateItem(id){
+    console.log('update service hit', id)
+    return this.http.put(`http://localhost:5000/item/${id}`, this.httpOptions )
   }
 
   getItemsGender(gender){
     return this.http.get(`http://localhost:5000/item/${gender}`)
   }
 
-  getMCategory(gender, category){
+  getCategory(gender, category){
     console.log(gender, category)
     return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
   }
 
-  getWCategory(gender, category){
-    return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
-  }
-
+  
   getAccessories(){
     return this.http.get('http://localhost:5000/item/getaccessories')
   }
