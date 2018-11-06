@@ -55,7 +55,7 @@ export class AdminComponent implements OnInit {
     console.log(event.target.id)
     const dialogRef = this.dialog.open(UpdateDialogComponent, {
       maxWidth: '300px',
-      minHeight: '300px',
+      minHeight: '300px'
     })
 
     dialogRef.afterClosed().subscribe(result => {

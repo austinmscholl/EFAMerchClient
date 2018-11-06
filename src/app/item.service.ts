@@ -50,6 +50,11 @@ export class ItemService {
     return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
   }
 
+  createStock(id){
+    return this.http.put(`http://localhost:5000/item/addstock/${id}`, {})
+  }
+
+  
   getAccessories(){
     return this.http.get('http://localhost:5000/item/getaccessories')
   }

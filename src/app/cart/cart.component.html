@@ -1,7 +1,6 @@
-
-    <section class="hero">
-    <div class='cartContainer'>
-    <table *ngIf='itemArr.length > 0'>
+<section *ngIf='itemArr.length > 0'>
+  <div class='cartContainer'>
+    <table>
     <tr>
       <th>Item</th>
       <th>Quantity</th>
@@ -36,12 +35,12 @@
     <h2>Cart Summary</h2>
     <table>
       <tr>
-        <td style='border-right:1px solid black'>Subtotal:</td>
-        <td> ${{totalNum}}</td>
+        <td style='border-bottom: none'>Subtotal:</td>
+        <td style='border-bottom: none'> ${{totalNum}}</td>
       </tr>
       <tr>
-        <td style='border-right:1px solid black; padding-top:1.5em'>Total Before Tax:</td>
-        <td style='padding-top:1.5em'>${{totalNum}}</td>
+        <td style='padding-top:1.5em; border-bottom: none'>Total Before Tax:</td>
+        <td style='padding-top:1.5em; border-bottom: none'>${{totalNum}}</td>
       </tr>
     </table>  
     <button>Checkout</button>

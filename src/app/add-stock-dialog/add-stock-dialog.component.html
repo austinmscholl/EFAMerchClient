@@ -1,0 +1,10 @@
+<div class='container'>
+  <h3>Add Inventory</h3>
+  <form [formGroup]='stock' (ngSubmit)='onSubmit()'>
+    <label>Size:</label>
+    <input formControlName='size'>
+    <label>Quantity</label>
+    <input formControlName='quantity'>
+    <button>Submit</button>
+  </form>
+</div>
