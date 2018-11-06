@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   signUp(email:string, password:string, firstname:string, lastname: string){  
-    // console.log(firstname, lastname, email, password)
+    console.log(firstname, lastname, email, password)
     let headers = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

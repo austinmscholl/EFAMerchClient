@@ -16,9 +16,6 @@ export class ItemService {
   constructor(private http: HttpClient) { }
 
   createItems (item: any, image:any){
-    // console.log(image)
-
-    // console.log(item.itemImg.file_name)
     let formData: FormData = new FormData()
     formData.append('itemName', item.itemName)
     formData.append('itemPrice', item.itemPrice)
@@ -39,12 +36,12 @@ export class ItemService {
 
   deleteItem(id){
     console.log('delete service hit', id)
-    return this.http.delete(`http://localhost:5000/item/${id}`, this.httpOptions)
+    return this.http.delete(`http://localhost:5000/item/${id}`)
   }
 
   updateItem(id){
     console.log('update service hit', id)
-    return this.http.put(`http://localhost:5000/item/${id}`, this.httpOptions )
+    return this.http.put(`http://localhost:5000/item/${id}`, {} )
   }
 
   getItemsGender(gender){
@@ -56,12 +53,13 @@ export class ItemService {
     return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
   }
 
+  createStock(id){
+    return this.http.put(`http://localhost:5000/item/addstock/${id}`, {})
+  }
+
+  
   getAccessories(){
     return this.http.get('http://localhost:5000/item/getaccessories')
   }
 
-  // addToCart(userId, itemId){
-  //   return this.http.put<any>(`http://localhost:5000/cart/${userId}`, itemId)
-  //     .subscribe(response => console.log(response))
-  // }
 }

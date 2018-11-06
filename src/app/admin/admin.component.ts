@@ -5,6 +5,7 @@ import { Item } from '../models/item'
 import { MatDialog } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
+import { AddStockDialogComponent } from '../add-stock-dialog/add-stock-dialog.component'
 
 @Component({
   selector: 'app-admin',
@@ -62,12 +63,22 @@ export class AdminComponent implements OnInit {
         itemCategory: new FormControl(),
         gender: new FormControl()
         })
-
     })
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The update dialog was closed')
     });
+  }
+
+  openAddStockDialog(event): void{
+    const dialogRef = this.dialog.open(AddStockDialogComponent,{
+      maxWidth:'300px',
+      minHeight:'300px'
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('add stock dialog was closed')
+    })
   }
 
   ngOnInit() {
@@ -82,9 +93,8 @@ export class AdminComponent implements OnInit {
   }
 
   submitForm(){
-    // this.itemService.createItems(this.itemForm.value, this.selectedFile)
+    this.itemService.createItems(this.itemForm.value, this.selectedFile)
     // window.location.reload()
-    console.log(this.selectedFile)
   }
 
   getItems(){
@@ -92,6 +102,12 @@ export class AdminComponent implements OnInit {
       .subscribe(items => this.item.push(items))
 
       console.log(this.item)
+  }
+
+  createStock(event){
+    this.itemService.createStock(event.target.id)
+      .subscribe()
+    // console.log(event.target.id)
   }
 
   toggleM(){
