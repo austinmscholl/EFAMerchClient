@@ -5,6 +5,7 @@
       <th>Item</th>
       <th>Quantity</th>
       <th>Price</th>
+      <th></th>
     </tr>
     <tr  *ngFor='let item of itemArr[0].items'>
       <td>
@@ -28,6 +29,9 @@
       </td>
       <td class='price'>
         ${{item.itemPrice}}
+      </td>
+      <td>
+        <button [id]='item.id' class="fa fa-trash" (click)="openDeleteCartItemDialog($event)"></button>
       </td>
     </tr>
   </table>
