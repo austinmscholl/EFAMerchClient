@@ -64,6 +64,7 @@ export class AdminComponent implements OnInit {
   }
 
   openAddStockDialog(event): void{
+    sessionStorage.setItem('itemId', event.target.id)
     const dialogRef = this.dialog.open(AddStockDialogComponent,{
       maxWidth:'300px',
       minHeight:'300px'
@@ -97,11 +98,11 @@ export class AdminComponent implements OnInit {
       console.log(this.item)
   }
 
-  createStock(event){
-    this.itemService.createStock(event.target.id)
-      .subscribe()
-    // console.log(event.target.id)
-  }
+  // createStock(event){
+  //   this.itemService.createStock(event.target.id)
+  //     .subscribe()
+  //   // console.log(event.target.id)
+  // }
 
   toggleM(){
     if(this.toggleMen === false){

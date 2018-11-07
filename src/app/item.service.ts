@@ -50,8 +50,12 @@ export class ItemService {
     return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
   }
 
-  createStock(id){
-    return this.http.put(`http://localhost:5000/item/addstock/${id}`, {})
+  createStock(id, stock){
+    return this.http.put(`http://localhost:5000/item/addstock/${id}`, {
+    size:stock.size,
+    quantity:stock.quantity
+    })
+    // console.log(id, stock)
   }
 
   
