@@ -82,7 +82,18 @@
         text-align: center;
     }
 
-    button {
+    .deletebtn {
+        background: transparent;
+        border: none;
+        margin: 0;
+        text-decoration: none;
+        
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    .checkoutbtn {
         display: inline-block;
         border: none;
         padding: 1rem 2rem;
@@ -98,22 +109,20 @@
                     transform 150ms ease;
         -webkit-appearance: none;
         -moz-appearance: none;
+
+        &:hover,&:focus{
+            background: #d9514e;
+        }
+
+        &:focus{
+          outline: 1px solid #fff;
+          outline-offset: -4px;
+        }
+
+        &:active {
+            transform: scale(0.99);
+        }
     }
-    
-    button:hover,
-    button:focus {
-        background: #d9514e;
-    }
-    
-    button:focus {
-        outline: 1px solid #fff;
-        outline-offset: -4px;
-    }
-    
-    button:active {
-        transform: scale(0.99);
-    }
-    
     
 }
 

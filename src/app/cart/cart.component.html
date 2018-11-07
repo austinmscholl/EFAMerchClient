@@ -31,7 +31,7 @@
         ${{item.itemPrice}}
       </td>
       <td>
-        <button [id]='item.id' class="fa fa-trash" (click)="openDeleteCartItemDialog($event)"></button>
+        <button [id]='item.id' class="deletebtn fa fa-trash" (click)="openDeleteCartItemDialog($event)"></button>
       </td>
     </tr>
   </table>
@@ -47,6 +47,6 @@
         <td style='padding-top:1.5em; border-bottom: none'>${{totalNum}}</td>
       </tr>
     </table>  
-    <button>Checkout</button>
+    <button class="checkoutbtn">Checkout</button>
   </div>
   </div>
