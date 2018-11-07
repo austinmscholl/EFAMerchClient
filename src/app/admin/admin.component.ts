@@ -28,12 +28,6 @@ export class AdminComponent implements OnInit {
   toggleUpdate = false
   toggleAccessories = false
 
-  itemModel: Item = {
-      itemName: '',
-      itemPrice: '',
-      itemDescription:'' 
-    }
-
   updateItemForm: FormGroup
   updateItem: any = []
 
