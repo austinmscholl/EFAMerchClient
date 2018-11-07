@@ -5,7 +5,8 @@ import { Item } from '../models/item'
 import { MatDialog } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
-import { AddStockDialogComponent } from '../add-stock-dialog/add-stock-dialog.component'
+import { AddInventoryDialogComponent } from '../add-inventory-dialog/add-stock-dialog.component'
+import { UpdateInventoryDialogComponent } from '../update-inventory-dialog/update-inventory-dialog.component'
 
 @Component({
   selector: 'app-admin',
@@ -54,8 +55,8 @@ export class AdminComponent implements OnInit {
     sessionStorage.setItem('itemId', event.target.id)
     console.log(event.target.id)
     const dialogRef = this.dialog.open(UpdateDialogComponent, {
-      maxWidth: '300px',
-      minHeight: '300px'
+      minWidth: '300px',
+      
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -65,7 +66,7 @@ export class AdminComponent implements OnInit {
 
   openAddStockDialog(event): void{
     sessionStorage.setItem('itemId', event.target.id)
-    const dialogRef = this.dialog.open(AddStockDialogComponent,{
+    const dialogRef = this.dialog.open(AddInventoryDialogComponent,{
       maxWidth:'300px',
       minHeight:'300px'
     })
@@ -73,6 +74,19 @@ export class AdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('add stock dialog was closed')
     })
+  }
+
+  openUpdateInventoryDialog(event): void{
+    sessionStorage.setItem('stockId', event.target.id)
+    const dialogRef = this.dialog.open(UpdateInventoryDialogComponent, {
+      maxWidth: '300px',
+      minHeight: '300px'
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('update stock dialog closed')
+    })
+    // console.log(event.target.id)
   }
 
   ngOnInit() {

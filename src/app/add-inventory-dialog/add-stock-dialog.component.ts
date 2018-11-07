@@ -8,12 +8,12 @@ import { ItemService } from '../item.service'
   templateUrl: './add-stock-dialog.component.html',
   styleUrls: ['./add-stock-dialog.component.scss']
 })
-export class AddStockDialogComponent implements OnInit {
+export class AddInventoryDialogComponent implements OnInit {
 
   stock: FormGroup
 
   constructor(
-    public dialogRef: MatDialogRef<AddStockDialogComponent>,
+    public dialogRef: MatDialogRef<AddInventoryDialogComponent>,
     private fb: FormBuilder,
     private itemService: ItemService
   ) { }

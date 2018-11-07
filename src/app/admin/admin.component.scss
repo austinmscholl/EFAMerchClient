@@ -126,6 +126,28 @@
             grid-row-gap: 1em;
             // min-height:100vh;
             justify-content: center;
+            
+            table{
+                margin-top:2em;
+                margin-bottom:2em;
+                border:2px solid black;
+                border-collapse: collapse;
+
+                // caption{
+                //     border:1px solid black;
+                // }
+
+                th{
+                    border-bottom:2px solid black;
+                }
+
+                tr{
+                    border-bottom:1px solid black;
+                    i{
+                        color:#D9514E;
+                    }
+                }
+            }
 
             .itemCard{
                 background: hsl(360, 0%, 95%);
@@ -150,15 +172,25 @@
                     transition-duration: 0.4s;
                 }
 
-                .updatebtn{
-                    background-color: #a992bc;
+                .inventoryBtn{
+                    background-color: #9AD0D5;
+                    color: black;
                     &:hover{
                         background-color: white;
-                        color:#a992bc;
+                        color:#9AD0D5;
                     }
                 }
 
-                .deletebtn{
+                .updateBtn{
+                    background-color: #9AD0D5;
+                    color:black;
+                    &:hover{
+                        background-color: white;
+                        color:#9AD0D5;
+                    }
+                }
+
+                .deleteBtn{
                     background-color: #D9514E;
                     &:hover{
                         background-color: white;
