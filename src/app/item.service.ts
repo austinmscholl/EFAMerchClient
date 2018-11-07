@@ -6,19 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ItemService {
 
-  // token = sessionStorage.getItem('token')
-
-  // httpOptions = { headers: new HttpHeaders({
-  //   'Authorization': this.token,
-  //   'Content-Type': 'application/json'
-  // })}
-
   constructor(private http: HttpClient) { }
 
   createItems (item: any, image:any){
-    // console.log(item)
-
-    // console.log(item.itemImg.file_name)
     let formData: FormData = new FormData()
     formData.append('itemName', item.itemName)
     formData.append('itemPrice', item.itemPrice)
@@ -60,6 +50,15 @@ export class ItemService {
     return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
   }
 
+  createStock(id, stock){
+    return this.http.put(`http://localhost:5000/item/addstock/${id}`, {
+    size:stock.size,
+    quantity:stock.quantity
+    })
+    // console.log(id, stock)
+  }
+
+  
   getAccessories(){
     return this.http.get('http://localhost:5000/item/getaccessories')
   }
