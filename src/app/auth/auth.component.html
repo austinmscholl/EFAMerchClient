@@ -1,11 +1,13 @@
 <body>
 <div class="jumbotron">
-    <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-white.png'/></a>
+    <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-primary.png'/></a>
     
+
     <h1>Login or Sign Up Below!</h1>
     <p>Provide us with some quick info so we can ensure you have the best experience possible</p>
 </div>
 <div *ngIf='toggleForm' class="formContainer signup">
+
   <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
     <h2>Sign Up</h2>
     <mat-form-field>
