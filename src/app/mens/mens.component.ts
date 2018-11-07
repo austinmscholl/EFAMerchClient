@@ -13,8 +13,6 @@ export class MensComponent implements OnInit {
 
   constructor(private itemService: ItemService, private cartService:CartService) { }
 
-  
-
   ngOnInit() {
     this.itemService.getItemsGender('male').subscribe(
       data => {
@@ -23,7 +21,6 @@ export class MensComponent implements OnInit {
       }
     )
   }
-
 
   getCategory(event) {
     console.log(event.target.id)

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Item } from './models/item';
 
 @Injectable({
   providedIn: 'root'
@@ -32,18 +33,20 @@ export class ItemService {
 
   getUpdateItem(id){
     console.log('get update item hit', id)
-    return this.http.get(`http://localhost:5000/item/${id}`)
-      .pipe()
+    return this.http.get(`http://localhost:5000/item/oneitem/${id}`)
   }
 
-  updateItem(id){
-    console.log('update service hit', id)
-    return this.http.put(`http://localhost:5000/item/${id}`, {} )
+  updateItem(id, item){
+    console.log('update service hit', id, item)
+    return this.http.put(`http://localhost:5000/item/updateone/${id}`, {
+      itemName: item.itemName,
+      itemPrice: item.itemPrice,
+      itemDescription: item.itemDescription
+    } )
   }
 
   getItemsGender(gender){
     return this.http.get(`http://localhost:5000/item/gender/${gender}`)
-    // console.log(gender)
   }
 
   getCategory(gender, category){
