@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
+import { ItemService } from '../item.service'
 
 @Component({
   selector: 'app-add-stock-dialog',
@@ -13,7 +14,8 @@ export class AddStockDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<AddStockDialogComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private itemService: ItemService
   ) { }
 
 
@@ -28,7 +30,9 @@ export class AddStockDialogComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.stock.value)
+    let itemId = sessionStorage.getItem('itemId')
+    this.itemService.createStock(itemId, this.stock.value)
+      .subscribe()
     this.dialogRef.close()
   }
 
