@@ -66,4 +66,12 @@ export class ItemService {
   getAccessories(){
     return this.http.get('http://localhost:5000/item/getaccessories')
   }
+
+  updateInventory(id, quantity){
+    return this.http.put<any>(`http://localhost:5000/stock/${id}`, {
+      quantity: quantity
+    })
+
+    // console.log(id, quantity)
+  }
 }
