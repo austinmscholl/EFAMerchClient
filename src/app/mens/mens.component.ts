@@ -13,31 +13,14 @@ export class MensComponent implements OnInit {
 
   constructor(private itemService: ItemService, private cartService:CartService) { }
 
-  checkCategory() {
-    if (!sessionStorage.getItem('category')) {
-      this.itemService.getItemsGender('male').subscribe(
-        data => {
-          console.log(data)
-          this.items = data
-        }
-      )
-    } else {
-      let category = sessionStorage.getItem('category')
-      // this.getNavCategory(category)
-    }
-  }
-
   ngOnInit() {
-    this.checkCategory()
+    this.itemService.getItemsGender('male').subscribe(
+      data => {
+        console.log(data)
+        this.items = data
+      }
+    )
   }
-
-  // getNavCategory(category) {
-  //   this.itemService.getCategory('male', category)
-  //     .subscribe(items => this.items = items)
-  //   console.log(category)
-  //   sessionStorage.removeItem('category')
-  // }
-
 
   getCategory(event) {
     console.log(event.target.id)
@@ -54,7 +37,7 @@ export class MensComponent implements OnInit {
   addCart(event){
     this.cartService.addToCart(event.target.id)
       .subscribe()
-    // window.location.reload()
+      alert('Item added successfully!')
   }
 
 }

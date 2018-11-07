@@ -8,6 +8,7 @@
     margin: 1em;
     text-align: center;
     padding: 3em;
+    border-radius: 5px;
 
 }
 
@@ -87,7 +88,7 @@
             grid-template-columns: 24% 24% 24% 24%;
             grid-column-gap: 1em;
             grid-row-gap: 1em;
-            min-height:100vh;
+            // min-height:100vh;
             justify-content: center;
 
             .itemCard{
@@ -101,15 +102,16 @@
                 text-align: center;
 
                 button{
-                    width:50%;
-                    height: 30px;
-                    margin:0 auto;
-                    background-color: #9AD0D5;
-                    // color: white;
-                    border-radius: 3px;
-                    border: 0;
+                    border: none;
                     outline: 0;
+                    padding: 12px;
+                    color: white;
+                    background-color: #d9514e;
+                    text-align: center;
                     cursor: pointer;
+                    width: 100%;
+                    font-size: 18px;
+                    border-radius: 10px;
                 }
                 img{
                     width:100%;

@@ -1,27 +1,13 @@
 <h1 mat-dialog-title>Update</h1>
-<div mat-dialog-content>
-    <form [formGroup] = 'updateItemForm' (ngSubmit) = 'submitForm()'>
-      <select formControlName='gender'>
-        <option value='male'>Male</option>
-        <option value='female'>Female</option>
-        <option value='neutral'>Neutral</option>
-      </select>
-      <select formControlName = 'itemCategory'>
-        <option value='t-shirt'>T-Shirt</option>
-        <option value='longsleeve'>Long Sleeve Shirt</option>
-        <option value='tanktop'>Tank Top</option>
-        <option value='hoodie'>Hoodie</option>
-        <option value='pants'>Pants</option>
-        <option value='accessories'>Accessories</option>
-      </select>
-      <input type='text' placeholder="Item" formControlName='itemName'>
-      <input type='text' placeholder="Price" formControlName='itemPrice'>
-      <input placeholder="Description" formControlName='itemDescription'>
-      <input class="uploadbtn" type='file' (change)='onFileChanged($event)' name='itemImg'>
+    <form [formGroup] = 'uItemForm' (ngSubmit) = 'updateItem()'>
+      <input type='text' formControlName='itemName' [(ngModel)]="itemModel.itemName"><br />
+      <input type='text' formControlName='itemPrice' [(ngModel)]="itemModel.itemPrice"><br />
+      <input type='text' formControlName='itemDescription' [(ngModel)]="itemModel.itemDescription">
 
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No</button>
-    <button class="yes" mat-button (click)="updateItem()" cdkFocusInitial>Yes</button>
+  <button type="submit" class="yes" mat-button cdkFocusInitial>Yes</button>
+  <button type="button" mat-button (click)="onNoClick()">No</button>
+
 </div>
 </form>
-</div>
+

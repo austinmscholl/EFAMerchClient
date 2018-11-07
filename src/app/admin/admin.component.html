@@ -53,9 +53,31 @@
       <div *ngFor='let i of item[0]' class='itemCard'>
         <img [src]="i.itemImg" /> 
         <h3>{{i.itemName}}</h3>
-        <p>{{i.itemPrice}}</p>
-        <button [id]="i.id" class="updatebtn" (click)="openUpdateDialog($event)">Update</button>
-        <button [id]="i.id" class="deletebtn" (click)="openDeleteDialog($event)">Delete</button>
+        <p>${{i.itemPrice}}</p>
+        <p>{{i.itemDescription}}</p>
+        
+        <!---------------------- 
+                Inventory
+         ---------------------->
+
+        <table *ngIf='i.stock.length > 0'>
+          <caption><strong>Inventory</strong></caption>
+          <tr>
+            <th>Size</th>
+            <th>Quantity</th>
+            <th></th>
+          </tr>
+          <tr *ngFor='let stock of i.stock'>
+            <td>{{stock.size}}</td>
+            <td>{{stock.quantity}}</td>
+            <td><i class='fa fa-edit' [id]='stock.id' (click)='openUpdateInventoryDialog($event)'></i></td> 
+            
+          </tr>
+        </table>
+
+        <button [id]='i.id' class='inventoryBtn' (click)='openAddStockDialog($event)'>Add Inventory</button>
+        <button [id]="i.id" class="updateBtn" (click)="openUpdateDialog($event)">Update Details</button>
+        <button [id]="i.id" class="deleteBtn" (click)="openDeleteDialog($event)">Delete</button>
       </div>
     </div>
   </div>
