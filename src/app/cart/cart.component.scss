@@ -85,8 +85,8 @@
     .deletebtn {
         background: transparent;
         border: none;
-        margin: 0;
         text-decoration: none;
+        margin-left: 50px;
         
         &:hover{
             cursor: pointer;
@@ -131,7 +131,7 @@ table{
     margin: 5em auto;
     border-collapse: collapse;
 
-    .quality{
+    .quantity{
         text-align: center;
     }
 
