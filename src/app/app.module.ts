@@ -24,6 +24,7 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 import { AddInventoryDialogComponent } from './add-inventory-dialog/add-stock-dialog.component';
 import { UpdateInventoryDialogComponent } from './update-inventory-dialog/update-inventory-dialog.component';
+import { DeleteCartitemDialogComponent } from './delete-cartitem-dialog/delete-cartitem-dialog.component';
 
 
 
@@ -41,8 +42,8 @@ import { UpdateInventoryDialogComponent } from './update-inventory-dialog/update
     DeleteDialogComponent,
     UpdateDialogComponent,
     AddInventoryDialogComponent,
-    UpdateInventoryDialogComponent
-
+    UpdateInventoryDialogComponent,
+    DeleteCartitemDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +57,6 @@ import { UpdateInventoryDialogComponent } from './update-inventory-dialog/update
   ],
   providers: [UsercartGuard, AdminGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DeleteDialogComponent, UpdateDialogComponent, AddInventoryDialogComponent, UpdateInventoryDialogComponent]
+  entryComponents: [DeleteDialogComponent, UpdateDialogComponent, AddInventoryDialogComponent, UpdateInventoryDialogComponent, DeleteCartitemDialogComponent]
 })
 export class AppModule { }
