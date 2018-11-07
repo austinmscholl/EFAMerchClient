@@ -37,6 +37,7 @@ export class MensComponent implements OnInit {
   addCart(event){
     this.cartService.addToCart(event.target.id)
       .subscribe()
+      alert('Item added successfully!')
   }
 
 }
