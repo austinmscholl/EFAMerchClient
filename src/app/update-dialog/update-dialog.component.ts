@@ -23,7 +23,6 @@ export class UpdateDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<UpdateDialogComponent>,
     private itemService: ItemService, 
-    @Inject(MAT_DIALOG_DATA) data,
     private fb: FormBuilder
   ) { 
   }
