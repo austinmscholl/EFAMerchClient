@@ -22,6 +22,8 @@ import { HomeComponent } from './home/home.component';
 import { WomensComponent } from './womens/womens.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
+import { AddInventoryDialogComponent } from './add-inventory-dialog/add-stock-dialog.component';
+import { UpdateInventoryDialogComponent } from './update-inventory-dialog/update-inventory-dialog.component';
 
 
 
@@ -37,7 +39,9 @@ import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
     HomeComponent,
     WomensComponent,
     DeleteDialogComponent,
-    UpdateDialogComponent
+    UpdateDialogComponent,
+    AddInventoryDialogComponent,
+    UpdateInventoryDialogComponent
 
   ],
   imports: [
@@ -52,6 +56,6 @@ import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
   ],
   providers: [UsercartGuard, AdminGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DeleteDialogComponent, UpdateDialogComponent]
+  entryComponents: [DeleteDialogComponent, UpdateDialogComponent, AddInventoryDialogComponent, UpdateInventoryDialogComponent]
 })
 export class AppModule { }

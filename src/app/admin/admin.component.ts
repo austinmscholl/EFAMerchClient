@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { ItemService } from '../item.service'
+import { Item } from '../models/item'
 import { MatDialog } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
+import { AddInventoryDialogComponent } from '../add-inventory-dialog/add-stock-dialog.component'
+import { UpdateInventoryDialogComponent } from '../update-inventory-dialog/update-inventory-dialog.component'
 
 @Component({
   selector: 'app-admin',
@@ -11,28 +14,19 @@ import { UpdateDialogComponent } from '../update-dialog/update-dialog.component'
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  
   selectedFile: File
   
   onFileChanged(event){
     this.selectedFile = event.target.files[0]
-    // console.log(file)
   }
 
   itemForm: FormGroup
   item: any = []
   toggleMen = false
   toggleWomen = false
+  toggleUpdate = false
   toggleAccessories = false
-
-  updateItemForm: FormGroup
-  updateItem: any = []
-
-  // itemName: string;
-  // itemPrice: number;
-  // category: string;
-  // gender: string;
-  // itemDescription: string;
-  // itemImg: string;
 
   constructor(private fb: FormBuilder, private itemService: ItemService, public dialog: MatDialog) { }
 
@@ -51,22 +45,38 @@ export class AdminComponent implements OnInit {
     sessionStorage.setItem('itemId', event.target.id)
     console.log(event.target.id)
     const dialogRef = this.dialog.open(UpdateDialogComponent, {
-      maxWidth: '300px',
-      minHeight: '300px',
-      data: this.updateItemForm = this.fb.group({
-        itemName: new FormControl(),
-        itemPrice: new FormControl(),
-        itemDescription: new FormControl(),
-        itemCategory: new FormControl(),
-        gender: new FormControl(),
-        itemImg: new FormControl()
-        })
-
+      minWidth: '300px',
+      
     })
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The update dialog was closed')
     });
+  }
+
+  openAddStockDialog(event): void{
+    sessionStorage.setItem('itemId', event.target.id)
+    const dialogRef = this.dialog.open(AddInventoryDialogComponent,{
+      maxWidth:'300px',
+      minHeight:'300px'
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('add stock dialog was closed')
+    })
+  }
+
+  openUpdateInventoryDialog(event): void{
+    sessionStorage.setItem('stockId', event.target.id)
+    const dialogRef = this.dialog.open(UpdateInventoryDialogComponent, {
+      maxWidth: '300px',
+      minHeight: '300px'
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('update stock dialog closed')
+    })
+    // console.log(event.target.id)
   }
 
   ngOnInit() {
@@ -75,17 +85,14 @@ export class AdminComponent implements OnInit {
       itemPrice: new FormControl(),
       itemDescription: new FormControl(),
       itemCategory: new FormControl(),
-      gender: new FormControl(),
-      itemImg: new FormControl()
+      gender: new FormControl()
     })
-
     this.getItems()
   }
 
   submitForm(){
     this.itemService.createItems(this.itemForm.value, this.selectedFile)
     window.location.reload()
-    // console.log(this.selectedFile)
   }
 
   getItems(){
@@ -94,6 +101,12 @@ export class AdminComponent implements OnInit {
 
       console.log(this.item)
   }
+
+  // createStock(event){
+  //   this.itemService.createStock(event.target.id)
+  //     .subscribe()
+  //   // console.log(event.target.id)
+  // }
 
   toggleM(){
     if(this.toggleMen === false){
