@@ -27,6 +27,14 @@ export class CartService {
     return this.http.get<any>('http://localhost:5000/cart', this.httpOptions)
   }
 
+  updateCart(id){
+    console.log('update cart service hit')
+    return this.http.put(`http://localhost:5000/cart/updatecart/${id}`,
+    {},
+    this.httpOptions
+    )
+  }
+
   deleteItem(id){
     console.log('delete item/cart hit', id)
     return this.http.delete(`http://localhost:5000/cart/delete/${id}`, this.httpOptions)

@@ -51,4 +51,8 @@ export class CartComponent implements OnInit {
       console.log('The delete dialog was closed');
     });
   }
+
+  handleQuantityChange(selectValue){
+    console.log('hit', selectValue.target.value)
+  }
 }
