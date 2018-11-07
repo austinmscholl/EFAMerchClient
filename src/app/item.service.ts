@@ -32,12 +32,12 @@ export class ItemService {
   }
 
   getUpdateItem(id){
-    console.log('get update item hit', id)
+    console.log('getUpdateItem hit', id)
     return this.http.get(`http://localhost:5000/item/oneitem/${id}`)
   }
 
   updateItem(id, item){
-    console.log('update service hit', id, item)
+    console.log('updateItem hit', id, item)
     return this.http.put(`http://localhost:5000/item/updateone/${id}`, {
       itemName: item.itemName,
       itemPrice: item.itemPrice,

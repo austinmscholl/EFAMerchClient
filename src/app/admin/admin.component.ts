@@ -15,7 +15,6 @@ import { UpdateInventoryDialogComponent } from '../update-inventory-dialog/updat
 })
 export class AdminComponent implements OnInit {
   
-  
   selectedFile: File
   
   onFileChanged(event){
@@ -28,9 +27,6 @@ export class AdminComponent implements OnInit {
   toggleWomen = false
   toggleUpdate = false
   toggleAccessories = false
-
-  updateItemForm: FormGroup
-  updateItem: any = []
 
   constructor(private fb: FormBuilder, private itemService: ItemService, public dialog: MatDialog) { }
 
