@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ItemService } from '../item.service';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Item } from '../models/item';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ItemService } from '../../item.service';
+import { Item } from '../../models/item';
 
 @Component({
   selector: 'app-update-dialog',
@@ -11,7 +10,6 @@ import { Item } from '../models/item';
 })
 export class UpdateDialogComponent implements OnInit {
 
-  uItemForm: FormGroup
   uItem: any = []
   
   itemModel: Item = {
@@ -22,8 +20,7 @@ export class UpdateDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<UpdateDialogComponent>,
-    private itemService: ItemService, 
-    private fb: FormBuilder
+    private itemService: ItemService
   ) { 
   }
 
@@ -32,7 +29,6 @@ export class UpdateDialogComponent implements OnInit {
   }
 
   updateItem(){
-    console.log(this.uItemForm.value)
     let id = sessionStorage.getItem('itemId')
     this.itemService.updateItem(id, this.itemModel)
       .subscribe()
@@ -53,11 +49,6 @@ export class UpdateDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.uItemForm = this.fb.group({
-      itemName: new FormControl(),
-      itemPrice: new FormControl(),
-      itemDescription: new FormControl()
-    })
     this.getUpdateItem()
   }
 

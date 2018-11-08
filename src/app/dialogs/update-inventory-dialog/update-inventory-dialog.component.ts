@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { MatDialogRef } from '@angular/material'
-import { ItemService } from '../item.service'
+import { ItemService } from '../../item.service'
 
 @Component({
   selector: 'app-update-inventory-dialog',
