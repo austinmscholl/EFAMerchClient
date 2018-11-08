@@ -1,46 +1,42 @@
 <body>
 <div class="jumbotron">
-    <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-primary.png'/></a>
-    
-
-    <h1>Login or Sign Up Below!</h1>
-    <p>Provide us with some quick info so we can ensure you have the best experience possible</p>
+  <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-primary.png'/></a>
 </div>
 <div *ngIf='toggleForm' class="formContainer signup">
-
-  <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
-    <h2>Sign Up</h2>
-    <mat-form-field>
-      <input matInput placeholder="First Name" formControlName='firstname'>
-    </mat-form-field>
-    <br />
-    <mat-form-field>
+  
+    <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
+      <h2>Sign Up</h2>
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName='firstname'>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
         <input matInput placeholder="Last Name" formControlName='lastname'>
       </mat-form-field>
       <br />
-  <mat-form-field>
-    <input matInput placeholder="Email" formControlName='email'>
-  </mat-form-field>
-  <br />
-
-  <mat-form-field>
-    <input matInput placeholder="Password" formControlName='password' type="password">
-  </mat-form-field>
-  <br />
-
-  <button mat-flat-button class="submitButton">Submit</button>
-  <br />
-  <button mat-button class="toggleButton" (click)="toggle()">Login</button>
-  </form>
-</div>
-
-<div *ngIf="!toggleForm" class="formContainer login">
-  <form name='form' (ngSubmit)='logIn()' [formGroup]='user'>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName='email'>
+      </mat-form-field>
+      <br />
+      
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName='password' type="password">
+      </mat-form-field>
+      <br />
+      
+      <button mat-flat-button class="submitButton">Submit</button>
+      <br />
+      <button mat-button class="toggleButton" (click)="toggle()">Login</button>
+    </form>
+  </div>
+  
+  <div *ngIf="!toggleForm" class="formContainer login">
+    <form name='form' (ngSubmit)='logIn()' [formGroup]='user'>
       <h2>Login</h2>
-    <mat-form-field>
-      <input formControlName="email" matInput placeholder="Email" >
-    </mat-form-field>
-    <br />
+      <mat-form-field>
+        <input formControlName="email" matInput placeholder="Email" >
+      </mat-form-field>
+      <br />
 
     <mat-form-field>
       <input formControlName="password" matInput placeholder="Password" type="password">
@@ -49,7 +45,7 @@
 
     <button type="submit" mat-flat-button class="submitButton">Submit</button>
     <br />
-    <button type="button" mat-button class="toggleButton" (click)="toggle()">Sign Up</button>
+    <button type="button" mat-button class="toggleButton" (click)="toggle()">Not a member? Sign up here</button>
   </form>
 </div>
 </body>
