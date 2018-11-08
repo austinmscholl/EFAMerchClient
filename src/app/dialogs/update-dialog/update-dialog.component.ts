@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ItemService } from '../item.service';
-import { Item } from '../models/item';
+import { ItemService } from '../../item.service';
+import { Item } from '../../models/item';
 
 @Component({
   selector: 'app-update-dialog',
@@ -20,9 +20,7 @@ export class UpdateDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<UpdateDialogComponent>,
-    private itemService: ItemService, 
-    @Inject(MAT_DIALOG_DATA) data
-
+    private itemService: ItemService
   ) { 
   }
 

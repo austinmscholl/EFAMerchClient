@@ -20,19 +20,19 @@ export class CartService {
   addToCart(id){
     return this.http.put<any>(`http://localhost:5000/cart/${id}`, {} , this.httpOptions)
       .pipe(cart => cart)
-    // console.log(id)
+    console.log(id)
+  }
+
+  addCartstock(id, stock){
+    return this.http.put<any>(`http://localhost:5000/cart/addstock/${id}`, {
+      quantity:stock.quantity,
+      size: stock.size
+    } , this.httpOptions)
+    .pipe(cart => cart)
   }
 
   getCart(){
     return this.http.get<any>('http://localhost:5000/cart', this.httpOptions)
-  }
-
-  updateCart(id){
-    console.log('update cart service hit')
-    return this.http.put(`http://localhost:5000/cart/updatecart/${id}`,
-    {},
-    this.httpOptions
-    )
   }
 
   deleteItem(id){

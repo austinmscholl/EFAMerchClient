@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { ItemService } from '../item.service'
-import { Item } from '../models/item'
 import { MatDialog } from '@angular/material';
-import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
-import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
-import { AddInventoryDialogComponent } from '../add-inventory-dialog/add-stock-dialog.component'
-import { UpdateInventoryDialogComponent } from '../update-inventory-dialog/update-inventory-dialog.component'
+import { DeleteDialogComponent } from '../dialogs/delete-dialog/delete-dialog.component';
+import { UpdateDialogComponent } from '../dialogs/update-dialog/update-dialog.component';
+import { AddInventoryDialogComponent } from '../dialogs/add-inventory-dialog/add-stock-dialog.component'
+import { UpdateInventoryDialogComponent } from '../dialogs/update-inventory-dialog/update-inventory-dialog.component'
 
 @Component({
   selector: 'app-admin',
