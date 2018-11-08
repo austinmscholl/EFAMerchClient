@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
-import { ItemService } from '../item.service'
+import { ItemService } from '../../item.service'
 
 @Component({
   selector: 'app-add-stock-dialog',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { MatDialog } from '@angular/material';
-import { DeleteCartitemDialogComponent } from '../delete-cartitem-dialog/delete-cartitem-dialog.component';
+import { DeleteCartitemDialogComponent } from '../dialogs/delete-cartitem-dialog/delete-cartitem-dialog.component';
 
 @Component({
   selector: 'app-cart',
@@ -35,7 +35,10 @@ export class CartComponent implements OnInit {
         this.itemArr.push(cart)
       })
 
+      console.log(this.itemArr)
+      
     setTimeout(() => {
+      console.log(this.itemArr)
       this.total()
     }, 100)
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { CartService } from '../cart.service';
+import { CartService } from '../../cart.service';
 
 @Component({
   selector: 'app-delete-cartitem-dialog',
