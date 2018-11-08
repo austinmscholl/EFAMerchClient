@@ -20,11 +20,12 @@ import { CartComponent } from './cart/cart.component';
 import { AdminGuard } from './admin.guard';
 import { HomeComponent } from './home/home.component';
 import { WomensComponent } from './womens/womens.component';
-import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
-import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
-import { AddInventoryDialogComponent } from './add-inventory-dialog/add-stock-dialog.component';
-import { UpdateInventoryDialogComponent } from './update-inventory-dialog/update-inventory-dialog.component';
-import { DeleteCartitemDialogComponent } from './delete-cartitem-dialog/delete-cartitem-dialog.component';
+import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
+import { UpdateDialogComponent } from './dialogs/update-dialog/update-dialog.component';
+import { AddInventoryDialogComponent } from './dialogs/add-inventory-dialog/add-stock-dialog.component';
+import { UpdateInventoryDialogComponent } from './dialogs/update-inventory-dialog/update-inventory-dialog.component';
+import { DeleteCartitemDialogComponent } from './dialogs/delete-cartitem-dialog/delete-cartitem-dialog.component';
+import { CartstockDialogComponent } from './dialogs/cartstock-dialog/cartstock-dialog.component';
 
 
 
@@ -43,7 +44,8 @@ import { DeleteCartitemDialogComponent } from './delete-cartitem-dialog/delete-c
     UpdateDialogComponent,
     AddInventoryDialogComponent,
     UpdateInventoryDialogComponent,
-    DeleteCartitemDialogComponent
+    DeleteCartitemDialogComponent,
+    CartstockDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,6 @@ import { DeleteCartitemDialogComponent } from './delete-cartitem-dialog/delete-c
   ],
   providers: [UsercartGuard, AdminGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DeleteDialogComponent, UpdateDialogComponent, AddInventoryDialogComponent, UpdateInventoryDialogComponent, DeleteCartitemDialogComponent]
+  entryComponents: [DeleteDialogComponent, UpdateDialogComponent, AddInventoryDialogComponent, UpdateInventoryDialogComponent, DeleteCartitemDialogComponent, CartstockDialogComponent]
 })
 export class AppModule { }
