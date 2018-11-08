@@ -5,7 +5,9 @@
       <input type='text' formControlName='itemDescription' [(ngModel)]="itemModel.itemDescription">
 
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No</button>
-    <button class="yes" mat-button cdkFocusInitial>Yes</button>
+  <button type="submit" class="yes" mat-button cdkFocusInitial>Yes</button>
+  <button type="button" mat-button (click)="onNoClick()">No</button>
+
 </div>
 </form>
+

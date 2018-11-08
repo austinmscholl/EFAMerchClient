@@ -5,6 +5,7 @@
       <th>Item</th>
       <th>Quantity</th>
       <th>Price</th>
+      <th></th>
     </tr>
     <tr  *ngFor='let item of itemArr[0].items'>
       <td>
@@ -12,22 +13,25 @@
         {{item.itemName}}
         {{item.itemDescription}}
       </td>
-      <td class='quality'>
-        <select>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
+      <td class='quantity'>
+        <select (change)="handleQuantityChange($event.target.value)">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
       </td>
       <td class='price'>
         ${{item.itemPrice}}
+      </td>
+      <td>
+        <button [id]='item.id' class="deletebtn fa fa-trash" (click)="openDeleteCartItemDialog($event)"></button>
       </td>
     </tr>
   </table>
@@ -43,6 +47,6 @@
         <td style='padding-top:1.5em; border-bottom: none'>${{totalNum}}</td>
       </tr>
     </table>  
-    <button>Checkout</button>
+    <button class="checkoutbtn">Checkout</button>
   </div>
   </div>
