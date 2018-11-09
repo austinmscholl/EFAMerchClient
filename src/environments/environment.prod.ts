@@ -6,9 +6,9 @@ export let APIURL = '';
 
 switch (window.location.hostname) {
   // this is the deployed angular application
-  case 'efamerch-client.herokuapp.com':
+  case 'https://efamerch-client.herokuapp.com':
     // this is the full url of your deployed API
-    APIURL = 'https://efamerch-client.herokuapp.com'
+    APIURL = 'https://efamerch-server.herokuapp.com'
     break;
   default:
     // this is the local host name of your API
