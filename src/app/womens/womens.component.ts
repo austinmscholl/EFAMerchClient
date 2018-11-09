@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
+import { CartstockDialogComponent } from '../dialogs/cartstock-dialog/cartstock-dialog.component'
+import { MatDialog } from '@angular/material'
 
 @Component({
   selector: 'app-womens',
@@ -10,7 +12,17 @@ export class WomensComponent implements OnInit {
 
   items: Object;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService,
+    private dialog: MatDialog) { }
+
+  openCartstockDialog(event):void {
+    sessionStorage.setItem('itemId', event.target.id)
+    const dialogRef = this.dialog.open(CartstockDialogComponent)
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('the cart stock dialog closed')
+    })
+  }
 
   ngOnInit() {
     this.itemService.getItemsGender('female').subscribe(
@@ -20,13 +32,6 @@ export class WomensComponent implements OnInit {
       }
     )
 
-  }
-
-  addToCart(event) {
-    setTimeout(() => {
-      console.log(event.target.id)
-    }
-    ), 3000
   }
 
 
