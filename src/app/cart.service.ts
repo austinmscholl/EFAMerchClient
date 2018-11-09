@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APIURL } from "../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +19,13 @@ export class CartService {
   
 
   addToCart(id){
-    return this.http.put<any>(`http://localhost:5000/cart/${id}`, {} , this.httpOptions)
+    return this.http.put<any>(`${APIURL}/cart/${id}`, {} , this.httpOptions)
       .pipe(cart => cart)
     console.log(id)
   }
 
   addCartstock(id, stock){
-    return this.http.put<any>(`http://localhost:5000/cart/addstock/${id}`, {
+    return this.http.put<any>(`${APIURL}/cart/addstock/${id}`, {
       quantity:stock.quantity,
       size: stock.size
     } , this.httpOptions)
@@ -32,12 +33,12 @@ export class CartService {
   }
 
   getCart(){
-    return this.http.get<any>('http://localhost:5000/cart', this.httpOptions)
+    return this.http.get<any>(`${APIURL}/cart`, this.httpOptions)
   }
 
   deleteItem(id){
     console.log('delete item/cart hit', id)
-    return this.http.delete(`http://localhost:5000/cart/delete/${id}`, this.httpOptions)
+    return this.http.delete(`${APIURL}/cart/delete/${id}`, this.httpOptions)
   }
   
 }
