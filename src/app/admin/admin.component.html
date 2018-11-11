@@ -1,83 +1,105 @@
 <div class='adminContainer'>
-  <div class='formContainer'>
-    <h2>Add Item</h2>
-    <form [formGroup] = 'itemForm' (ngSubmit) = 'submitForm()'>
-      <select formControlName='gender'>
-        <option value='male'>Male</option>
-        <option value='female'>Female</option>
-        <option value='neutral'>Neutral</option>
-      </select>
-      <select formControlName = 'itemCategory'>
-        <option value='t-shirt'>T-Shirt</option>
-        <option value='longsleeve'>Long Sleeve Shirt</option>
-        <option value='tanktop'>Tank Top</option>
-        <option value='hoodie'>Hoodie</option>
-        <option value='pants'>Pants</option>
-        <option value='accessories'>Accessories</option>
-      </select>
-      <input type='text' placeholder="Item" formControlName='itemName'>
-      <input type='text' placeholder="Price" formControlName='itemPrice'>
-      <input placeholder="Description" formControlName='itemDescription'>
-      <input class="uploadbtn" type='file' (change)='onFileChanged($event)' name='itemImg'>
-      <button>Submit</button>
-    </form>
-    
+  <div class='adminToggle'>
+      <div class='button' style='border-right:1px solid black' (click)='toggleInv()'>Product Inventory</div>
+      <div class='button' (click)='toggleOrd()'>Ordered Products</div>
   </div>
-  <div class='bodyContainer'>
-    <div class='categoryContainer'>
-      <div class='itemCategory'>
-        <p (click)='toggleM()'>Men</p>
-          <ul *ngIf='toggleMen' class='menCat'>
-            <li>T-Shirts</li>
-            <li>Long Sleeve Shirts</li>
-            <li>Hoodies</li>
-          </ul>
-        <p (click)='toggleW()'>Women</p>
-          <ul *ngIf='toggleWomen' class='womenCat'>
-            <li>T-Shirts</li>
-            <li>Tank Tops</li>
-            <li>Long Sleeve Shirts</li>
-            <li>Hoodies</li>
-            <li>Sweatpants</li>
-          </ul>
-        <p (click)='toggleA()'>Accessories</p>
-          <ul *ngIf='toggleAccessories' class='accessoriesCat'>
-              <li>Hats</li>
-              <li>Mugs</li>
-              <li>Aprons</li>
-              <li>Bags</li>
-          </ul>
+
+<!----------------------------
+      Ordered Products
+----------------------------->
+  <div *ngIf='toggleOrder' >
+    <div *ngFor='let stock of cartstock'>
+      <div *ngFor='let item of stock.cartstock'>
+        {{item.itemId}}
+        {{item.size}}
+        {{item.quantity}}
       </div>
     </div>
-    <div class='itemContainer'>
-      <div *ngFor='let i of item[0]' class='itemCard'>
-        <img [src]="i.itemImg" /> 
-        <h3>{{i.itemName}}</h3>
-        <p>${{i.itemPrice}}</p>
-        <p>{{i.itemDescription}}</p>
-        
-        <!---------------------- 
-                Inventory
-         ---------------------->
+  </div>
 
-        <table *ngIf='i.stock.length > 0'>
-          <caption><strong>Inventory</strong></caption>
-          <tr>
-            <th>Size</th>
-            <th>Quantity</th>
-            <th></th>
-          </tr>
-          <tr *ngFor='let stock of i.stock'>
-            <td>{{stock.size}}</td>
-            <td>{{stock.quantity}}</td>
-            <td><i class='fa fa-edit' [id]='stock.id' (click)='openUpdateInventoryDialog($event)'></i></td> 
-            
-          </tr>
-        </table>
+<!----------------------------
+      Products Inventory
+----------------------------->
+  <div *ngIf='toggleProducts'>
+    <div class='formContainer'>
+      <h2>Add Item</h2>
+      <form [formGroup] = 'itemForm' (ngSubmit) = 'submitForm()'>
+        <select formControlName='gender'>
+          <option value='male'>Male</option>
+          <option value='female'>Female</option>
+          <option value='neutral'>Neutral</option>
+        </select>
+        <select formControlName = 'itemCategory'>
+          <option value='t-shirt'>T-Shirt</option>
+          <option value='longsleeve'>Long Sleeve Shirt</option>
+          <option value='tanktop'>Tank Top</option>
+          <option value='hoodie'>Hoodie</option>
+          <option value='pants'>Pants</option>
+          <option value='accessories'>Accessories</option>
+        </select>
+        <input type='text' placeholder="Item" formControlName='itemName'>
+        <input type='text' placeholder="Price" formControlName='itemPrice'>
+        <input placeholder="Description" formControlName='itemDescription'>
+        <input class="uploadbtn" type='file' (change)='onFileChanged($event)' name='itemImg'>
+        <button>Submit</button>
+      </form>
+    </div>
+    <div class='bodyContainer'>
+      <div class='categoryContainer'>
+        <div class='itemCategory'>
+          <p (click)='toggleM()'>Men</p>
+            <ul *ngIf='toggleMen' class='menCat'>
+              <li>T-Shirts</li>
+              <li>Long Sleeve Shirts</li>
+              <li>Hoodies</li>
+            </ul>
+          <p (click)='toggleW()'>Women</p>
+            <ul *ngIf='toggleWomen' class='womenCat'>
+              <li>T-Shirts</li>
+              <li>Tank Tops</li>
+              <li>Long Sleeve Shirts</li>
+              <li>Hoodies</li>
+              <li>Sweatpants</li>
+            </ul>
+          <p (click)='toggleA()'>Accessories</p>
+            <ul *ngIf='toggleAccessories' class='accessoriesCat'>
+                <li>Hats</li>
+                <li>Mugs</li>
+                <li>Aprons</li>
+                <li>Bags</li>
+            </ul>
+        </div>
+      </div>
+      <div class='itemContainer'>
+        <div *ngFor='let i of item[0]' class='itemCard'>
+          <img [src]="i.itemImg" /> 
+          <h3>{{i.itemName}}</h3>
+          <p>${{i.itemPrice}}</p>
+          <p>{{i.itemDescription}}</p>
+          
+          <!---------------------- 
+                  Inventory
+          ---------------------->
 
-        <button [id]='i.id' class='inventoryBtn' (click)='openAddStockDialog($event)'>Add Inventory</button>
-        <button [id]="i.id" class="updateBtn" (click)="openUpdateDialog($event)">Update Details</button>
-        <button [id]="i.id" class="deleteBtn" (click)="openDeleteDialog($event)">Delete</button>
+          <table *ngIf='i.stock.length > 0'>
+            <caption><strong>Inventory</strong></caption>
+            <tr>
+              <th>Size</th>
+              <th>Quantity</th>
+              <th></th>
+            </tr>
+            <tr *ngFor='let stock of i.stock'>
+              <td>{{stock.size}}</td>
+              <td>{{stock.quantity}}</td>
+              <td><i class='fa fa-edit' [id]='stock.id' (click)='openUpdateInventoryDialog($event)'></i></td> 
+              
+            </tr>
+          </table>
+
+          <button [id]='i.id' class='inventoryBtn' (click)='openAddStockDialog($event)'>Add Inventory</button>
+          <button [id]="i.id" class="updateBtn" (click)="openUpdateDialog($event)">Update Details</button>
+          <button [id]="i.id" class="deleteBtn" (click)="openDeleteDialog($event)">Delete</button>
+        </div>
       </div>
     </div>
   </div>

@@ -26,6 +26,10 @@ export class ItemService {
     return this.http.get('http://localhost:5000/item/getitems')
   }
 
+  getOrdered(){
+    return this.http.get('http://localhost:5000/cart/ordered')
+  }
+
   deleteItem(id){
     console.log('delete service hit', id)
     return this.http.delete(`http://localhost:5000/item/${id}`)

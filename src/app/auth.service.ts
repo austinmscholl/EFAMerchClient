@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from './models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   logIn(email:string, password:string){
-    return this.http.post<any>('http://localhost:5000/auth/login', {email: email, password: password})
-      .pipe(map(user => user))
+    return this.http.post<User>('http://localhost:5000/auth/login', {email: email, password: password})
     //  console.log(email, password)
   }
 
@@ -28,6 +28,17 @@ export class AuthService {
       password: password, 
       firstname: firstname, 
       lastname: lastname}, headers)
+  }
+
+  findUser(){
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': sessionStorage.getItem('token')
+      })
+    }
+
+    return this.http.get<User>('http://localhost:5000/auth/findUser', headers)
   }
 
 }
