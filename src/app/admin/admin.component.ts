@@ -6,6 +6,7 @@ import { DeleteDialogComponent } from '../dialogs/delete-dialog/delete-dialog.co
 import { UpdateDialogComponent } from '../dialogs/update-dialog/update-dialog.component';
 import { AddInventoryDialogComponent } from '../dialogs/add-inventory-dialog/add-stock-dialog.component'
 import { UpdateInventoryDialogComponent } from '../dialogs/update-inventory-dialog/update-inventory-dialog.component'
+// import { subscribeOn } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin',
@@ -14,13 +15,17 @@ import { UpdateInventoryDialogComponent } from '../dialogs/update-inventory-dial
 })
 export class AdminComponent implements OnInit {
   
+  toggleProducts = true;
+  toggleOrder = false;
   selectedFile: File
   
   onFileChanged(event){
     this.selectedFile = event.target.files[0]
   }
 
+  
   itemForm: FormGroup
+  cartstock: any = []
   item: any = []
   toggleMen = false
   toggleWomen = false
@@ -86,10 +91,25 @@ export class AdminComponent implements OnInit {
       gender: new FormControl()
     })
     this.getItems()
+    // this.getOrdered()
   }
 
-  submitForm(){
-    this.itemService.createItems(this.itemForm.value, this.selectedFile)
+  toggleInv(){
+    if(this.toggleProducts === false){
+      this.toggleProducts = true
+      this.toggleOrder = false
+    }
+  }
+
+  toggleOrd(){
+    if(this.toggleOrder === false){
+      this.toggleOrder = true
+      this.toggleProducts = false
+    }
+  }
+
+  async submitForm(){
+    await this.itemService.createItems(this.itemForm.value, this.selectedFile)
     window.location.reload()
   }
 
@@ -99,6 +119,15 @@ export class AdminComponent implements OnInit {
 
       console.log(this.item)
   }
+
+  // getOrdered(){
+  //   this.itemService.getOrdered()
+  //     .subscribe(items => this.cartstock = items)
+
+  //   setTimeout(() => {
+  //     console.log(this.cartstock)
+  //   }, 1000)
+  // }
 
   // createStock(event){
   //   this.itemService.createStock(event.target.id)

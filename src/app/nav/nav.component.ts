@@ -18,7 +18,7 @@ export class NavComponent implements OnInit {
   }
 
   adminCheck(){
-    let admin = sessionStorage.getItem('role')
+    let admin = sessionStorage.getItem('admin')
     if(admin === 'admin'){
       this.role = true
     } else{
