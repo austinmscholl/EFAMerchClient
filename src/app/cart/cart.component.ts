@@ -39,7 +39,6 @@ export class CartComponent implements OnInit {
         this.total()
       })
 
-     
   }
 
   openDeleteCartItemDialog(event): void {

@@ -17,7 +17,7 @@ export class CartService {
       'Authorization': this.token
     })
   }
-  
+
   additem(itemId, cartId, cartstock){
     console.log(itemId, cartId, cartstock)
     return this.http.post<any>(`${APIURL}/cartitem/${cartId}/${itemId}`, {
