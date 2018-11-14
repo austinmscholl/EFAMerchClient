@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APIURL } from "../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,6 @@ export class CartService {
     })
   }
   
-
   additem(itemId, cartId, cartstock){
     console.log(itemId, cartId, cartstock)
     return this.http.post<any>(`http://localhost:5000/cartitem/${cartId}/${itemId}`, {
@@ -27,12 +27,12 @@ export class CartService {
   }
 
   getCart():Observable<any>{
-    return this.http.get<any>('http://localhost:5000/cart', this.httpOptions)
+    return this.http.get<any>(`${APIURL}/cart`, this.httpOptions)
   }
 
   deleteItem(id){
     console.log('delete item/cart hit', id)
-    return this.http.delete(`http://localhost:5000/cart/delete/${id}`, this.httpOptions)
+    return this.http.delete(`${APIURL}/cart/delete/${id}`, this.httpOptions)
   }
   
 }

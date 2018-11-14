@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Item } from './models/item';
+import { APIURL } from '../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,12 @@ export class ItemService {
     formData.append('itemDescription', item.itemDescription)
     formData.append('itemImg', image)
     
-    return this.http.post<any>('http://localhost:5000/item/additem', formData)
+    return this.http.post<any>(`${APIURL}/item/additem`, formData)
       .subscribe(response => response)
   }
 
   getItems() {
-    return this.http.get('http://localhost:5000/item/getitems')
+    return this.http.get(`${APIURL}/item/getitems`)
   }
 
   getOrdered(){
@@ -32,17 +33,17 @@ export class ItemService {
 
   deleteItem(id){
     console.log('delete service hit', id)
-    return this.http.delete(`http://localhost:5000/item/${id}`)
+    return this.http.delete(`${APIURL}/item/${id}`)
   }
 
   getUpdateItem(id){
     console.log('getUpdateItem hit', id)
-    return this.http.get(`http://localhost:5000/item/oneitem/${id}`)
+    return this.http.get(`${APIURL}/item/oneitem/${id}`)
   }
 
   updateItem(id, item){
     console.log('updateItem hit', id, item)
-    return this.http.put(`http://localhost:5000/item/updateone/${id}`, {
+    return this.http.put(`${APIURL}/item/updateone/${id}`, {
       itemName: item.itemName,
       itemPrice: item.itemPrice,
       itemDescription: item.itemDescription
@@ -50,16 +51,16 @@ export class ItemService {
   }
 
   getItemsGender(gender){
-    return this.http.get(`http://localhost:5000/item/gender/${gender}`)
+    return this.http.get(`${APIURL}/item/gender/${gender}`)
   }
 
   getCategory(gender, category){
     console.log(gender, category)
-    return this.http.get(`http://localhost:5000/item/${gender}/${category}`)
+    return this.http.get(`${APIURL}/item/${gender}/${category}`)
   }
 
   createStock(id, stock){
-    return this.http.put(`http://localhost:5000/item/addstock/${id}`, {
+    return this.http.put(`${APIURL}/item/addstock/${id}`, {
     size:stock.size,
     quantity:stock.quantity
     })
@@ -68,11 +69,11 @@ export class ItemService {
 
   
   getAccessories(){
-    return this.http.get('http://localhost:5000/item/getaccessories')
+    return this.http.get(`${APIURL}/item/getaccessories`)
   }
 
   updateInventory(id, quantity){
-    return this.http.put<any>(`http://localhost:5000/stock/${id}`, {
+    return this.http.put<any>(`${APIURL}/stock/${id}`, {
       quantity: quantity
     })
 
