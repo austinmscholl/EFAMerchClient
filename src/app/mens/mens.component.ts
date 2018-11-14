@@ -17,11 +17,16 @@ export class MensComponent implements OnInit {
 
   openCartstockDialog(event):void {
     sessionStorage.setItem('itemId', event.target.id)
-    const dialogRef = this.dialog.open(CartstockDialogComponent)
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('the cart stock dialog closed')
-    })
+    let token = sessionStorage.getItem('token')
+    if(token){
+      const dialogRef = this.dialog.open(CartstockDialogComponent)
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('the cart stock dialog closed')
+      })
+    } else{ 
+      alert('You need to login/register to buy items')
+    }
   }
 
   ngOnInit() {

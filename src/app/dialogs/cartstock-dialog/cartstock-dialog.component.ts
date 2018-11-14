@@ -34,7 +34,7 @@ export class CartstockDialogComponent implements OnInit {
  addCart(){
    let itemId = sessionStorage.getItem('itemId')
    let cartId = this.user.cart.id
-  //  console.log(cartId)
+  //  console.log(this.cartstock)
     this.cartService.additem(itemId, cartId, this.cartstock)
       .subscribe()
     this.dialogRef.close()
