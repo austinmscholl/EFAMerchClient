@@ -21,18 +21,7 @@
          
         </td>
         <td class='quantity'>
-          <select (change)="handleQuantityChange($event.target.value)">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+          <p>{{item.cartitem.quantity}}</p>
         </td>
         <td class='price'>
           ${{item.itemPrice}}
@@ -44,7 +33,7 @@
     </table>
     <div class='checkout'>
       <h2>Cart Summary</h2>
-      <table>
+      <table *ngIf='totalNum > 0'>
         <tr>
           <td style='border-bottom: none'>Subtotal:</td>
           <td style='border-bottom: none'> ${{totalNum}}</td>
