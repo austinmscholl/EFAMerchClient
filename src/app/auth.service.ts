@@ -10,6 +10,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  
+
+
   logIn(email:string, password:string){
     return this.http.post<User>('http://localhost:5000/auth/login', {email: email, password: password})
     //  console.log(email, password)

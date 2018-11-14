@@ -27,7 +27,7 @@ export class AuthComponent implements OnInit {
 
   setToken(user){
     sessionStorage.setItem('token', user.sessionToken)
-    sessionStorage.setItem('admin', user.user.admin)
+    sessionStorage.setItem('admin', user.user.role)
     window.location.reload()
     // console.log(user.user.role)
   }

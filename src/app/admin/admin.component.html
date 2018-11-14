@@ -1,13 +1,13 @@
 <div class='adminContainer'>
-  <div class='adminToggle'>
+  <!-- <div class='adminToggle'>
       <div class='button' style='border-right:1px solid black' (click)='toggleInv()'>Product Inventory</div>
       <div class='button' (click)='toggleOrd()'>Ordered Products</div>
-  </div>
+  </div> -->
 
 <!----------------------------
       Ordered Products
 ----------------------------->
-  <div *ngIf='toggleOrder' >
+  <!-- <div *ngIf='toggleOrder' >
     <div *ngFor='let stock of cartstock'>
       <div *ngFor='let item of stock.cartstock'>
         {{item.itemId}}
@@ -15,7 +15,7 @@
         {{item.quantity}}
       </div>
     </div>
-  </div>
+  </div> -->
 
 <!----------------------------
       Products Inventory
@@ -81,7 +81,7 @@
                   Inventory
           ---------------------->
 
-          <table *ngIf='i.stock.length > 0'>
+          <!-- <table *ngIf='i.stock.length > 0'>
             <caption><strong>Inventory</strong></caption>
             <tr>
               <th>Size</th>
@@ -94,7 +94,7 @@
               <td><i class='fa fa-edit' [id]='stock.id' (click)='openUpdateInventoryDialog($event)'></i></td> 
               
             </tr>
-          </table>
+          </table> -->
 
           <button [id]='i.id' class='inventoryBtn' (click)='openAddStockDialog($event)'>Add Inventory</button>
           <button [id]="i.id" class="updateBtn" (click)="openUpdateDialog($event)">Update Details</button>

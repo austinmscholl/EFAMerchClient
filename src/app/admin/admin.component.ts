@@ -6,7 +6,7 @@ import { DeleteDialogComponent } from '../dialogs/delete-dialog/delete-dialog.co
 import { UpdateDialogComponent } from '../dialogs/update-dialog/update-dialog.component';
 import { AddInventoryDialogComponent } from '../dialogs/add-inventory-dialog/add-stock-dialog.component'
 import { UpdateInventoryDialogComponent } from '../dialogs/update-inventory-dialog/update-inventory-dialog.component'
-import { subscribeOn } from 'rxjs/operators';
+// import { subscribeOn } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin',
@@ -91,7 +91,7 @@ export class AdminComponent implements OnInit {
       gender: new FormControl()
     })
     this.getItems()
-    this.getOrdered()
+    // this.getOrdered()
   }
 
   toggleInv(){
@@ -108,8 +108,8 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  submitForm(){
-    this.itemService.createItems(this.itemForm.value, this.selectedFile)
+  async submitForm(){
+    await this.itemService.createItems(this.itemForm.value, this.selectedFile)
     window.location.reload()
   }
 
@@ -120,14 +120,14 @@ export class AdminComponent implements OnInit {
       console.log(this.item)
   }
 
-  getOrdered(){
-    this.itemService.getOrdered()
-      .subscribe(items => this.cartstock = items)
+  // getOrdered(){
+  //   this.itemService.getOrdered()
+  //     .subscribe(items => this.cartstock = items)
 
-    setTimeout(() => {
-      console.log(this.cartstock)
-    }, 1000)
-  }
+  //   setTimeout(() => {
+  //     console.log(this.cartstock)
+  //   }, 1000)
+  // }
 
   // createStock(event){
   //   this.itemService.createStock(event.target.id)

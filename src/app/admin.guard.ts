@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { User } from './models/user'
-import { AuthService } from './auth.service' 
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +8,10 @@ import { AuthService } from './auth.service'
 
 
 export class AdminGuard implements CanActivate {
-
+  role:string =  sessionStorage.getItem('admin')
+  
   getRole(){
-    if(JSON.parse(sessionStorage.getItem('admin'))){
+    if(this.role === 'admin'){
       return true
     } else {
       return false
