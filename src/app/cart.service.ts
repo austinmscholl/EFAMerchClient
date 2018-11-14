@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { APIURL } from '../environments/environment.prod';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APIURL } from "../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,6 @@ export class CartService {
     })
   }
   
-
   additem(itemId, cartId, cartstock){
     console.log(itemId, cartId, cartstock)
     return this.http.post<any>(`${APIURL}/cartitem/${cartId}/${itemId}`, {

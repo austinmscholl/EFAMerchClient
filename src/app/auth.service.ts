@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { APIURL } from '../environments/environment.prod';
 import { User } from './models/user';
+import { APIURL } from '../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
