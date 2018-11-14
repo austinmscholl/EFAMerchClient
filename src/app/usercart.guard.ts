@@ -8,6 +8,9 @@ import { Observable } from 'rxjs';
 
 export class UsercartGuard implements CanActivate {
 
+  // checks if there is currently a token in sessionStorage
+  // if true, returns true, drops the guard
+  // if false, keeps the guard activated
   getToken (){
     let token = sessionStorage.getItem('token')
     if(!token){

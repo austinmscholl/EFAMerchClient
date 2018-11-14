@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'auth', component: AuthComponent },
   {path: 'sale', component: SaleComponent },
+  // canActivate takes the appropriate Guard
   {path: 'admin', canActivate:[AdminGuard], component: AdminComponent },
   {path: 'cart', canActivate:[UsercartGuard], component: CartComponent },
   {path: 'mens', component: MensComponent},

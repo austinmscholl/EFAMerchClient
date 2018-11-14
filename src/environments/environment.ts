@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false
+  // stripeKey: 'pk_test_KcMHUR7chAsSsq65PH1VLiwB'
 };
 
 /*
