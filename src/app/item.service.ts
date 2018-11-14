@@ -20,7 +20,10 @@ export class ItemService {
     formData.append('itemImg', image)
     
     return this.http.post<any>(`${APIURL}/item/additem`, formData)
-      .subscribe(response => response)
+      .subscribe(response => {
+        response
+        window.location.reload()
+      })
   }
 
   getItems() {
