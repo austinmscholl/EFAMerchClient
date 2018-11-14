@@ -110,7 +110,7 @@ export class AdminComponent implements OnInit {
 
   async submitForm(){
     await this.itemService.createItems(this.itemForm.value, this.selectedFile)
-    window.location.reload()
+    // window.location.reload()
   }
 
   getItems(){
