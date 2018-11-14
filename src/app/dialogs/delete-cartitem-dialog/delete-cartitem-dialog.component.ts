@@ -18,11 +18,10 @@ export class DeleteCartitemDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  deleteItemCart(){
+  async deleteItemCart(){
     let id = sessionStorage.getItem('itemId')
     console.log(id)
-    this.cartService.deleteItem(id)
-      .pipe()
+    await this.cartService.deleteItem(id)
       .subscribe()
       window.location.reload()
   }

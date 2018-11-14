@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material'
 import { CartService } from '../../cart.service'
 import { ItemService } from '../../item.service'
 import { Cartstock } from '../../models/cartstock'
+import { AuthService } from '../../auth.service'
 
 @Component({
   selector: 'app-cartstock-dialog',
@@ -11,38 +12,34 @@ import { Cartstock } from '../../models/cartstock'
 })
 export class CartstockDialogComponent implements OnInit {
 
-  item: Object
+  user:any
 
   cartstock: Cartstock = {
     quantity:null,
     size: null
   }
 
-  constructor(private cartService: CartService, private itemService: ItemService, public dialogRef: MatDialogRef<CartstockDialogComponent>) { }
+  constructor(private cartService: CartService, private itemService: ItemService, public dialogRef: MatDialogRef<CartstockDialogComponent>, public authService: AuthService) { }
 
   onNoClick(){
     this.dialogRef.close()
   }
 
-  async cartStock(){
-    let itemId = sessionStorage.getItem('itemId')
-    await this.addCart(itemId)
-    this.cartService.addCartstock(itemId, this.cartstock)
+ addCart(){
+   let itemId = sessionStorage.getItem('itemId')
+   let cartId = this.user.cart.id
+  //  console.log(cartId)
+    this.cartService.additem(itemId, cartId, this.cartstock)
       .subscribe()
-    // console.log(itemId, this.cartstock)
-
-    this.onNoClick()
+    this.dialogRef.close()
   }
+
 
   ngOnInit() {
-    let itemId = sessionStorage.getItem('itemId')
-    this.itemService.getUpdateItem(itemId)
-      .subscribe(item => this.item = item)
+    this.authService.findUser()
+    .subscribe(user => this.user = user)
   }
 
-  addCart(id){
-    this.cartService.addToCart(id)
-      .subscribe()
-  }
+  
 
 }
