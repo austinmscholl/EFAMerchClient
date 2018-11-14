@@ -21,8 +21,7 @@ export class AuthService {
     console.log(firstname, lastname, email, password)
     let headers = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://efamerch-client.herokuapp.com'
+        'Content-Type': 'application/json'
       })
     }
     
