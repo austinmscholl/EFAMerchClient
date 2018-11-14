@@ -3,22 +3,24 @@
       <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-primary.png'/></a>
         <nav>
           <ul>
-            <li><a (mouseover)="toggleMens()" class='clothes' routerLink='mens'>Mens</a></li>
+            <li class='clothes'><a (mouseover)="toggleMens()" routerLink='mens'>Mens</a></li>
               <!-- <ul (mouseleave)="toggleMens()" *ngIf="dropdownMens" class="dropdown-mens">
                 <a routerLink="mens" id="t-shirt" name="male" class="dropdown-items" (click)='getCategory($event)'>Shirts</a>
                 <a routerLink="mens" id="hoodie" name="male" class="dropdown-items" (click)='getCategory($event)'>Hoodies</a>
                 <a routerLink="mens" id="pants" name="male" class="dropdown-items" (click)='getCategory($event)'>Sweatpants</a>
                 <a id="accessories" class="dropdown-items" (click)='getAccessories($event)'>Accessories</a>
               </ul> -->
-            <li><a (mouseover)="toggleWomens()" class='clothes' routerLink='womens'>Womens</a></li>
+            <li class='clothes'><a (mouseover)="toggleWomens()" routerLink='womens'>Womens</a></li>
               <!-- <ul (mouseleave)="toggleWomens()" *ngIf="dropdownWomens" class="dropdown-womens">
                   <a id="t-shirt" name="female" class="dropdown-items" (click)='getCategory($event)'>Shirts</a>
                   <a id="hoodie" name="female" class="dropdown-items" (click)='getCategory($event)'>Hoodies</a>
                   <a id="pants" name="female" class="dropdown-items" (click)='getCategory($event)'>Sweatpants</a>
                   <a id="accessories" class="dropdown-items" (click)='getCategory($event)'>Accessories</a>
               </ul> -->
-            <li><a routerLink='sale'>Sale</a></li>
-            <li><a routerLink='auth'>Login/Signup</a></li>
+            <li class='clothes'><a routerLink='sale'>Accessories</a></li> 
+            <li>|</li>
+            <li *ngIf='!token'><a routerLink='auth'>Login/Signup</a></li>
+            <li *ngIf='token' (click)='logout()'> <a>Sign Out</a></li>
             <li *ngIf='role'><a routerLink='admin'>Admin</a></li>
             <li><a routerLink='cart'><i class='fa fa-shopping-cart'></i></a></li>
 

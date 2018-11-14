@@ -10,6 +10,7 @@
 }
 
 header{
+    margin:0;
     background: white;
     width:100%;
     border-bottom: 2px solid black;
@@ -22,11 +23,12 @@ header{
         font-weight: bold;
         text-decoration: none;
         width:700px;
+        margin:auto 0
     }
 
     nav{
         justify-self: right;
-        margin-top: auto;
+        margin-top: 0;
         margin-bottom:auto;
 
         ul{
@@ -53,30 +55,14 @@ header{
                     cursor: pointer;
                 }
             }
-
+            .clothes:hover{
+                        background: #a992bc;
+                        color: white;
+                        
+                }
             li{
                 float:left;
-
-                .clothes:hover{
-                    background: #a992bc;
-                    color: white;
-                }
-                
-            // &:hover{
-            //     +.hidden{
-            //         display: block;
-            //         +li{
-            //             padding: 16px;
-            //         }
-            //     }
-
-            // }
-
-            // &:active{
-            //     +.hidden{
-            //         display: block;
-            //     }
-            // }
+                padding:1em 0.5em;
 
                 a{
                     padding:0.9em;

@@ -10,6 +10,7 @@ export class NavComponent implements OnInit {
   role = false
   dropdownMens = false;
   dropdownWomens = false;
+  token = false
 
   constructor(private itemService: ItemService) { }
 
@@ -23,6 +24,12 @@ export class NavComponent implements OnInit {
       this.role = true
     } else{
       console.log('you are not admin')
+    }
+    let token = sessionStorage.getItem('token')
+    if(token){
+      this.token = true
+    } else {
+      this.token = false
     }
   }
 
@@ -39,6 +46,12 @@ export class NavComponent implements OnInit {
   //   console.log(event.target.id)
   //   window.location.reload()
   // }
+
+  async logout(){
+    await sessionStorage.clear()
+
+    window.location.reload()
+  }
 
   toggleWomens(){
     if(this.dropdownMens === true) {
