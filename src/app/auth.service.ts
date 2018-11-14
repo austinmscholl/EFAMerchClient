@@ -12,13 +12,9 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   
-
-
   logIn(email:string, password:string){
-    return this.http.post<any>(`${APIURL}/auth/login`, {email: email, password: password})
+    return this.http.post<User>(`${APIURL}/auth/login`, {email: email, password: password})
       .pipe(map(user => user))
-    return this.http.post<User>('http://localhost:5000/auth/login', {email: email, password: password})
-    //  console.log(email, password)
   }
 
   signUp(email:string, password:string, firstname:string, lastname: string){  
