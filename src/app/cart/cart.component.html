@@ -10,51 +10,36 @@
         <th>Price</th>
         <th></th>
       </tr>
-      <tr  *ngFor='let item of cart.items'>
-        <td class='description'>
-          <img [src]='item.itemImg'>
-          <div> 
-            {{item.itemName}}
-            {{item.itemDescription}}
-            {{item.cartitem.size}}
-          </div>
-         
-        </td>
-        <td class='quantity'>
-          <select (change)="handleQuantityChange($event.target.value)">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-        </td>
-        <td class='price'>
-          ${{item.itemPrice}}
-        </td>
-        <td>
-          <button [id]='item.id' class="deletebtn fa fa-trash" (click)="openDeleteCartItemDialog($event)"></button>
-        </td>
-      </tr>
-    </table>
+      <tr *ngFor='let item of cart.items'>
+          <td class='description'>
+            <div>
+              <img [src]='item.itemImg'>
+            </div>
+            <div>
+              <p>{{item.itemName}}</p>
+              <p>{{item.cartitem.size}}</p>
+              <p>{{item.itemDescription}}</p>
+            </div>
+          </td>
+          <td>{{item.cartitem.quantity}}</td>
+          <td>{{item.itemPrice}}</td>
+          <td>
+            <i [id]='item.id' class="fa fa-trash" (click)="openDeleteCartItemDialog($event)"></i>
+          </td>
+        </tr>
+      </table>
     <div class='checkout'>
       <h2>Cart Summary</h2>
       <table>
-        <tr>
-          <td style='border-bottom: none'>Subtotal:</td>
-          <td style='border-bottom: none'> ${{totalNum}}</td>
+        <tr style='border-bottom: none'>
+          <td>Subtotal:</td>
+          <td> ${{totalNum}}</td>
         </tr>
-        <tr>
-          <td style='padding-top:1.5em; border-bottom: none'>Total Before Tax:</td>
-          <td style='padding-top:1.5em; border-bottom: none'>${{totalNum}}</td>
+        <tr style='border-bottom: none'>
+          <td style='padding-top:1.5em'>Total Before Tax:</td>
+          <td style='padding-top:1.5em'>${{totalNum}}</td>
         </tr>
       </table>  
       <button class="checkoutbtn">Checkout</button>
     </div>
-  </div>
 </div>

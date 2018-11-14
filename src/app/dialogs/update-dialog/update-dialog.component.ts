@@ -31,9 +31,11 @@ export class UpdateDialogComponent implements OnInit {
   updateItem(){
     let id = sessionStorage.getItem('itemId')
     this.itemService.updateItem(id, this.itemModel)
-      .subscribe()
-    this.dialogRef.close()
-    window.location.reload()
+      .subscribe(data => {
+        this.dialogRef.close()
+        window.location.reload()
+      })
+    
   }
 
   getUpdateItem(){
