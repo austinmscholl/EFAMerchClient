@@ -1,52 +1,60 @@
-<section *ngIf='itemArr.length > 0'>
+<div *ngIf='!cart'>
+  <h1>Add items to your cart</h1>
+</div>
+<div *ngIf='cart'>
   <div class='cartContainer'>
     <table>
-    <tr>
-      <th>Item</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th></th>
-    </tr>
-    <tr  *ngFor='let item of itemArr[0].items'>
-      <td>
-        <img [src]='item.itemImg'>
-        {{item.itemName}}
-        {{item.itemDescription}}
-      </td>
-      <td class='quantity'>
-        <select (change)="handleQuantityChange($event.target.value)">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </td>
-      <td class='price'>
-        ${{item.itemPrice}}
-      </td>
-      <td>
-        <button [id]='item.id' class="deletebtn fa fa-trash" (click)="openDeleteCartItemDialog($event)"></button>
-      </td>
-    </tr>
-  </table>
-  <div class='checkout'>
-    <h2>Cart Summary</h2>
-    <table>
       <tr>
-        <td style='border-bottom: none'>Subtotal:</td>
-        <td style='border-bottom: none'> ${{totalNum}}</td>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th></th>
       </tr>
-      <tr>
-        <td style='padding-top:1.5em; border-bottom: none'>Total Before Tax:</td>
-        <td style='padding-top:1.5em; border-bottom: none'>${{totalNum}}</td>
+      <tr  *ngFor='let item of cart.items'>
+        <td class='description'>
+          <img [src]='item.itemImg'>
+          <div> 
+            {{item.itemName}}
+            {{item.itemDescription}}
+            {{item.cartitem.size}}
+          </div>
+         
+        </td>
+        <td class='quantity'>
+          <select (change)="handleQuantityChange($event.target.value)">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </td>
+        <td class='price'>
+          ${{item.itemPrice}}
+        </td>
+        <td>
+          <button [id]='item.id' class="deletebtn fa fa-trash" (click)="openDeleteCartItemDialog($event)"></button>
+        </td>
       </tr>
-    </table>  
-    <button class="checkoutbtn">Checkout</button>
+    </table>
+    <div class='checkout'>
+      <h2>Cart Summary</h2>
+      <table>
+        <tr>
+          <td style='border-bottom: none'>Subtotal:</td>
+          <td style='border-bottom: none'> ${{totalNum}}</td>
+        </tr>
+        <tr>
+          <td style='padding-top:1.5em; border-bottom: none'>Total Before Tax:</td>
+          <td style='padding-top:1.5em; border-bottom: none'>${{totalNum}}</td>
+        </tr>
+      </table>  
+      <button class="checkoutbtn">Checkout</button>
+    </div>
   </div>
-  </div>
+</div>

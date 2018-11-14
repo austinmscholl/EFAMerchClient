@@ -1,6 +1,10 @@
-<div *ngIf='item'>
-  <select [(ngModel)]='cartstock.size'>
-    <option *ngFor='let stock of item.stock'>{{stock.size}}</option>
+
+<select [(ngModel)]='cartstock.size'>
+    <option value='small'>Small</option>
+    <option value='medium'>Medium</option>
+    <option value='large'>Large</option>
+    <option value='x-large'>X-Large</option>
+    <option value='xx-large'>XX-Large</option>
   </select>
   <select [(ngModel)]='cartstock.quantity'>
     <option>1</option>
@@ -15,9 +19,6 @@
     <option>10</option>
   </select>
 
-  <button (click)='cartStock()'>Add to Cart</button>
-</div>
 
-<div *ngIf='!item'>
-  <h1>Out of Stock</h1>
-</div>
+  <button (click)='addCart()'>Add to Cart</button>
+

@@ -1,9 +1,37 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
-.adminContainer{
+
+    
+    .adminContainer{
     width: 95%;
     margin: 0 auto;
     font-family: 'Roboto Condensed', sans-serif;
+
+    .adminToggle{
+        display:grid;
+        grid-template-columns: 50% 50%;
+        background: #D9514E;
+        text-align: center;
+        border:1px solid black;
+        margin-top:1em; padding:0;
+
+        .selected{
+            background:white;
+        }
+
+        .button{
+            cursor: pointer;
+            padding-top:1em;
+            padding-bottom:1em;
+            &:hover{
+                background:white;
+            }
+
+            &:focus{
+                background:white;
+            }
+        }
+    }
     
     .formContainer{
         background: #D9514E;
@@ -128,8 +156,8 @@
             justify-content: center;
             
             table{
-                margin-top:2em;
-                margin-bottom:2em;
+                margin-top:1em;
+                margin-bottom:1em;
                 border:2px solid black;
                 border-collapse: collapse;
 

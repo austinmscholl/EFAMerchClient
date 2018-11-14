@@ -10,7 +10,7 @@ import { DeleteCartitemDialogComponent } from '../dialogs/delete-cartitem-dialog
 })
 export class CartComponent implements OnInit {
 
-  itemArr = []
+  cart:any
 
   totalNum = 0
 
@@ -24,23 +24,20 @@ export class CartComponent implements OnInit {
   }
 
   total(){
-    for(let item of this.itemArr[0].items){
+    for(let item of this.cart.items){
       this.totalNum += parseInt(item.itemPrice)
     }
+    // console.log(this.itemArr)
   }
 
   getCart(){
     this.cartService.getCart()
       .subscribe(cart =>{
-        this.itemArr.push(cart)
+        this.cart = cart
+        console.log(cart)
+        this.total()
       })
 
-      console.log(this.itemArr)
-      
-    setTimeout(() => {
-      console.log(this.itemArr)
-      this.total()
-    }, 100)
   }
 
   openDeleteCartItemDialog(event): void {

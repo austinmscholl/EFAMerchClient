@@ -25,7 +25,7 @@
         <img [src]="item.itemImg" /> 
         <h3>{{item.itemName}}</h3>
         <p>{{item.itemPrice}}</p>
-        <button (click)='addToCart'>Add to Cart</button>
+        <button [id]='item.id' (click)='openCartstockDialog($event)'>Select Size</button>
       </div>
     </div>
 </div>

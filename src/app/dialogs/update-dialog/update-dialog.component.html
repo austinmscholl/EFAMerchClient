@@ -1,13 +1,12 @@
 <h1 mat-dialog-title>Update</h1>
-    <form [formGroup] = 'uItemForm' (ngSubmit) = 'updateItem()'>
-      <input type='text' formControlName='itemName' [(ngModel)]="itemModel.itemName"><br />
-      <input type='text' formControlName='itemPrice' [(ngModel)]="itemModel.itemPrice"><br />
-      <input type='text' formControlName='itemDescription' [(ngModel)]="itemModel.itemDescription">
+  <div>
+    <input type='text' [(ngModel)]="itemModel.itemName"><br />
+    <input type='text' [(ngModel)]="itemModel.itemPrice"><br />
+    <input type='text' [(ngModel)]="itemModel.itemDescription">
 
-<div mat-dialog-actions>
-  <button type="submit" class="yes" mat-button cdkFocusInitial>Yes</button>
-  <button type="button" mat-button (click)="onNoClick()">No</button>
-
-</div>
-</form>
+    <div mat-dialog-actions>
+      <button type="submit" (click)='updateItem()' class="yes" mat-button cdkFocusInitial>Yes</button>
+      <button type="button" mat-button (click)="onNoClick()">No</button>
+    </div>
+  </div>
 

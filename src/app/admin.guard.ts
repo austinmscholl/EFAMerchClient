@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
 
 
 export class AdminGuard implements CanActivate {
-
+  role:string =  sessionStorage.getItem('admin')
+  
   getRole(){
-    let role = sessionStorage.getItem('role')
-    if(role === 'admin'){
+    if(this.role === 'admin'){
       return true
     } else {
       return false

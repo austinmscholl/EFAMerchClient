@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,21 +18,16 @@ export class CartService {
   }
   
 
-  addToCart(id){
-    return this.http.put<any>(`http://localhost:5000/cart/${id}`, {} , this.httpOptions)
-      .pipe(cart => cart)
-    console.log(id)
+
+  additem(itemId, cartId, cartstock){
+    console.log(itemId, cartId, cartstock)
+    return this.http.post<any>(`http://localhost:5000/cartitem/${cartId}/${itemId}`, {
+      size: cartstock.size,
+      quantity: cartstock.quantity
+    }, this.httpOptions)
   }
 
-  addCartstock(id, stock){
-    return this.http.put<any>(`http://localhost:5000/cart/addstock/${id}`, {
-      quantity:stock.quantity,
-      size: stock.size
-    } , this.httpOptions)
-    .pipe(cart => cart)
-  }
-
-  getCart(){
+  getCart():Observable<any>{
     return this.http.get<any>('http://localhost:5000/cart', this.httpOptions)
   }
 
