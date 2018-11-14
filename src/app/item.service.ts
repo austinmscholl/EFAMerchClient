@@ -31,7 +31,7 @@ export class ItemService {
   }
 
   getOrdered(){
-    return this.http.get('http://localhost:5000/cart/ordered')
+    return this.http.get(`${APIURL}}/ordered`)
   }
 
   deleteItem(id){
