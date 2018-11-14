@@ -18,6 +18,7 @@ export class DeleteCartitemDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
+
   async deleteItemCart(){
     let id = sessionStorage.getItem('itemId')
     console.log(id)

@@ -4,11 +4,10 @@
 .jumbotron{
     background-color: #d9514e;
     font-family: 'Roboto Condensed', sans-serif;
-    margin: 1em;
+    margin: 0em;
     text-align: center;
-    padding: 3em;
-    border-radius: 5px;
-
+    padding: 20em;
+    font-size: 10px;
 }
 // content
 .parentContainer{
@@ -50,11 +49,9 @@
             justify-content: center;
 
             .itemCard{
-                background: hsl(360, 0%, 95%);
+                // background: hsl(360, 0%, 95%);
                 border: 1px solid hsl(360, 0%, 80%);
-                box-shadow: hsl(360, 0%, 90%) 5px 5px ;
-                border-radius: 10px;
-                padding:1em;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                 display:flex;
                 flex-direction: column;
                 text-align: center;
@@ -69,7 +66,10 @@
                     cursor: pointer;
                     width: 100%;
                     font-size: 18px;
-                    border-radius: 10px;
+
+                    &:hover{
+                        opacity: 0.7;
+                    }
                 }
                 img{
                     width:100%;
@@ -80,7 +80,6 @@
         }
     }
 }
-
     
    
 

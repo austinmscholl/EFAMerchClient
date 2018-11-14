@@ -6,7 +6,9 @@ import { DeleteDialogComponent } from '../dialogs/delete-dialog/delete-dialog.co
 import { UpdateDialogComponent } from '../dialogs/update-dialog/update-dialog.component';
 import { AddInventoryDialogComponent } from '../dialogs/add-inventory-dialog/add-stock-dialog.component'
 import { UpdateInventoryDialogComponent } from '../dialogs/update-inventory-dialog/update-inventory-dialog.component'
+
 // import { subscribeOn } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-admin',

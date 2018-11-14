@@ -40,7 +40,7 @@ export class AuthService {
       })
     }
 
-    return this.http.get<User>('http://localhost:5000/auth/findUser', headers)
+    return this.http.get<User>(`${APIURL}/auth/findUser`, headers)
   }
 
 }

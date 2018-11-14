@@ -21,8 +21,8 @@ export class DeleteDialogComponent implements OnInit {
   deleteItem(){
     let id = sessionStorage.getItem('itemId')
     this.itemService.deleteItem(id)
-      .subscribe()
-      // window.location.reload()
+      .subscribe(data => window.location.reload())
+      
   }
 
   ngOnInit() {
