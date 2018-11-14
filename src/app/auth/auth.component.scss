@@ -1,13 +1,13 @@
 
-
 img{
     width:40%;
 }
 
+
 .logo{
     font-weight: bold;
     text-decoration: none;
-    width:700px;
+    width:700vh;
     position: relative;
 }
 
@@ -16,12 +16,12 @@ img{
     font-family: 'Roboto Condensed', sans-serif;
     margin: 0em;
     text-align: center;
-    padding: 1em;
-    border-radius: 1px;
+    padding: 2em;
+    border-radius: 2em;
 }
 
 body{
-    background-color: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+    
 
 
     
@@ -31,7 +31,9 @@ body{
     height: 100%;
     margin-top: 70px;
     font-family: 'Open Sans', sans-serif;
-    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+    // background: #ef3b36; /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to bottom, #ef3b36, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to top, #ef3b36, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
     
@@ -44,8 +46,19 @@ form{
     background:#ffff;
     width: 25em; 
     font-family: 'Roboto Condensed', sans-serif;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
-    border-radius: 10px;
+    background: #ef3b36; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ef3b36, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #ef3b36, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // background: #bdc3c7;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 7px;
+
+    .h2{
+        font-weight: bold;
+        color: blue; 
+    
+    }
 
     
     
@@ -82,15 +95,17 @@ form{
     }
     
     .toggleButton{
-        width: 70%;
-        height: 70%;
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
-
+        width: 50%;
+        height: 90%;
+        background: #ef3b36; /* fallback for old browsers */
     }
     button{
         margin:10px;
         padding: 6px 10px;
-        background-color: #D9514E;
+        background: #58595B;  /* fallback for old browsers */
+    
+        
+
         color: white;
         border-radius: 3px;
         font-size: 12px;
