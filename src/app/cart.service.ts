@@ -20,7 +20,7 @@ export class CartService {
   
   additem(itemId, cartId, cartstock){
     console.log(itemId, cartId, cartstock)
-    return this.http.post<any>(`http://localhost:5000/cartitem/${cartId}/${itemId}`, {
+    return this.http.post<any>(`${APIURL}/cartitem/${cartId}/${itemId}`, {
       size: cartstock.size,
       quantity: cartstock.quantity
     }, this.httpOptions)
