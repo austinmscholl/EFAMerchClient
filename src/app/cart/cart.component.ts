@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { MatDialog } from '@angular/material';
 import { DeleteCartitemDialogComponent } from '../dialogs/delete-cartitem-dialog/delete-cartitem-dialog.component';
+import { Quantity } from '../models/quantity'
 
 @Component({
   selector: 'app-cart',
