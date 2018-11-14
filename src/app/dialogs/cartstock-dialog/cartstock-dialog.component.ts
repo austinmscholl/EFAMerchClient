@@ -3,7 +3,9 @@ import { MatDialogRef } from '@angular/material'
 import { CartService } from '../../cart.service'
 import { ItemService } from '../../item.service'
 import { Cartstock } from '../../models/cartstock'
+
 import { AuthService } from '../../auth.service'
+
 
 @Component({
   selector: 'app-cartstock-dialog',
@@ -14,16 +16,20 @@ export class CartstockDialogComponent implements OnInit {
 
   user:any
 
+
   cartstock: Cartstock = {
     quantity:null,
     size: null
   }
 
+
   constructor(private cartService: CartService, private itemService: ItemService, public dialogRef: MatDialogRef<CartstockDialogComponent>, public authService: AuthService) { }
+
 
   onNoClick(){
     this.dialogRef.close()
   }
+
 
  addCart(){
    let itemId = sessionStorage.getItem('itemId')
@@ -41,5 +47,6 @@ export class CartstockDialogComponent implements OnInit {
   }
 
   
+
 
 }

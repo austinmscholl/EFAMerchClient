@@ -1,4 +1,3 @@
-<!-- <body>
 <div class="jumbotron">
   <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-primary.png'/></a>
 </div> -->
@@ -32,7 +31,7 @@
   
   <div *ngIf="!toggleForm" class="formContainer login">
     <form name='form' (ngSubmit)='logIn()' [formGroup]='user'>
-      <h2>Login</h2>
+      <h2>Login Here</h2>
       <mat-form-field>
         <input formControlName="email" matInput placeholder="Email" >
       </mat-form-field>
@@ -48,4 +47,3 @@
     <a class="toggleButton" (click)="toggle()">Not a member? Sign up here</a>
   </form>
 </div>
-<!-- </body> -->
