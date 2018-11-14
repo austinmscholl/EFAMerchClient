@@ -20,7 +20,10 @@ export class ItemService {
     formData.append('itemImg', image)
     
     return this.http.post<any>(`${APIURL}/item/additem`, formData)
-      .subscribe(response => response)
+      .subscribe(response => {
+        response
+        window.location.reload()
+      })
   }
 
   getItems() {
@@ -28,7 +31,7 @@ export class ItemService {
   }
 
   getOrdered(){
-    return this.http.get('http://localhost:5000/cart/ordered')
+    return this.http.get(`${APIURL}}/ordered`)
   }
 
   deleteItem(id){
