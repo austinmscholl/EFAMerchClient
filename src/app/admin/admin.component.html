@@ -76,7 +76,6 @@
           <h3>{{i.itemName}}</h3>
           <p>${{i.itemPrice}}</p>
           <p>{{i.itemDescription}}</p>
-
           <button [id]="i.id" class="updateBtn" (click)="openUpdateDialog($event)">Update Details</button>
           <button [id]="i.id" class="deleteBtn" (click)="openDeleteDialog($event)">Delete</button>
         </div>

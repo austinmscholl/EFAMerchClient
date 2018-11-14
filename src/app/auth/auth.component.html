@@ -1,7 +1,6 @@
-<body style="margin:0">
-    <div class="jumbotron">
+<div class="jumbotron">
   <a routerLink='/' class='logo'><img src='../assets/eleven-fifty-primary.png'/></a>
-</div>
+</div> -->
 <div *ngIf='toggleForm' class="formContainer signup">
   
     <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
@@ -24,9 +23,9 @@
       </mat-form-field>
       <br />
       
-      <button mat-flat-button class="submitButton">Submit</button>
+      <button mat-button class="submitButton">Submit</button>
       <br />
-      <button mat-button class="toggleButton" (click)="toggle()">Login</button>
+      <a class="toggleButton" (click)="toggle()">Already registered? Login!</a>
     </form>
   </div>
   
@@ -45,7 +44,6 @@
 
     <button type="submit" mat-flat-button class="submitButton">Submit</button>
     <br />
-    <button type="button" mat-button class="toggleButton" (click)="toggle()">Not a member? Sign up here</button>
+    <a class="toggleButton" (click)="toggle()">Not a member? Sign up here</a>
   </form>
 </div>
-</body>
