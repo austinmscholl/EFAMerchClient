@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { MatDialog } from '@angular/material';
 import { DeleteCartitemDialogComponent } from '../dialogs/delete-cartitem-dialog/delete-cartitem-dialog.component';
-import { Quantity } from '../models/quantity'
 
 @Component({
   selector: 'app-cart',
@@ -26,7 +25,7 @@ export class CartComponent implements OnInit {
 
   total(){
     for(let item of this.cart.items){
-      this.totalNum += (parseInt(item.itemPrice)* item.cartitem.quantity)
+      this.totalNum += (parseInt(item.itemPrice)*item.cartitem.quantity)
     }
     // console.log(this.itemArr)
   }

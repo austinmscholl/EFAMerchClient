@@ -1,64 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
-
-// .hero {
-//     /* Sizing */
-//     width: 100%;
-//     height: 100vh;
-    
-//     /* Flexbox stuff */
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-    
-//     /* Text styles */
-//     text-align: center;
-//     color: #ffffff; /* ADD THIS LINE */
-//     // text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
-    
-//     /* Background styles */
-//     background-image: url(('/../assets/indy.jpg'));
-//     background-size: cover;
-//     background-position: center center;
-//     background-repeat: no-repeat;
-//     background-attachment: fixed;
-// }
-
-
-// .hero h1 {
-//     /* Text styles */
-//     font-size: 5em;
-    
-//     /* Margins */
-//     margin-top: 0;
-//     margin-bottom: 0.5em;
-// }
-
-
-.hero .btn {
-
-    font-family: 'Roboto Condensed', sans-serif;
-    /* Positioning and sizing */
-    display: block;
-    width: 200px;
-    
-    /* Padding and margins */
-    padding: 1em;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    
-    /* Text styles */
-    color: white; /* CHANGE THIS LINE */
-    text-decoration: none;
-    font-size: 1.5em;
-    
-    /* Border styles */
-    border: 3px solid white; /* CHANGE THIS LINE */
-    border-radius: 20px;
-}
-
 .cartContainer{
     font-family: 'Roboto Condensed', sans-serif;
     display:grid;
@@ -66,13 +7,59 @@
     grid-template-columns: 80% 20%;
     min-height:100vh;
 
+    table{
+        width:60%;
+        margin: 5em auto;
+        border-collapse: collapse;
+        text-align: center;
+    
+        .quantity{
+            text-align: center;
+        }
+    
+        .price{
+            text-align: center;
+        }
+    
+        
+        
+        tr{
+            display:grid;
+            grid-template-columns: 55% 15% 15% 15%;
+            border-bottom: 1px solid black;
+    
+            
+            th{
+                border-bottom:1px solid black;
+                border-top:1px solid black;
+                height:2em;
+            }
+            
+            .description{
+                display:grid;
+                grid-template-columns: 30% 70%;
+                text-align: left !important;
+            }
+    
+            td{
+                margin:auto 0; padding:0;
+    
+                img{
+                    width:100%;
+                }
+            }
+        }
+    }
+
     .checkout{
         border-left: 1px solid black;
         text-align: center;
 
         table{
-            td{
-                padding:0;
+            tr{
+                td{
+                    border-bottom: none !important
+                }
             }
         }
 
@@ -82,11 +69,11 @@
         text-align: center;
     }
 
-    .deletebtn {
+    i {
         background: transparent;
+        color: #d9514e;
         border: none;
         text-decoration: none;
-        margin-left: 50px;
         
         &:hover{
             cursor: pointer;
@@ -124,45 +111,4 @@
         }
     }
     
-}
-
-table{
-    width:60%;
-    margin: 5em auto;
-    border-collapse: collapse;
-
-    .quantity{
-        text-align: center;
-    }
-
-    .price{
-        text-align: center;
-    }
-
-    
-    
-    tr{
-        // display:grid;
-        // grid-template-columns: 70% 10% 10% 10%;
-        
-        th{
-            border-bottom:1px solid black;
-            border-top:1px solid black;
-            height:2em;
-        }
-        
-        .description{
-            display:grid;
-            grid-template-columns: 20% auto
-        }
-
-        td{
-            min-width:8em;
-            border-bottom: 1px solid black;
-            margin:0; padding:0;
-            img{
-                width:100%;
-            }
-        }
-    }
 }
