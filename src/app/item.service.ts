@@ -59,7 +59,7 @@ export class ItemService {
 
   getCategory(gender, category){
     console.log(gender, category)
-    return this.http.get(`${APIURL}/item/${gender}/${category}`)
+    return this.http.get(`${APIURL}/item/genderCat/${gender}/${category}`)
   }
 
   createStock(id, stock){
