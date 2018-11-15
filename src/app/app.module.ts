@@ -59,6 +59,7 @@ import { CartstockDialogComponent } from './dialogs/cartstock-dialog/cartstock-d
   ],
   providers: [UsercartGuard, AdminGuard],
   bootstrap: [AppComponent],
+  // all dialogs required being imported into entryComponents
   entryComponents: [DeleteDialogComponent, UpdateDialogComponent, AddInventoryDialogComponent, UpdateInventoryDialogComponent, DeleteCartitemDialogComponent, CartstockDialogComponent]
 })
 export class AppModule { }
