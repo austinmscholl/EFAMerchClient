@@ -32,6 +32,9 @@ export class UpdateInventoryDialogComponent implements OnInit {
   onSubmit(){
     let cartItemId = sessionStorage.getItem('cartItemId')
     this.cartItemService.updateCartItem(cartItemId, this.cartStock)
-      .subscribe()
+      .subscribe(data => {
+        this.dialogRef.close()
+        window.location.reload()
+      })
   }
 }
