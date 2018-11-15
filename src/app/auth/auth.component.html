@@ -3,7 +3,7 @@
 </div>
 <div *ngIf='toggleForm' class="formContainer signup">
   
-    <form name='form' (ngSubmit)='signUp()' [formGroup]='user'>
+    <form name='form' (ngSubmit)='signUp()' [formGroup]='user' class='app-theme'>
       <h2>Sign Up</h2>
       <mat-form-field>
         <input matInput placeholder="First Name" formControlName='firstname'>

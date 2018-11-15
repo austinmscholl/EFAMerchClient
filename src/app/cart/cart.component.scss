@@ -69,11 +69,12 @@
         text-align: center;
     }
 
-    i {
+    .pencil {
         background: transparent;
         color: #d9514e;
         border: none;
         text-decoration: none;
+        padding:0.5em;
         
         &:hover{
             cursor: pointer;

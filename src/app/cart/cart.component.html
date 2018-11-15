@@ -17,14 +17,15 @@
             </div>
             <div>
               <p>{{item.itemName}}</p>
-              <p>{{item.cartitem.size}}</p>
+              <p>{{item.cartitem.size | titlecase}}</p>
               <p>{{item.itemDescription}}</p>
             </div>
           </td>
           <td>{{item.cartitem.quantity}}</td>
           <td>{{item.itemPrice}}</td>
           <td>
-            <i [id]='item.id' class="fa fa-trash" (click)="openDeleteCartItemDialog($event)"></i>
+            <i [id]='item.id' class="fa fa-trash trash" aria-hidden="true" (click)="openDeleteCartItemDialog($event)"></i>
+            <i [id]='item.cartitem.id' (click)='openUpdateStockDialog($event)' class="fa fa-pencil-square-o pencil" aria-hidden="true"></i>
           </td>
         </tr>
       </table>
