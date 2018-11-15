@@ -68,6 +68,10 @@ header{
                     padding:0.9em;
                     text-decoration: none;
                     color: black;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
             }
 

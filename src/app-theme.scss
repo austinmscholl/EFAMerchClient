@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$app-primary: mat-palette($mat-efa, 50);
+$app-secondary: mat-palette($mat-efa, 100);
+
+$app-theme: mat-theme($app-primary, $app-secondary);
+
+@include angular-material-theme($app-theme)
