@@ -31,7 +31,7 @@ img{
         text-align:center;
         background:#ffff;
         font-family: 'Roboto Condensed', sans-serif;
-        background:#58595B;
+        background:hsla(220, 2%, 35%, 0.7);
         // background: mat-color($app-theme);
         border-radius: 10px;
         width: 20em;
@@ -44,12 +44,16 @@ img{
             }
         }
         
+        .errors{
+            list-style-type: none;
+            margin:0; padding:0;
+        }
 
         .submitButton{
             width:85%;
             margin:10px;
             padding: 6px 10px;
-            background-color: #D9514E;
+            background-color: #D9514E ;
             color: white;
             border-radius: 3px;
             outline: 0;
