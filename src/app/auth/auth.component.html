@@ -22,8 +22,18 @@
         <input matInput placeholder="Password" formControlName='password' type="password">
       </mat-form-field>
       <br />
+
+      <mat-form-field>
+          <input matInput placeholder="Confirm Password" formControlName='confirmPass' type="password">
+      </mat-form-field>
+      <br />
+
+      <ul class='errors' *ngIf='(!user.valid && user.touched) || error'>
+        <li *ngIf='user.controls.password.errors && submitted'>Password must be 6 characters or more</li>
+      </ul>
+
       
-      <button mat-button class="submitButton">Submit</button>
+      <button mat-button class="submitButton" [disabled]='!user'>Submit</button>
       <br />
       <a class="toggleButton" (click)="toggle()">Already registered? Login!</a>
     </form>
@@ -42,7 +52,7 @@
     </mat-form-field>
     <br />
 
-    <button type="submit" mat-flat-button class="submitButton">Submit</button>
+    <button type="submit" mat-flat-button [disabled]="!user" class="submitButton">Submit</button>
     <br />
     <a class="toggleButton" (click)="toggle()">Not a member? Sign up here</a>
   </form>
