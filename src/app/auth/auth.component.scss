@@ -1,4 +1,4 @@
-
+@import '~@angular/material/theming';
 img{
     width:40%;
 }
@@ -24,19 +24,24 @@ img{
     display:flex;
     height: 100%;
     margin-top: 3em;
-    font-family: 'Roboto Condensed', sans-serif;  
+    font-family: 'Roboto Condensed', sans-serif; 
+    color:white; 
     form{
         margin:auto;
         text-align:center;
         background:#ffff;
         font-family: 'Roboto Condensed', sans-serif;
-        background:lightgray;
+        background:#58595B;
+        // background: mat-color($app-theme);
         border-radius: 10px;
         width: 20em;
         padding:1em;
+        
         mat-form-field{
-          width:85%;
-           
+            width:85%;
+            input{
+                color:white;
+            }
         }
         
 

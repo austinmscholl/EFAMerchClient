@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { MatDialogRef } from '@angular/material'
-import { ItemService } from '../../item.service'
+import { CartitemService } from '../../cartitem.service'
+import { Cartstock } from '../../models/cartstock'
 
 @Component({
   selector: 'app-update-inventory-dialog',
@@ -10,25 +10,28 @@ import { ItemService } from '../../item.service'
 })
 export class UpdateInventoryDialogComponent implements OnInit {
 
-  updateStock: FormGroup
+  cartStock: Cartstock = {
+    size: null,
+    quantity: null
+  }
 
   constructor(
     public dialogRef: MatDialogRef<UpdateInventoryDialogComponent>,
-    private fb: FormBuilder,
-    private itemService: ItemService
+    private cartItemService: CartitemService
   ) { }
 
   ngOnInit() {
-    this.updateStock = this.fb.group({
-      quantity: new FormControl()
-    })
+    let id = sessionStorage.getItem('cartItemId')
+    this.cartItemService.getCartItem(id)
+      .subscribe(item => {
+        this.cartStock.size = item.size,
+        this.cartStock.quantity = item.quantity
+      })
   }
 
   onSubmit(){
-    let stockId = sessionStorage.getItem('stockId')
-    this.itemService.updateInventory(stockId, this.updateStock.value.quantity)
+    let cartItemId = sessionStorage.getItem('cartItemId')
+    this.cartItemService.updateCartItem(cartItemId, this.cartStock)
       .subscribe()
-    // console.log(this.updateStock.value.quantity, stockId )
-    this.dialogRef.close()
   }
 }

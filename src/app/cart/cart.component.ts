@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { MatDialog } from '@angular/material';
 import { DeleteCartitemDialogComponent } from '../dialogs/delete-cartitem-dialog/delete-cartitem-dialog.component';
-import { Quantity } from '../models/quantity'
+import { UpdateInventoryDialogComponent } from '../dialogs/update-inventory-dialog/update-inventory-dialog.component';
 
 @Component({
   selector: 'app-cart',
@@ -39,6 +39,16 @@ export class CartComponent implements OnInit {
         this.total()
       })
 
+  }
+
+  openUpdateStockDialog(event):void{
+    sessionStorage.setItem('cartItemId', event.target.id)
+
+    const dialogRef = this.dialog.open(UpdateInventoryDialogComponent)
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The update dialog was closed')
+    })
   }
 
   openDeleteCartItemDialog(event): void {
